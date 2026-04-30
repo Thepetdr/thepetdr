@@ -72,7 +72,7 @@ _Sent via ThePetDr Website_
 
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-            <Link href="/" className="hover:text-[#c9748f] transition-colors">Home</Link>
+            <Link href="/" className="hover:text-[#003087] transition-colors">Home</Link>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3 h-3">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
@@ -80,14 +80,14 @@ _Sent via ThePetDr Website_
           </div>
 
           <div className="max-w-2xl">
-            <span className="inline-block bg-pink-50 border border-pink-200 text-[#c9748f] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#fdf5f3] border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               Get In Touch
             </span>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-[1.1] mb-4 tracking-tight">
               We&apos;d Love to{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)",
+                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -133,7 +133,7 @@ _Sent via ThePetDr Website_
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-medium text-gray-700 mb-1.5">
-                      Your Name <span className="text-[#c9748f]">*</span>
+                      Your Name <span className="text-[#003087]">*</span>
                     </label>
                     <input
                       type="text"
@@ -142,12 +142,12 @@ _Sent via ThePetDr Website_
                       value={form.name}
                       onChange={handleChange}
                       placeholder="Sarah Mitchell"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#c9748f] focus:ring-2 focus:ring-pink-100 transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#003087] focus:ring-2 focus:ring-pink-100 transition-all duration-200"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-gray-700 mb-1.5">
-                      Email Address <span className="text-[#c9748f]">*</span>
+                      Email Address <span className="text-[#003087]">*</span>
                     </label>
                     <input
                       type="email"
@@ -156,7 +156,7 @@ _Sent via ThePetDr Website_
                       value={form.email}
                       onChange={handleChange}
                       placeholder="sarah@email.com"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#c9748f] focus:ring-2 focus:ring-pink-100 transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#003087] focus:ring-2 focus:ring-pink-100 transition-all duration-200"
                     />
                   </div>
                 </div>
@@ -173,7 +173,7 @@ _Sent via ThePetDr Website_
                       value={form.phone}
                       onChange={handleChange}
                       placeholder="+971 50 000 0000"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#c9748f] focus:ring-2 focus:ring-pink-100 transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#003087] focus:ring-2 focus:ring-pink-100 transition-all duration-200"
                     />
                   </div>
                   <div>
@@ -186,7 +186,7 @@ _Sent via ThePetDr Website_
                       value={form.date}
                       onChange={handleChange}
                       min={new Date().toISOString().split("T")[0]}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#c9748f] focus:ring-2 focus:ring-pink-100 transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#003087] focus:ring-2 focus:ring-pink-100 transition-all duration-200"
                     />
                   </div>
                 </div>
@@ -203,7 +203,7 @@ _Sent via ThePetDr Website_
                       value={form.pet}
                       onChange={handleChange}
                       placeholder="Max"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#c9748f] focus:ring-2 focus:ring-pink-100 transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#003087] focus:ring-2 focus:ring-pink-100 transition-all duration-200"
                     />
                   </div>
                   <div>
@@ -214,7 +214,7 @@ _Sent via ThePetDr Website_
                       name="petType"
                       value={form.petType}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#c9748f] focus:ring-2 focus:ring-pink-100 transition-all duration-200 bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#003087] focus:ring-2 focus:ring-pink-100 transition-all duration-200 bg-white"
                     >
                       <option value="">Select pet type...</option>
                       <option>Dog</option>
@@ -230,14 +230,14 @@ _Sent via ThePetDr Website_
                 {/* Service */}
                 <div>
                   <label className="block text-xs font-medium text-gray-700 mb-1.5">
-                    Service Required <span className="text-[#c9748f]">*</span>
+                    Service Required <span className="text-[#003087]">*</span>
                   </label>
                   <select
                     name="service"
                     required
                     value={form.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#c9748f] focus:ring-2 focus:ring-pink-100 transition-all duration-200 bg-white"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-[#003087] focus:ring-2 focus:ring-pink-100 transition-all duration-200 bg-white"
                   >
                     <option value="" disabled>Select a service...</option>
                     {services.map((s) => (
@@ -257,7 +257,7 @@ _Sent via ThePetDr Website_
                     value={form.message}
                     onChange={handleChange}
                     placeholder="Tell us about your pet, any health concerns, or special requirements..."
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#c9748f] focus:ring-2 focus:ring-pink-100 transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#003087] focus:ring-2 focus:ring-pink-100 transition-all duration-200 resize-none"
                   />
                 </div>
 
@@ -348,15 +348,15 @@ _Sent via ThePetDr Website_
                 rel="noreferrer"
                 className={`flex items-center gap-4 p-5 rounded-2xl border hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 bg-white ${
                   c.accent === "pink"
-                    ? "border-pink-100 hover:border-pink-200"
+                    ? "border-[#EFBCB0]-100 hover:border-[#EFBCB0]-200"
                     : "border-[#c8ecea] hover:border-[#a8deda]"
                 }`}
               >
                 <div
                   className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
                     c.accent === "pink"
-                      ? "bg-gradient-to-br from-[#f3c4d0] to-[#fdf0f3] text-[#c9748f]"
-                      : "bg-gradient-to-br from-[#b2deda] to-[#e8f8f7] text-[#4DB6AC]"
+                      ? "bg-gradient-to-br from-[#f3c4d0] to-[#fdf0f3] text-[#003087]"
+                      : "bg-gradient-to-br from-[#b2deda] to-[#e8f8f7] text-[#7ECDC2]"
                   }`}
                 >
                   {c.icon}
@@ -369,9 +369,9 @@ _Sent via ThePetDr Website_
             ))}
 
             {/* Hours */}
-            <div className="bg-[#fdf8f9] rounded-2xl border border-pink-100 p-6">
+            <div className="bg-[#fdf8f9] rounded-2xl border border-[#EFBCB0]-100 p-6">
               <h3 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#c9748f" strokeWidth={1.5} className="w-4 h-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#003087" strokeWidth={1.5} className="w-4 h-4">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Opening Hours
@@ -384,7 +384,7 @@ _Sent via ThePetDr Website_
                   </div>
                 ))}
               </div>
-              <div className="mt-4 pt-4 border-t border-pink-100 flex items-center gap-2">
+              <div className="mt-4 pt-4 border-t border-[#EFBCB0]-100 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-xs text-gray-500">
                   Emergency line available <strong className="text-gray-700">24/7</strong>

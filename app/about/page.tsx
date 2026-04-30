@@ -123,21 +123,21 @@ export default function AboutPage() {
         <div ref={heroSection.ref} className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
           <div className={`transition-all duration-700 ${heroSection.inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
             <div className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-              <Link href="/" className="hover:text-[#c9748f] transition-colors">Home</Link>
+              <Link href="/" className="hover:text-[#003087] transition-colors">Home</Link>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3 h-3">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
               <span className="text-gray-600">About</span>
             </div>
 
-            <span className="inline-block bg-pink-50 border border-pink-200 text-[#c9748f] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#fdf5f3] border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               Our Story
             </span>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
               A Clinic Built{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)",
+                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -153,13 +153,13 @@ export default function AboutPage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="bg-gradient-to-r from-[#c9748f] to-[#a85570] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-pink-200 hover:-translate-y-1 transition-all duration-300 text-sm"
+                className="bg-gradient-to-r from-[#003087] to-[#002470] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-[#003087]/10-200 hover:-translate-y-1 transition-all duration-300 text-sm"
               >
                 Book an Appointment
               </Link>
               <Link
                 href="/#services"
-                className="bg-white border border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-semibold hover:border-[#4DB6AC] hover:text-[#4DB6AC] hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm"
+                className="bg-white border border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-semibold hover:border-[#7ECDC2] hover:text-[#7ECDC2] hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm"
               >
                 Our Services
               </Link>
@@ -193,14 +193,14 @@ export default function AboutPage() {
       <section className="py-24 bg-[#fdf8f9]">
         <div ref={storySection.ref} className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div className={`transition-all duration-700 ${storySection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <span className="inline-block bg-pink-50 border border-pink-200 text-[#c9748f] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#fdf5f3] border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               Who We Are
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-6 leading-tight">
               More Than a Clinic —{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f, #a85570)",
+                  background: "linear-gradient(135deg, #003087, #002470)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -222,12 +222,12 @@ export default function AboutPage() {
             </p>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { number: "5,000+", label: "Pets Treated", accent: "#c9748f" },
-                { number: "15+", label: "Expert Specialists", accent: "#4DB6AC" },
-                { number: "10+", label: "Years of Care", accent: "#c9748f" },
-                { number: "98%", label: "Satisfaction Rate", accent: "#4DB6AC" },
+                { number: "5,000+", label: "Pets Treated", accent: "#003087" },
+                { number: "15+", label: "Expert Specialists", accent: "#7ECDC2" },
+                { number: "10+", label: "Years of Care", accent: "#003087" },
+                { number: "98%", label: "Satisfaction Rate", accent: "#7ECDC2" },
               ].map((s) => (
-                <div key={s.label} className="bg-white rounded-2xl p-5 border border-pink-100 shadow-sm text-center">
+                <div key={s.label} className="bg-white rounded-2xl p-5 border border-[#EFBCB0]-100 shadow-sm text-center">
                   <p className="text-2xl font-bold mb-1" style={{ color: s.accent }}>{s.number}</p>
                   <p className="text-xs text-gray-500 font-medium">{s.label}</p>
                 </div>
@@ -236,7 +236,7 @@ export default function AboutPage() {
           </div>
 
           <div className={`relative transition-all duration-700 delay-200 ${storySection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl shadow-pink-100">
+            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl shadow-[#003087]/10-100">
               <Image
                 src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop&q=80"
                 alt="Happy pets at ThePetDr"
@@ -257,14 +257,14 @@ export default function AboutPage() {
               valuesSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#4DB6AC] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
               What Drives Us
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-3">
               Our Core{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f, #a85570)",
+                  background: "linear-gradient(135deg, #003087, #002470)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -282,15 +282,15 @@ export default function AboutPage() {
                 <div
                   key={v.title}
                   className={`bg-white rounded-2xl p-7 border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ${
-                    isPink ? "border-pink-100" : "border-[#c8ecea]"
+                    isPink ? "border-[#EFBCB0]-100" : "border-[#c8ecea]"
                   } ${valuesSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
                   <div
                     className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${
                       isPink
-                        ? "bg-gradient-to-br from-[#f3c4d0] to-[#fdf0f3] text-[#c9748f]"
-                        : "bg-gradient-to-br from-[#b2deda] to-[#e8f8f7] text-[#4DB6AC]"
+                        ? "bg-gradient-to-br from-[#f3c4d0] to-[#fdf0f3] text-[#003087]"
+                        : "bg-gradient-to-br from-[#b2deda] to-[#e8f8f7] text-[#7ECDC2]"
                     }`}
                   >
                     {v.icon}
@@ -312,14 +312,14 @@ export default function AboutPage() {
               timelineSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-pink-50 border border-pink-200 text-[#c9748f] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#fdf5f3] border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
               Our Journey
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
               A Decade of{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f, #a85570)",
+                  background: "linear-gradient(135deg, #003087, #002470)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -342,12 +342,12 @@ export default function AboutPage() {
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
                   <div className="flex-shrink-0 w-16 text-right pt-3">
-                    <span className="text-sm font-bold text-[#c9748f]">{item.year}</span>
+                    <span className="text-sm font-bold text-[#003087]">{item.year}</span>
                   </div>
                   <div className="relative flex-shrink-0 mt-3.5">
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-[#c9748f] to-[#a85570] shadow-md ring-4 ring-[#fdf8f9]" />
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-[#003087] to-[#002470] shadow-md ring-4 ring-[#fdf8f9]" />
                   </div>
-                  <div className="bg-white rounded-2xl p-5 border border-pink-100 shadow-sm flex-1 hover:shadow-md transition-shadow">
+                  <div className="bg-white rounded-2xl p-5 border border-[#EFBCB0]-100 shadow-sm flex-1 hover:shadow-md transition-shadow">
                     <h3 className="font-semibold text-gray-900 mb-1 text-sm">{item.title}</h3>
                     <p className="text-sm text-gray-500 font-light leading-relaxed">{item.desc}</p>
                   </div>
@@ -366,14 +366,14 @@ export default function AboutPage() {
               teamSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#4DB6AC] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
               Meet the Team
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-3">
               The Experts Behind{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f, #a85570)",
+                  background: "linear-gradient(135deg, #003087, #002470)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -394,7 +394,7 @@ export default function AboutPage() {
                 <div
                   key={member.name}
                   className={`group bg-white rounded-2xl overflow-hidden border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${
-                    isPink ? "border-pink-100" : "border-[#c8ecea]"
+                    isPink ? "border-[#EFBCB0]-100" : "border-[#c8ecea]"
                   } ${teamSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
@@ -409,7 +409,7 @@ export default function AboutPage() {
                   </div>
                   <div className="p-5">
                     <h3 className="font-semibold text-gray-900 text-sm mb-0.5">{member.name}</h3>
-                    <p className={`text-xs font-medium mb-3 ${isPink ? "text-[#c9748f]" : "text-[#4DB6AC]"}`}>
+                    <p className={`text-xs font-medium mb-3 ${isPink ? "text-[#003087]" : "text-[#7ECDC2]"}`}>
                       {member.role}
                     </p>
                     <p className="text-xs text-gray-500 leading-relaxed font-light">{member.bio}</p>
@@ -424,7 +424,7 @@ export default function AboutPage() {
       {/* ── CTA ── */}
       <section
         className="py-24 relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)" }}
+        style={{ background: "linear-gradient(135deg, #003087 0%, #002470 100%)" }}
       >
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div
@@ -446,7 +446,7 @@ export default function AboutPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="bg-white text-[#c9748f] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm"
+              className="bg-white text-[#003087] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm"
             >
               Book Now
             </Link>

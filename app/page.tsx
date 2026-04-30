@@ -202,19 +202,19 @@ const faqs = [
 const accentStyles = {
   pink: {
     iconBg: "from-[#f3c4d0] to-[#fdf0f3]",
-    iconColor: "text-[#c9748f]",
-    dot: "bg-[#c9748f]",
-    statColor: "text-[#c9748f]",
-    cardBorder: "border-pink-100 hover:border-pink-200 hover:bg-[#fff8fa]",
-    learnMore: "text-[#c9748f]",
+    iconColor: "text-[#003087]",
+    dot: "bg-[#003087]",
+    statColor: "text-[#003087]",
+    cardBorder: "border-[#EFBCB0]-100 hover:border-[#EFBCB0]-200 hover:bg-[#fff8fa]",
+    learnMore: "text-[#003087]",
   },
   teal: {
     iconBg: "from-[#b2deda] to-[#e8f8f7]",
-    iconColor: "text-[#4DB6AC]",
-    dot: "bg-[#4DB6AC]",
-    statColor: "text-[#4DB6AC]",
+    iconColor: "text-[#7ECDC2]",
+    dot: "bg-[#7ECDC2]",
+    statColor: "text-[#7ECDC2]",
     cardBorder: "border-[#c8ecea] hover:border-[#a8deda] hover:bg-[#f4fbfa]",
-    learnMore: "text-[#4DB6AC]",
+    learnMore: "text-[#7ECDC2]",
   },
 };
 
@@ -267,15 +267,15 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 grid md:grid-cols-2 gap-16 items-center">
           {/* Text */}
           <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2 bg-white border border-pink-200 text-[#c9748f] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 shadow-sm tracking-wide uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c9748f] animate-pulse" />
+            <span className="inline-flex items-center gap-2 bg-white border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 shadow-sm tracking-wide uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#003087] animate-pulse" />
               Premium Pet Care
             </span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
               Your Pet Deserves{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)",
+                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -291,13 +291,13 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="#contact"
-                className="bg-gradient-to-r from-[#c9748f] to-[#a85570] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-pink-200 hover:-translate-y-1 transition-all duration-300 text-sm"
+                className="bg-gradient-to-r from-[#003087] to-[#002470] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-[#003087]/10-200 hover:-translate-y-1 transition-all duration-300 text-sm"
               >
                 Book an Appointment
               </Link>
               <Link
                 href="#services"
-                className="bg-white border border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-semibold hover:border-[#4DB6AC] hover:text-[#4DB6AC] hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm"
+                className="bg-white border border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-semibold hover:border-[#7ECDC2] hover:text-[#7ECDC2] hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm"
               >
                 Explore Services
               </Link>
@@ -307,7 +307,7 @@ export default function Home() {
           {/* Hero image */}
           <div className="hidden md:block animate-fade-in">
             <div className="relative">
-              <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl shadow-pink-100">
+              <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl shadow-[#003087]/10-100">
                 <Image
                   src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=900&auto=format&fit=crop&q=80"
                   alt="Vet with dog"
@@ -324,7 +324,7 @@ export default function Home() {
                 <p
                   className="text-xl font-bold"
                   style={{
-                    background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)",
+                    background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -348,7 +348,7 @@ export default function Home() {
                   <p className="text-xs font-semibold text-gray-800">Sarah M.</p>
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <svg key={i} viewBox="0 0 20 20" fill="#c9748f" className="w-3 h-3">
+                      <svg key={i} viewBox="0 0 20 20" fill="#003087" className="w-3 h-3">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
@@ -362,7 +362,7 @@ export default function Home() {
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
           <span className="text-xs text-gray-400 tracking-widest uppercase">Scroll</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="#c9748f" strokeWidth={2} className="w-4 h-4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#003087" strokeWidth={2} className="w-4 h-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -425,7 +425,7 @@ export default function Home() {
               <p
                 className="text-3xl font-bold"
                 style={{
-                  background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)",
+                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -443,14 +443,14 @@ export default function Home() {
               aboutSection.inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
             }`}
           >
-            <span className="inline-block bg-white border border-pink-200 text-[#c9748f] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-white border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               Our Story
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
               A Clinic Built{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)",
+                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -478,7 +478,7 @@ export default function Home() {
               ].map((point) => (
                 <div key={point} className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#f3c4d0] to-[#fdf0f3] flex items-center justify-center flex-shrink-0">
-                    <svg viewBox="0 0 20 20" fill="#c9748f" className="w-3 h-3">
+                    <svg viewBox="0 0 20 20" fill="#003087" className="w-3 h-3">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
@@ -498,14 +498,14 @@ export default function Home() {
               servicesSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-white border border-pink-200 text-[#c9748f] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-white border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               What We Offer
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
               Comprehensive Care{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)",
+                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -579,14 +579,14 @@ export default function Home() {
               gallerySection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#4DB6AC] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
               Our Clinic
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
               A Place Pets{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)",
+                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -630,14 +630,14 @@ export default function Home() {
               whySection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#4DB6AC] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               Why ThePetDr
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
               Why Pet Owners{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)",
+                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -685,14 +685,14 @@ export default function Home() {
               testimonialsSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-white border border-pink-200 text-[#c9748f] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-white border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               Testimonials
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
               What Pet Owners{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)",
+                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -710,14 +710,14 @@ export default function Home() {
             {testimonials.map((t, i) => (
               <div
                 key={t.name}
-                className={`glass-card rounded-2xl p-8 border border-pink-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${
+                className={`glass-card rounded-2xl p-8 border border-[#EFBCB0]-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${
                   testimonialsSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
                 <div className="flex gap-1 mb-5">
                   {[...Array(t.rating)].map((_, j) => (
-                    <svg key={j} viewBox="0 0 20 20" fill="#c9748f" className="w-4 h-4">
+                    <svg key={j} viewBox="0 0 20 20" fill="#003087" className="w-4 h-4">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -748,14 +748,14 @@ export default function Home() {
               faqSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#4DB6AC] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               FAQ
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
               Common{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)",
+                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -782,14 +782,14 @@ export default function Home() {
                   className="w-full flex items-center justify-between px-6 py-5 text-left group"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <span className="font-medium text-gray-900 text-sm pr-4 group-hover:text-[#c9748f] transition-colors duration-300">
+                  <span className="font-medium text-gray-900 text-sm pr-4 group-hover:text-[#003087] transition-colors duration-300">
                     {faq.question}
                   </span>
                   <span
                     className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
                       openFaq === i ? "rotate-45" : "bg-gray-100"
                     }`}
-                    style={openFaq === i ? { background: "linear-gradient(135deg, #c9748f, #a85570)" } : {}}
+                    style={openFaq === i ? { background: "linear-gradient(135deg, #003087, #002470)" } : {}}
                   >
                     <svg viewBox="0 0 24 24" fill="none" stroke={openFaq === i ? "white" : "#6b7280"} strokeWidth={2.5} className="w-3 h-3">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
@@ -809,7 +809,7 @@ export default function Home() {
       <section
         id="contact"
         className="py-28 relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #c9748f 0%, #a85570 100%)" }}
+        style={{ background: "linear-gradient(135deg, #003087 0%, #002470 100%)" }}
       >
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full opacity-10"
@@ -832,7 +832,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="tel:+971665573080"
-              className="bg-white text-[#c9748f] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm"
+              className="bg-white text-[#003087] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm"
             >
               Call Us Now
             </Link>
