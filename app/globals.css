@@ -12,7 +12,7 @@
   --color-teal-active:   #44b0a3;
   --color-teal-light:    #f0faf9;
 
-  --color-navy:          #003087;   /* Navy Blue — body text, titles, outlines */
+  --color-navy:          #E07A9A;   /* Navy Blue — body text, titles, outlines */
   --color-navy-dark:     #002470;
   --color-navy-active:   #001a58;
   --color-navy-light:    #f0f3fa;
@@ -29,7 +29,7 @@
   }
   body {
     @apply bg-white antialiased;
-    color: #003087;
+    color: #E07A9A;
   }
 }
 
@@ -61,7 +61,7 @@
 
   /* Navy → Teal — alternative for dark text moments */
   .text-gradient-navy {
-    background: linear-gradient(135deg, #003087 0%, #7ECDC2 100%);
+    background: linear-gradient(135deg, #E07A9A 0%, #7ECDC2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -69,7 +69,7 @@
 
   /* Solid navy button */
   .btn-primary {
-    background-color: #003087;
+    background-color: #E07A9A;
     color: #ffffff;
     transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
   }
@@ -82,26 +82,26 @@
   /* Pink outline button */
   .btn-secondary {
     border: 1px solid #EFBCB0;
-    color: #003087;
+    color: #E07A9A;
     background-color: transparent;
     transition: background-color 180ms ease, border-color 180ms ease;
   }
   .btn-secondary:hover {
     background-color: #fdf5f3;
-    border-color: #003087;
+    border-color: #E07A9A;
   }
 
   /* ── BADGE / CHIP ── */
   .badge-brand {
     background-color: #fdf5f3;
     border: 1px solid #EFBCB0;
-    color: #003087;
+    color: #E07A9A;
   }
 
   .badge-teal {
     background-color: #f0faf9;
     border: 1px solid #7ECDC2;
-    color: #003087;
+    color: #E07A9A;
   }
 
   /* ── FOCUS RING ── */
@@ -154,17 +154,17 @@
   /* ── SECTION SURFACES ── */
   .surface-pink  { background-color: #fdf5f3; }
   .surface-teal  { background-color: #f0faf9; }
-  .surface-navy  { background-color: #003087; }
+  .surface-navy  { background-color: #E07A9A; }
 
   /* ── SCROLLBAR (subtle brand tint) ── */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: #fdf5f3; }
   ::-webkit-scrollbar-thumb { background: #EFBCB0; border-radius: 999px; }
-  ::-webkit-scrollbar-thumb:hover { background: #003087; }
+  ::-webkit-scrollbar-thumb:hover { background: #E07A9A; }
 
   /* ── SELECTION ── */
   ::selection {
     background: rgba(239, 188, 176, 0.35);
-    color: #003087;
+    color: #E07A9A;
   }
 }

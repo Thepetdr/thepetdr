@@ -51,7 +51,7 @@ export default function DogParkPage() {
             <div className="flex items-center gap-2 text-xs text-gray-400 mb-6">
               <Link href="/" className="hover:text-[#7ECDC2] transition-colors">Home</Link>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3 h-3"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-              <Link href="/#services" className="hover:text-[#7ECDC2] transition-colors">Services</Link>
+              <Link href="/services" className="hover:text-[#7ECDC2] transition-colors">Services</Link>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3 h-3"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
               <span className="text-gray-600">Dog Park & Pools</span>
             </div>
@@ -66,13 +66,13 @@ export default function DogParkPage() {
               </span>
             </h1>
             <p className="text-lg text-gray-500 mb-10 leading-relaxed max-w-lg font-light">
-              Our beautifully maintained dog park gives your pet a safe, stimulating space to run, play, and socialise — complete with supervised pools for cooling off on warm days.
+              Our beautifully maintained dog park gives your pet a safe, stimulating space to run, play, and socialise - complete with supervised pools for cooling off on warm days.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/#contact" className="bg-gradient-to-r from-[#003087] to-[#002470] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-[#003087]/10-200 hover:-translate-y-1 transition-all duration-300 text-sm">
+              <Link href="/contact" className="bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-[#E07A9A]/10-200 hover:-translate-y-1 transition-all duration-300 text-sm">
                 Register Your Dog
               </Link>
-              <Link href="/#services" className="bg-white border border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-semibold hover:border-[#7ECDC2] hover:text-[#7ECDC2] hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm">
+              <Link href="/services" className="bg-white border border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-semibold hover:border-[#7ECDC2] hover:text-[#7ECDC2] hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm">
                 All Services
               </Link>
             </div>
@@ -100,7 +100,7 @@ export default function DogParkPage() {
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-3">
               Designed for{" "}
-              <span style={{ background: "linear-gradient(135deg, #003087, #002470)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              <span style={{ background: "linear-gradient(135deg, #E07A9A, #E07A9A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 Happy Dogs
               </span>
             </h2>
@@ -128,7 +128,7 @@ export default function DogParkPage() {
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-3">
               Your First{" "}
-              <span style={{ background: "linear-gradient(135deg, #003087, #002470)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              <span style={{ background: "linear-gradient(135deg, #E07A9A, #E07A9A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 Visit Made Easy
               </span>
             </h2>
@@ -159,7 +159,7 @@ export default function DogParkPage() {
             <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">Gallery</span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
               See the{" "}
-              <span style={{ background: "linear-gradient(135deg, #003087, #002470)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Fun</span>
+              <span style={{ background: "linear-gradient(135deg, #E07A9A, #E07A9A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Fun</span>
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -180,7 +180,7 @@ export default function DogParkPage() {
             <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">FAQ</span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
               Common{" "}
-              <span style={{ background: "linear-gradient(135deg, #003087, #002470)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Questions</span>
+              <span style={{ background: "linear-gradient(135deg, #E07A9A, #E07A9A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Questions</span>
             </h2>
           </div>
           <div className="space-y-4">
@@ -205,7 +205,7 @@ export default function DogParkPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #003087 0%, #002470 100%)" }}>
+      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)" }}>
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10" style={{ background: "radial-gradient(circle, white, transparent 70%)" }} />
           <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full opacity-10" style={{ background: "radial-gradient(circle, white, transparent 70%)" }} />
@@ -216,10 +216,10 @@ export default function DogParkPage() {
             Register your dog and let them experience the joy of safe, supervised outdoor play.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="tel:+971665573080" className="bg-white text-[#003087] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm">
+            <Link href="tel:+971665573080" className="bg-white text-[#E07A9A] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm">
               Call Us Now
             </Link>
-            <Link href="mailto:info@thepetdr.ae" className="border-2 border-white/60 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 hover:border-white hover:-translate-y-1 transition-all duration-300 text-sm">
+            <Link href="mailto:info@ThePetDr.ae" className="border-2 border-white/60 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 hover:border-white hover:-translate-y-1 transition-all duration-300 text-sm">
               Send an Email
             </Link>
           </div>

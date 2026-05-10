@@ -55,9 +55,9 @@ const STEPS: Step[] = [
     message: "What time works best for you?",
     type: "options",
     options: [
-      "Morning (9am – 12pm)",
-      "Afternoon (12pm – 4pm)",
-      "Evening (4pm – 8pm)",
+      "Morning (9am - 12pm)",
+      "Afternoon (12pm - 4pm)",
+      "Evening (4pm - 8pm)",
       "Flexible",
     ],
   },
@@ -96,13 +96,13 @@ function buildWhatsAppURL(answers: Answers): string {
   const lines = [
     "Hello ThePetDr! I'd like to book an appointment.",
     "",
-    `*Service:* ${answers.service ?? "—"}`,
-    `*Pet Name:* ${answers.pet_name ?? "—"}`,
-    `*Pet Type:* ${answers.pet_type ?? "—"}`,
-    `*Preferred Date:* ${answers.date ?? "—"}`,
-    `*Preferred Time:* ${answers.time ?? "—"}`,
-    `*My Name:* ${answers.owner_name ?? "—"}`,
-    `*My Phone:* ${answers.phone ?? "—"}`,
+    `*Service:* ${answers.service ?? "-"}`,
+    `*Pet Name:* ${answers.pet_name ?? "-"}`,
+    `*Pet Type:* ${answers.pet_type ?? "-"}`,
+    `*Preferred Date:* ${answers.date ?? "-"}`,
+    `*Preferred Time:* ${answers.time ?? "-"}`,
+    `*My Name:* ${answers.owner_name ?? "-"}`,
+    `*My Phone:* ${answers.phone ?? "-"}`,
     "",
     "Please confirm my appointment. Thank you! 😊",
   ];
@@ -164,13 +164,13 @@ export default function BookingChatbot() {
     const nextIndex = stepIndex + 1;
 
     if (nextIndex >= STEPS.length) {
-      // Done — send summary bot message
+      // Done - send summary bot message
       setTimeout(() => {
         setMessages((prev) => [
           ...prev,
           {
             from: "bot",
-            text: `Perfect, ${newAnswers.owner_name}! 🎉 Everything's ready. Tap the button below to send your booking to us on WhatsApp — we'll confirm within minutes!`,
+            text: `Perfect, ${newAnswers.owner_name}! 🎉 Everything's ready. Tap the button below to send your booking to us on WhatsApp - we'll confirm within minutes!`,
           },
         ]);
         setDone(true);
@@ -242,11 +242,11 @@ export default function BookingChatbot() {
           onClick={() => { setOpen((v) => !v); setShowBubble(false); }}
           aria-label="Open booking chatbot"
           className="relative w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl"
-          style={{ background: "linear-gradient(135deg, #003087 0%, #002470 100%)" }}
+          style={{ background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)" }}
         >
           {/* Ping ring */}
           <span className="absolute inset-0 rounded-full animate-ping opacity-20"
-            style={{ background: "linear-gradient(135deg, #003087, #002470)" }} />
+            style={{ background: "linear-gradient(135deg, #E07A9A, #E07A9A)" }} />
 
           {open ? (
             <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2.5} className="w-6 h-6">
@@ -274,7 +274,7 @@ export default function BookingChatbot() {
           {/* Header */}
           <div
             className="px-5 py-4 flex items-center gap-3 flex-shrink-0"
-            style={{ background: "linear-gradient(135deg, #003087 0%, #002470 100%)" }}
+            style={{ background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)" }}
           >
             <div className="relative">
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
@@ -310,7 +310,7 @@ export default function BookingChatbot() {
               >
                 {msg.from === "bot" && (
                   <div className="w-7 h-7 rounded-full flex-shrink-0 mr-2 mt-0.5 flex items-center justify-center"
-                    style={{ background: "linear-gradient(135deg, #003087, #002470)" }}>
+                    style={{ background: "linear-gradient(135deg, #E07A9A, #E07A9A)" }}>
                     <svg viewBox="0 0 24 24" fill="white" className="w-3.5 h-3.5">
                       <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.524 3.66 1.438 5.168L2.008 22l4.974-1.418A9.954 9.954 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
                     </svg>
@@ -324,7 +324,7 @@ export default function BookingChatbot() {
                   }`}
                   style={
                     msg.from === "user"
-                      ? { background: "linear-gradient(135deg, #003087, #002470)" }
+                      ? { background: "linear-gradient(135deg, #E07A9A, #E07A9A)" }
                       : {}
                   }
                 >
@@ -333,7 +333,7 @@ export default function BookingChatbot() {
               </div>
             ))}
 
-            {/* Typing indicator — shown briefly after user answers */}
+            {/* Typing indicator - shown briefly after user answers */}
             <div ref={bottomRef} />
           </div>
 
@@ -359,7 +359,7 @@ export default function BookingChatbot() {
                   <button
                     key={opt}
                     onClick={() => handleAnswer(opt)}
-                    className="px-3 py-1.5 rounded-full border border-gray-200 bg-white text-gray-700 text-xs font-medium hover:border-[#003087] hover:text-[#003087] hover:bg-[#f0f4ff] active:scale-95 transition-all duration-150"
+                    className="px-3 py-1.5 rounded-full border border-gray-200 bg-white text-gray-700 text-xs font-medium hover:border-[#E07A9A] hover:text-[#E07A9A] hover:bg-[#f0f4ff] active:scale-95 transition-all duration-150"
                   >
                     {opt}
                   </button>
@@ -375,12 +375,12 @@ export default function BookingChatbot() {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleTextSubmit()}
                   placeholder={currentStep?.placeholder ?? "Type your answer..."}
-                  className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#003087] focus:bg-white transition-all duration-200"
+                  className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#E07A9A] focus:bg-white transition-all duration-200"
                 />
                 <button
                   onClick={handleTextSubmit}
                   className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-200 hover:scale-110"
-                  style={{ background: "linear-gradient(135deg, #003087, #002470)" }}
+                  style={{ background: "linear-gradient(135deg, #E07A9A, #E07A9A)" }}
                   aria-label="Send"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2.5} className="w-4 h-4">

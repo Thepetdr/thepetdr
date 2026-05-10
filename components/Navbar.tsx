@@ -5,13 +5,13 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/#services" },
   { label: "Contact", href: "/contact" },
 ];
 
 const serviceLinks = [
-  { label: "Veterinary Care", href: "/services/veterinary-care" },
+  { label: "Preventive Pet Care", href: "/services/preventive-pet-care" },
   { label: "Grooming Salon", href: "/services/grooming-salon" },
   { label: "Pet Shop", href: "/services/pet-shop" },
   { label: "Dog Park & Pools", href: "/services/dog-park" },
@@ -53,7 +53,7 @@ export default function Navbar() {
 
           {/* ── LOGO ── */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#003087] to-[#002470] flex items-center justify-center shadow-md group-hover:shadow-[#003087]/10-200 transition-shadow duration-300">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#E07A9A] to-[#E07A9A] flex items-center justify-center shadow-md group-hover:shadow-[#E07A9A]/10-200 transition-shadow duration-300">
               <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
                 <path d="M4.5 11.5A2 2 0 106.5 9.5 2 2 0 004.5 11.5zM9 7a2 2 0 102 2A2 2 0 009 7zm6 0a2 2 0 102 2 2 2 0 00-2-2zm4.5 4.5a2 2 0 102 2 2 2 0 00-2-2zm-7.63 4.63C10.31 15.08 8 14 8 14a6 6 0 000 4s1.5 2 4 2 4-2 4-2a6 6 0 000-4s-2.31 1.08-3.87 1.63a1 1 0 01-.76 0z" />
               </svg>
@@ -63,7 +63,7 @@ export default function Navbar() {
               <span
                 className="block text-[10px] font-medium leading-none mt-0.5"
                 style={{
-                  background: "linear-gradient(135deg, #003087, #7ECDC2)",
+                  background: "linear-gradient(135deg, #E07A9A, #7ECDC2)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -87,8 +87,8 @@ export default function Navbar() {
                   <button
                     className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                       pathname.startsWith("/services")
-                        ? "text-[#003087] bg-[#fdf5f3]"
-                        : "text-gray-600 hover:text-[#003087] hover:bg-[#fdf5f3]/60"
+                        ? "text-[#E07A9A] bg-[#fdf5f3]"
+                        : "text-gray-600 hover:text-[#E07A9A] hover:bg-[#fdf5f3]/60"
                     }`}
                   >
                     Services
@@ -120,11 +120,11 @@ export default function Navbar() {
                           href={s.href}
                           className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm transition-all duration-200 ${
                             pathname === s.href
-                              ? "bg-[#fdf5f3] text-[#003087] font-medium"
-                              : "text-gray-600 hover:bg-[#fdf5f3]/70 hover:text-[#003087]"
+                              ? "bg-[#fdf5f3] text-[#E07A9A] font-medium"
+                              : "text-gray-600 hover:bg-[#fdf5f3]/70 hover:text-[#E07A9A]"
                           }`}
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#003087] flex-shrink-0 opacity-60" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#E07A9A] flex-shrink-0 opacity-60" />
                           {s.label}
                         </Link>
                       ))}
@@ -137,8 +137,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     isActive(link.href)
-                      ? "text-[#003087] bg-[#fdf5f3]"
-                      : "text-gray-600 hover:text-[#003087] hover:bg-[#fdf5f3]/60"
+                      ? "text-[#E07A9A] bg-[#fdf5f3]"
+                      : "text-gray-600 hover:text-[#E07A9A] hover:bg-[#fdf5f3]/60"
                   }`}
                 >
                   {link.label}
@@ -151,7 +151,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden md:flex bg-gradient-to-r from-[#003087] to-[#002470] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#003087]/10-200 hover:-translate-y-0.5 transition-all duration-300"
+              className="hidden md:flex bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#E07A9A]/10-200 hover:-translate-y-0.5 transition-all duration-300"
             >
               Book Now
             </Link>
@@ -192,7 +192,7 @@ export default function Navbar() {
               link.label === "Services" ? (
                 <div key="mobile-services">
                   <button
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-[#fdf5f3] hover:text-[#003087] transition-all duration-200"
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-[#fdf5f3] hover:text-[#E07A9A] transition-all duration-200"
                     onClick={() => setServicesOpen(!servicesOpen)}
                   >
                     Services
@@ -220,11 +220,11 @@ export default function Navbar() {
                           href={s.href}
                           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm transition-all duration-200 ${
                             pathname === s.href
-                              ? "bg-[#fdf5f3] text-[#003087] font-medium"
-                              : "text-gray-500 hover:bg-[#fdf5f3]/70 hover:text-[#003087]"
+                              ? "bg-[#fdf5f3] text-[#E07A9A] font-medium"
+                              : "text-gray-500 hover:bg-[#fdf5f3]/70 hover:text-[#E07A9A]"
                           }`}
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#003087] flex-shrink-0 opacity-60" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#E07A9A] flex-shrink-0 opacity-60" />
                           {s.label}
                         </Link>
                       ))}
@@ -237,8 +237,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                     isActive(link.href)
-                      ? "bg-[#fdf5f3] text-[#003087]"
-                      : "text-gray-700 hover:bg-[#fdf5f3]/60 hover:text-[#003087]"
+                      ? "bg-[#fdf5f3] text-[#E07A9A]"
+                      : "text-gray-700 hover:bg-[#fdf5f3]/60 hover:text-[#E07A9A]"
                   }`}
                 >
                   {link.label}
@@ -249,7 +249,7 @@ export default function Navbar() {
             <div className="pt-3">
               <Link
                 href="/contact"
-                className="block w-full text-center bg-gradient-to-r from-[#003087] to-[#002470] text-white px-6 py-3 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#003087]/10-200 transition-all duration-300"
+                className="block w-full text-center bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-6 py-3 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#E07A9A]/10-200 transition-all duration-300"
               >
                 Book an Appointment
               </Link>

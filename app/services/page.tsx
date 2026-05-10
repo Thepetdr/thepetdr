@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Our Services | ThePetDr",
   description:
-    "Explore ThePetDr's complete range of premium pet care services in Dubai — expert veterinary care, luxury grooming, holistic wellness, pet shop, and dog park & pools.",
+    "Explore ThePetDr's complete range of premium pet care services in Dubai - expert veterinary care, luxury grooming, holistic wellness, pet shop, and dog park & pools.",
 };
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
@@ -39,7 +39,7 @@ const services = [
     title: "Grooming Salon",
     tagline: "Luxury grooming for every breed.",
     description:
-      "Our certified groomers treat your pet to a spa-quality experience using premium, pet-safe products. Whether it's a simple bath and trim or a full breed-standard groom, your pet leaves looking — and feeling — their absolute best.",
+      "Our certified groomers treat your pet to a spa-quality experience using premium, pet-safe products. Whether it's a simple bath and trim or a full breed-standard groom, your pet leaves looking - and feeling - their absolute best.",
     features: [
       "Full groom: bath, blow-dry, cut & style",
       "Breed-specific haircuts",
@@ -63,7 +63,7 @@ const services = [
     title: "Pet Shop",
     tagline: "Premium supplies, nutrition & accessories.",
     description:
-      "Browse our curated selection of vet-recommended food, treats, toys, beds, and accessories. Our in-store team helps you find the perfect products for your pet's breed, age, and health needs — no generic shelf-filling here.",
+      "Browse our curated selection of vet-recommended food, treats, toys, beds, and accessories. Our in-store team helps you find the perfect products for your pet's breed, age, and health needs - no generic shelf-filling here.",
     features: [
       "Vet-approved premium food & raw diets",
       "Breed & life-stage specific nutrition",
@@ -111,7 +111,7 @@ const services = [
     title: "Holistic Regimens",
     tagline: "Whole-body wellness, naturally.",
     description:
-      "True health goes beyond treating symptoms. Our integrative wellness programmes combine conventional veterinary medicine with evidence-based holistic therapies — helping your pet thrive in body, mind, and spirit.",
+      "True health goes beyond treating symptoms. Our integrative wellness programmes combine conventional veterinary medicine with evidence-based holistic therapies - helping your pet thrive in body, mind, and spirit.",
     features: [
       "Acupuncture & physiotherapy",
       "Hydrotherapy & aquatic rehabilitation",
@@ -143,11 +143,11 @@ const faqs = [
   },
   {
     q: "How long does a grooming session take?",
-    a: "A standard full groom takes 2–4 hours depending on breed and coat condition. Express sessions are available for dogs requiring a quick bath and blow-dry only.",
+    a: "A standard full groom takes 2-4 hours depending on breed and coat condition. Express sessions are available for dogs requiring a quick bath and blow-dry only.",
   },
   {
     q: "Are the Dog Park pools heated?",
-    a: "Yes — our hydrotherapy pools are temperature-controlled year-round, making them comfortable and safe in both Dubai's summers and cooler winter months.",
+    a: "Yes - our hydrotherapy pools are temperature-controlled year-round, making them comfortable and safe in both Dubai's summers and cooler winter months.",
   },
   {
     q: "How do I book a holistic wellness consultation?",
@@ -200,11 +200,11 @@ function ServiceCard({
             <ul className="space-y-3 mb-8">
               {service.features.map((feature) => (
                 <li key={feature} className="flex items-start gap-3">
-                  <span className="mt-1 w-5 h-5 rounded-full bg-[#003087]/10 flex items-center justify-center flex-shrink-0">
+                  <span className="mt-1 w-5 h-5 rounded-full bg-[#E07A9A]/10 flex items-center justify-center flex-shrink-0">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="#003087"
+                      stroke="#E07A9A"
                       strokeWidth={2.5}
                       className="w-3 h-3"
                     >
@@ -226,7 +226,7 @@ function ServiceCard({
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#003087] to-[#002470] text-white px-6 py-3 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#003087]/20 hover:-translate-y-0.5 transition-all duration-300"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-6 py-3 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#E07A9A]/20 hover:-translate-y-0.5 transition-all duration-300"
               >
                 Book {service.title}
                 <svg
@@ -258,14 +258,14 @@ function ServiceCard({
             className={`bg-gradient-to-br ${service.accentColor} rounded-3xl border ${service.borderColor} p-8 lg:p-10`}
           >
             {/* Icon */}
-            <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 text-[#003087]">
+            <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 text-[#E07A9A]">
               <div className="scale-150">{service.icon}</div>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4 mb-8">
               {[
-                { label: "Happy Clients", value: "5,000+" },
+                { label: "Happy Clients", value: "1,000+" },
                 { label: "Avg. Rating", value: "4.9 ★" },
                 { label: "Years in Dubai", value: "10+" },
                 { label: "Certified Staff", value: "15+" },
@@ -295,7 +295,7 @@ function ServiceCard({
                 &ldquo;The team at ThePetDr treated my golden retriever with such care and
                 professionalism. We wouldn&apos;t go anywhere else in Dubai.&rdquo;
               </p>
-              <p className="text-xs text-gray-400 font-medium mt-2">— ThePetDr client, Dubai</p>
+              <p className="text-xs text-gray-400 font-medium mt-2">- ThePetDr client, Dubai</p>
             </div>
           </div>
         </div>
@@ -324,7 +324,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 relative">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-xs text-gray-400 mb-8">
-            <Link href="/" className="hover:text-[#003087] transition-colors">
+            <Link href="/" className="hover:text-[#E07A9A] transition-colors">
               Home
             </Link>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3 h-3">
@@ -334,7 +334,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="max-w-3xl">
-            <span className="inline-block bg-[#fdf5f3] border border-pink-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#fdf5f3] border border-pink-200 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest shadow-sm">
               Everything Under One Roof
             </span>
 
@@ -342,7 +342,7 @@ export default function ServicesPage() {
               Care that covers{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                  background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -354,7 +354,7 @@ export default function ServicesPage() {
 
             <p className="text-xl text-gray-500 font-light leading-relaxed max-w-2xl mb-10">
               From first vaccinations to senior wellness plans, luxury grooming to hydrotherapy
-              pools — ThePetDr is Dubai&apos;s most complete pet care destination.
+              pools - ThePetDr is Dubai&apos;s most complete pet care destination.
             </p>
 
             {/* Quick jump links */}
@@ -363,9 +363,9 @@ export default function ServicesPage() {
                 <a
                   key={s.id}
                   href={`#${s.id}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-sm font-medium text-gray-700 hover:bg-[#fdf5f3] hover:border-pink-200 hover:text-[#003087] transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-sm font-medium text-gray-700 hover:bg-[#fdf5f3] hover:border-pink-200 hover:text-[#E07A9A] transition-all duration-200"
                 >
-                  <span className="text-[#003087]">{s.icon}</span>
+                  <span className="text-[#E07A9A]">{s.icon}</span>
                   {s.title}
                 </a>
               ))}
@@ -390,7 +390,7 @@ export default function ServicesPage() {
               Common{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                  background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -431,7 +431,7 @@ export default function ServicesPage() {
       {/* ── BOTTOM CTA ── */}
       <section
         className="py-20 relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #003087 0%, #002470 100%)" }}
+        style={{ background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)" }}
       >
         {/* Subtle radial highlights */}
         <div
@@ -458,7 +458,7 @@ export default function ServicesPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-[#003087] px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-white text-[#E07A9A] px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300"
             >
               Book an Appointment
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4">

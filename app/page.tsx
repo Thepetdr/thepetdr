@@ -7,10 +7,10 @@ import { useEffect, useRef, useState } from "react";
 
 const services = [
   {
-    title: "Veterinary Care",
-    href: "/services/veterinary-care",
-    description: "Expert medical attention tailored to your pet's unique needs, from preventative care to complex surgeries.",
-    features: ["Routine Check-ups", "Vaccinations", "Surgical Procedures", "Diagnostics & Treatments"],
+    title: "Preventive Pet Care",
+    href: "/services/preventive-pet-care",
+    description: "Protect your pet’s long-term health with routine veterinary care.",
+    features: ["Wellness Exams & Full Health Checks", "Core & Annual Vaccinations", "Early Disease Detection", "Diagnostics & Treatments"],
     accent: "pink",
     image: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600&auto=format&fit=crop&q=80",
     icon: (
@@ -74,16 +74,16 @@ const services = [
 ];
 
 const stats = [
-  { number: "5,000+", label: "Happy Pets", accent: "pink" },
+  { number: "1,000+", label: "Happy Pets", accent: "pink" },
   { number: "15+", label: "Expert Vets", accent: "teal" },
-  { number: "10+", label: "Years of Care", accent: "pink" },
-  { number: "98%", label: "Satisfaction Rate", accent: "teal" },
+  { number: "3+", label: "Years of Care", accent: "pink" },
+  { number: "99%", label: "Satisfaction Rate", accent: "teal" },
 ];
 
 const reasons = [
   {
-    title: "Expert Veterinarians",
-    desc: "Board-certified vets with deep expertise across all breeds and species.",
+    title: "Advanced Diagnostics & In-House Lab",
+    desc: "Faster, more accurate results for immediate treatment decisions.",
     accent: "pink",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
@@ -92,8 +92,8 @@ const reasons = [
     ),
   },
   {
-    title: "Modern Facilities",
-    desc: "State-of-the-art diagnostic and treatment equipment for precise, reliable care.",
+    title: "Fear-Free, Low-Stress Handling",
+    desc: "Gentle techniques designed to keep pets calm and comfortable.",
     accent: "teal",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
@@ -102,8 +102,8 @@ const reasons = [
     ),
   },
   {
-    title: "Compassionate Approach",
-    desc: "Every pet receives the same love and attention as our own family members.",
+    title: "Comprehensive Care for All Pets",
+    desc: "From cats and dogs to birds and exotic animals—everything under one roof.",
     accent: "pink",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
@@ -112,8 +112,8 @@ const reasons = [
     ),
   },
   {
-    title: "Flexible Hours",
-    desc: "Open every day of the week with emergency support always on standby.",
+    title: "Experienced Veterinary Team",
+    desc: "Highly trained vets delivering expert care across all species.",
     accent: "teal",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
@@ -122,8 +122,8 @@ const reasons = [
     ),
   },
   {
-    title: "Holistic Wellness",
-    desc: "Integrating conventional and natural medicine for complete pet health.",
+    title: "Personalized Treatment Plans",
+    desc: "Tailored care based on your pet’s unique needs and lifestyle.",
     accent: "pink",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
@@ -132,8 +132,8 @@ const reasons = [
     ),
   },
   {
-    title: "Trusted by Thousands",
-    desc: "A 98% satisfaction rate earned through consistent, exceptional care.",
+    title: "Modern, Purpose-Built Facility",
+    desc: "Designed for safety, efficiency, and a better patient experience.",
     accent: "teal",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
@@ -152,9 +152,9 @@ const gallery = [
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
+    name: "Sara",
     role: "Dog Owner",
-    review: "ThePetDr has been absolutely incredible for our golden retriever Max. The veterinary team is so gentle and thorough — we have never felt more confident about his health.",
+    review: "ThePetDr has been absolutely incredible for our golden retriever Max. The veterinary team is so gentle and thorough - we have never felt more confident about his health.",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80",
     rating: 5,
   },
@@ -168,7 +168,7 @@ const testimonials = [
   {
     name: "Priya Sharma",
     role: "Multi-pet Owner",
-    review: "We bring all three of our pets here — two dogs and a rabbit. Every single one is treated with the same kindness and expertise. The holistic regimens have been a game changer.",
+    review: "We bring all three of our pets here - two dogs and a rabbit. Every single one is treated with the same kindness and expertise. The holistic regimens have been a game changer.",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&auto=format&fit=crop&q=80",
     rating: 5,
   },
@@ -202,11 +202,11 @@ const faqs = [
 const accentStyles = {
   pink: {
     iconBg: "from-[#f3c4d0] to-[#fdf0f3]",
-    iconColor: "text-[#003087]",
-    dot: "bg-[#003087]",
-    statColor: "text-[#003087]",
+    iconColor: "text-[#E07A9A]",
+    dot: "bg-[#E07A9A]",
+    statColor: "text-[#E07A9A]",
     cardBorder: "border-[#EFBCB0]-100 hover:border-[#EFBCB0]-200 hover:bg-[#fff8fa]",
-    learnMore: "text-[#003087]",
+    learnMore: "text-[#E07A9A]",
   },
   teal: {
     iconBg: "from-[#b2deda] to-[#e8f8f7]",
@@ -267,36 +267,36 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 grid md:grid-cols-2 gap-16 items-center">
           {/* Text */}
           <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2 bg-white border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 shadow-sm tracking-wide uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#003087] animate-pulse" />
+            <span className="inline-flex items-center gap-2 bg-white border border-[#EFBCB0]-200 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 shadow-sm tracking-wide uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E07A9A] animate-pulse" />
               Premium Pet Care
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
-              Your Pet Deserves{" "}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#E07A9A] leading-[1.1] mb-6 tracking-tight">
+              Care Without {" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                  background: "linear-gradient(135deg, #7BB5AD 0%, #7BB5AD 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                 }}
               >
-                The Very Best
+                Compromise
               </span>
             </h1>
             <p className="text-lg text-gray-500 mb-10 leading-relaxed max-w-lg font-light">
-              From expert veterinary care to holistic wellness, professional
-              grooming to a beautifully maintained dog park — all under one roof.
+              At ThePetDr Center, every pet receives exceptional, uncompromising care - delivered with expertise, <br/>compassion, and intention.
+
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="#contact"
-                className="bg-gradient-to-r from-[#003087] to-[#002470] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-[#003087]/10-200 hover:-translate-y-1 transition-all duration-300 text-sm"
+                href="contact"
+                className="bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-[#E07A9A]/10-200 hover:-translate-y-1 transition-all duration-300 text-sm"
               >
                 Book an Appointment
               </Link>
               <Link
-                href="#services"
+                href="services"
                 className="bg-white border border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-semibold hover:border-[#7ECDC2] hover:text-[#7ECDC2] hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm"
               >
                 Explore Services
@@ -307,9 +307,9 @@ export default function Home() {
           {/* Hero image */}
           <div className="hidden md:block animate-fade-in">
             <div className="relative">
-              <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl shadow-[#003087]/10-100">
+              <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl shadow-[#E07A9A]/10-100">
                 <Image
-                  src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=900&auto=format&fit=crop&q=80"
+                  src="/images/hero.webp"
                   alt="Vet with dog"
                   fill
                   className="object-cover"
@@ -324,13 +324,13 @@ export default function Home() {
                 <p
                   className="text-xl font-bold"
                   style={{
-                    background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                    background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                   }}
                 >
-                  5,000+
+                  1,000+
                 </p>
               </div>
 
@@ -345,10 +345,10 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-800">Sarah M.</p>
+                  <p className="text-xs font-semibold text-gray-800">Sara</p>
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <svg key={i} viewBox="0 0 20 20" fill="#003087" className="w-3 h-3">
+                      <svg key={i} viewBox="0 0 20 20" fill="#E07A9A" className="w-3 h-3">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
@@ -362,7 +362,7 @@ export default function Home() {
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
           <span className="text-xs text-gray-400 tracking-widest uppercase">Scroll</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="#003087" strokeWidth={2} className="w-4 h-4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E07A9A" strokeWidth={2} className="w-4 h-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -425,13 +425,13 @@ export default function Home() {
               <p
                 className="text-3xl font-bold"
                 style={{
-                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                  background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                 }}
               >
-                10+
+                3+
               </p>
               <p className="text-xs text-gray-500 font-medium">Years of Excellence</p>
             </div>
@@ -443,42 +443,39 @@ export default function Home() {
               aboutSection.inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
             }`}
           >
-            <span className="inline-block bg-white border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-white border border-[#EFBCB0]-200 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               Our Story
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
-              A Clinic Built{" "}
+            <h2 className="text-4xl md:text-5xl font-bold text-[#7BB5AD] mb-6 tracking-tight leading-tight">
+              Built with Purpose{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                  background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                 }}
               >
-                With Love
+                Designed with Care
               </span>
             </h2>
             <p className="text-gray-500 leading-relaxed mb-5 font-light">
-              ThePetDr was founded in 2014 with one simple belief — every pet deserves
-              the same quality of care that we would want for ourselves. What started
-              as a small veterinary practice has grown into a full-service premium
-              pet care destination.
+ThePetDr is a premium veterinary clinic providing advanced pet care and wellness services in a calm, stress-free environment.
             </p>
             <p className="text-gray-500 leading-relaxed mb-8 font-light">
-              Today, our team of over 15 certified veterinarians, groomers, and
-              wellness specialists work together under one roof to provide a seamless,
-              stress-free experience for pets and their owners alike.
+We go beyond treatment - supporting animal rescue and pet rehabilitation through a purpose-driven model.
             </p>
+
             <div className="flex flex-col gap-3">
               {[
-                "Certified veterinary professionals",
-                "Premium, pet-safe products only",
-                "Stress-free environment by design",
+                "Expert veterinary team",
+                "Advanced pet care & wellness services",
+                "Supports animal rescue & rehabilitation",
+                "Calm, pet-friendly clinic environment",
               ].map((point) => (
                 <div key={point} className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#f3c4d0] to-[#fdf0f3] flex items-center justify-center flex-shrink-0">
-                    <svg viewBox="0 0 20 20" fill="#003087" className="w-3 h-3">
+                    <svg viewBox="0 0 20 20" fill="#E07A9A" className="w-3 h-3">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
@@ -498,14 +495,14 @@ export default function Home() {
               servicesSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-white border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-white border border-[#EFBCB0]-200 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               What We Offer
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#E07A9A] mb-4 tracking-tight">
               Comprehensive Care{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                  background: "linear-gradient(135deg, #7BB5AD)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -515,7 +512,8 @@ export default function Home() {
               </span>
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto font-light leading-relaxed">
-              Every service is designed with your pet's comfort, health, and happiness as the top priority.
+              Leading Veterinary Clinic in Sharjah Offering Preventive Care, Advanced Diagnostics, Surgery, Dental Care & 24/7 Emergency Services
+
             </p>
           </div>
 
@@ -582,11 +580,11 @@ export default function Home() {
             <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
               Our Clinic
             </span>
-            <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
+            <h2 className="text-4xl font-bold text-[#78B5AD] tracking-tight">
               A Place Pets{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                  background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -631,24 +629,23 @@ export default function Home() {
             }`}
           >
             <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
-              Why ThePetDr
+              Why The Pet Doctor
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-              Why Pet Owners{" "}
+            <h2 className="text-4xl md:text-5xl font-bold text-[#E07A9A] mb-4 tracking-tight">
+              Why Choose {" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                  background: "linear-gradient(135deg, #7BB5AD 0%, #7BB5AD 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                 }}
               >
-                Choose Us
+                The Pet Doctor
               </span>
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto font-light leading-relaxed">
-              We go far beyond basic care to deliver an exceptional, premium experience
-              for both pets and their owners.
+              Trusted by Pet Parents Across Sharjah for Exceptional Veterinary Care
             </p>
           </div>
 
@@ -685,14 +682,14 @@ export default function Home() {
               testimonialsSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-white border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-white border border-[#EFBCB0]-200 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               Testimonials
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#78B5AD]">
               What Pet Owners{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                  background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -717,7 +714,7 @@ export default function Home() {
               >
                 <div className="flex gap-1 mb-5">
                   {[...Array(t.rating)].map((_, j) => (
-                    <svg key={j} viewBox="0 0 20 20" fill="#003087" className="w-4 h-4">
+                    <svg key={j} viewBox="0 0 20 20" fill="#E07A9A" className="w-4 h-4">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -751,11 +748,11 @@ export default function Home() {
             <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               FAQ
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#E07A9A] mb-4 tracking-tight">
               Common{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                  background: "linear-gradient(135deg, #78B5AD 0%, #78B5AD 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -782,14 +779,14 @@ export default function Home() {
                   className="w-full flex items-center justify-between px-6 py-5 text-left group"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <span className="font-medium text-gray-900 text-sm pr-4 group-hover:text-[#003087] transition-colors duration-300">
+                  <span className="font-medium text-gray-900 text-sm pr-4 group-hover:text-[#E07A9A] transition-colors duration-300">
                     {faq.question}
                   </span>
                   <span
                     className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
                       openFaq === i ? "rotate-45" : "bg-gray-100"
                     }`}
-                    style={openFaq === i ? { background: "linear-gradient(135deg, #003087, #002470)" } : {}}
+                    style={openFaq === i ? { background: "linear-gradient(135deg, #E07A9A, #E07A9A)" } : {}}
                   >
                     <svg viewBox="0 0 24 24" fill="none" stroke={openFaq === i ? "white" : "#6b7280"} strokeWidth={2.5} className="w-3 h-3">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
@@ -809,7 +806,7 @@ export default function Home() {
       <section
         id="contact"
         className="py-28 relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #003087 0%, #002470 100%)" }}
+        style={{ background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)" }}
       >
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full opacity-10"
@@ -832,12 +829,12 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="tel:+971665573080"
-              className="bg-white text-[#003087] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm"
+              className="bg-white text-[#E07A9A] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm"
             >
               Call Us Now
             </Link>
             <Link
-              href="mailto:info@thepetdr.ae"
+              href="mailto:info@ThePetDr.ae"
               className="bg-transparent border-2 border-white/60 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 hover:border-white hover:-translate-y-1 transition-all duration-300 text-sm"
             >
               Send an Email

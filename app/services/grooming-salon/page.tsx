@@ -15,7 +15,7 @@ const features = [
 const processSteps = [
   { step: "01", title: "Book a Grooming Session", desc: "Choose your preferred time and grooming package when booking online or by phone." },
   { step: "02", title: "Drop-Off & Consultation", desc: "Our groomer will discuss your pet's coat condition and your styling preferences before beginning." },
-  { step: "03", title: "The Grooming Experience", desc: "Your pet is groomed in a calm, individual setting — never in a chaotic group environment." },
+  { step: "03", title: "The Grooming Experience", desc: "Your pet is groomed in a calm, individual setting - never in a chaotic group environment." },
   { step: "04", title: "Pick-Up Looking Perfect", desc: "You'll receive a message when your pet is ready. They'll leave smelling and looking amazing." },
 ];
 
@@ -29,7 +29,7 @@ const gallery = [
 const faqs = [
   { question: "How long does a grooming session take?", answer: "Most sessions take between 1.5 to 3 hours depending on breed, coat condition, and services selected. We'll give you an estimated time at drop-off." },
   { question: "What products do you use?", answer: "We use only premium, hypoallergenic, cruelty-free grooming products. If your pet has known allergies, please let us know and we'll select products accordingly." },
-  { question: "How often should my pet be groomed?", answer: "Most dogs benefit from professional grooming every 4–8 weeks. Long-coated breeds may require more frequent visits to prevent matting." },
+  { question: "How often should my pet be groomed?", answer: "Most dogs benefit from professional grooming every 4-8 weeks. Long-coated breeds may require more frequent visits to prevent matting." },
   { question: "Do you groom cats as well?", answer: "Yes, we offer specialist cat grooming services in a quiet, separate area to minimise stress for feline clients." },
 ];
 
@@ -57,7 +57,7 @@ export default function GroomingSalonPage() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3 h-3">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
-              <Link href="/#services" className="hover:text-[#7ECDC2] transition-colors">Services</Link>
+              <Link href="/services" className="hover:text-[#7ECDC2] transition-colors">Services</Link>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3 h-3">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
@@ -74,13 +74,13 @@ export default function GroomingSalonPage() {
               </span>
             </h1>
             <p className="text-lg text-gray-500 mb-10 leading-relaxed max-w-lg font-light">
-              Our expert groomers treat every session as a luxury spa experience — using only premium, hypoallergenic products to leave your pet looking, smelling, and feeling incredible.
+              Our expert groomers treat every session as a luxury spa experience - using only premium, hypoallergenic products to leave your pet looking, smelling, and feeling incredible.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/#contact" className="bg-gradient-to-r from-[#003087] to-[#002470] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-[#003087]/10-200 hover:-translate-y-1 transition-all duration-300 text-sm">
+              <Link href="/contact" className="bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-[#E07A9A]/10-200 hover:-translate-y-1 transition-all duration-300 text-sm">
                 Book This Service
               </Link>
-              <Link href="/#services" className="bg-white border border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-semibold hover:border-[#7ECDC2] hover:text-[#7ECDC2] hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm">
+              <Link href="/services" className="bg-white border border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-semibold hover:border-[#7ECDC2] hover:text-[#7ECDC2] hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm">
                 All Services
               </Link>
             </div>
@@ -114,7 +114,7 @@ export default function GroomingSalonPage() {
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-3">
               Our Grooming{" "}
-              <span style={{ background: "linear-gradient(135deg, #003087, #002470)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              <span style={{ background: "linear-gradient(135deg, #E07A9A, #E07A9A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 Services
               </span>
             </h2>
@@ -146,7 +146,7 @@ export default function GroomingSalonPage() {
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-3">
               Simple,{" "}
-              <span style={{ background: "linear-gradient(135deg, #003087, #002470)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              <span style={{ background: "linear-gradient(135deg, #E07A9A, #E07A9A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 Stress-Free Process
               </span>
             </h2>
@@ -180,7 +180,7 @@ export default function GroomingSalonPage() {
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
               See It{" "}
-              <span style={{ background: "linear-gradient(135deg, #003087, #002470)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              <span style={{ background: "linear-gradient(135deg, #E07A9A, #E07A9A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 In Action
               </span>
             </h2>
@@ -206,7 +206,7 @@ export default function GroomingSalonPage() {
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
               Common{" "}
-              <span style={{ background: "linear-gradient(135deg, #003087, #002470)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              <span style={{ background: "linear-gradient(135deg, #E07A9A, #E07A9A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 Questions
               </span>
             </h2>
@@ -234,7 +234,7 @@ export default function GroomingSalonPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #003087 0%, #002470 100%)" }}>
+      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)" }}>
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10" style={{ background: "radial-gradient(circle, white, transparent 70%)" }} />
           <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full opacity-10" style={{ background: "radial-gradient(circle, white, transparent 70%)" }} />
@@ -245,10 +245,10 @@ export default function GroomingSalonPage() {
             Let our expert groomers give your pet the luxurious treatment they deserve.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="tel:+971665573080" className="bg-white text-[#003087] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm">
+            <Link href="tel:+971665573080" className="bg-white text-[#E07A9A] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm">
               Call Us Now
             </Link>
-            <Link href="mailto:info@thepetdr.ae" className="border-2 border-white/60 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 hover:border-white hover:-translate-y-1 transition-all duration-300 text-sm">
+            <Link href="mailto:info@ThePetDr.ae" className="border-2 border-white/60 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 hover:border-white hover:-translate-y-1 transition-all duration-300 text-sm">
               Send an Email
             </Link>
           </div>

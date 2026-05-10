@@ -52,8 +52,8 @@ const timeline = [
   { year: "2014", title: "ThePetDr Founded", desc: "Opened our first small veterinary clinic in Dubai with a team of 3 dedicated vets." },
   { year: "2016", title: "Grooming Salon Opens", desc: "Expanded our services to include a full professional grooming salon on-site." },
   { year: "2018", title: "Pet Shop & Holistic Wing", desc: "Launched our curated pet shop and introduced holistic wellness programs." },
-  { year: "2020", title: "Dog Park & Pools", desc: "Opened our outdoor dog park with supervised pools — a first in the region." },
-  { year: "2023", title: "15+ Vets & Growing", desc: "Grew to a team of over 15 certified specialists serving 5,000+ happy pets." },
+  { year: "2020", title: "Dog Park & Pools", desc: "Opened our outdoor dog park with supervised pools - a first in the region." },
+  { year: "2023", title: "15+ Vets & Growing", desc: "Grew to a team of over 15 certified specialists serving 1,000+ happy pets." },
 ];
 
 const values = [
@@ -79,7 +79,7 @@ const values = [
   },
   {
     title: "Owner Transparency",
-    desc: "We communicate clearly at every step — no surprises, no jargon, just honest care.",
+    desc: "We communicate clearly at every step - no surprises, no jargon, just honest care.",
     accent: "pink",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
@@ -89,7 +89,7 @@ const values = [
   },
   {
     title: "Continuous Growth",
-    desc: "We never stop learning — our team regularly trains in the latest veterinary advances.",
+    desc: "We never stop learning - our team regularly trains in the latest veterinary advances.",
     accent: "teal",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
@@ -123,21 +123,21 @@ export default function AboutPage() {
         <div ref={heroSection.ref} className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
           <div className={`transition-all duration-700 ${heroSection.inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
             <div className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-              <Link href="/" className="hover:text-[#003087] transition-colors">Home</Link>
+              <Link href="/" className="hover:text-[#E07A9A] transition-colors">Home</Link>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3 h-3">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
               <span className="text-gray-600">About</span>
             </div>
 
-            <span className="inline-block bg-[#fdf5f3] border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#fdf5f3] border border-[#EFBCB0]-200 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               Our Story
             </span>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
               A Clinic Built{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087 0%, #002470 100%)",
+                  background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -147,18 +147,18 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="text-lg text-gray-500 mb-8 leading-relaxed font-light max-w-lg">
-              ThePetDr was born from a simple belief — every pet deserves the highest
+              ThePetDr was born from a simple belief - every pet deserves the highest
               quality of care, delivered with genuine compassion and expertise.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="bg-gradient-to-r from-[#003087] to-[#002470] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-[#003087]/10-200 hover:-translate-y-1 transition-all duration-300 text-sm"
+                className="bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl hover:shadow-[#E07A9A]/10-200 hover:-translate-y-1 transition-all duration-300 text-sm"
               >
                 Book an Appointment
               </Link>
               <Link
-                href="/#services"
+                href="/services"
                 className="bg-white border border-gray-200 text-gray-700 px-8 py-3.5 rounded-full font-semibold hover:border-[#7ECDC2] hover:text-[#7ECDC2] hover:-translate-y-1 transition-all duration-300 shadow-sm text-sm"
               >
                 Our Services
@@ -193,14 +193,14 @@ export default function AboutPage() {
       <section className="py-24 bg-[#fdf8f9]">
         <div ref={storySection.ref} className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div className={`transition-all duration-700 ${storySection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <span className="inline-block bg-[#fdf5f3] border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#fdf5f3] border border-[#EFBCB0]-200 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
               Who We Are
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-6 leading-tight">
-              More Than a Clinic —{" "}
+              More Than a Clinic -{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087, #002470)",
+                  background: "linear-gradient(135deg, #E07A9A, #E07A9A)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -222,10 +222,10 @@ export default function AboutPage() {
             </p>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { number: "5,000+", label: "Pets Treated", accent: "#003087" },
+                { number: "1,000+", label: "Pets Treated", accent: "#E07A9A" },
                 { number: "15+", label: "Expert Specialists", accent: "#7ECDC2" },
-                { number: "10+", label: "Years of Care", accent: "#003087" },
-                { number: "98%", label: "Satisfaction Rate", accent: "#7ECDC2" },
+                { number: "10+", label: "Years of Care", accent: "#E07A9A" },
+                { number: "99%", label: "Satisfaction Rate", accent: "#7ECDC2" },
               ].map((s) => (
                 <div key={s.label} className="bg-white rounded-2xl p-5 border border-[#EFBCB0]-100 shadow-sm text-center">
                   <p className="text-2xl font-bold mb-1" style={{ color: s.accent }}>{s.number}</p>
@@ -236,7 +236,7 @@ export default function AboutPage() {
           </div>
 
           <div className={`relative transition-all duration-700 delay-200 ${storySection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl shadow-[#003087]/10-100">
+            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl shadow-[#E07A9A]/10-100">
               <Image
                 src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop&q=80"
                 alt="Happy pets at ThePetDr"
@@ -264,7 +264,7 @@ export default function AboutPage() {
               Our Core{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087, #002470)",
+                  background: "linear-gradient(135deg, #E07A9A, #E07A9A)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -289,7 +289,7 @@ export default function AboutPage() {
                   <div
                     className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${
                       isPink
-                        ? "bg-gradient-to-br from-[#f3c4d0] to-[#fdf0f3] text-[#003087]"
+                        ? "bg-gradient-to-br from-[#f3c4d0] to-[#fdf0f3] text-[#E07A9A]"
                         : "bg-gradient-to-br from-[#b2deda] to-[#e8f8f7] text-[#7ECDC2]"
                     }`}
                   >
@@ -312,14 +312,14 @@ export default function AboutPage() {
               timelineSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-[#fdf5f3] border border-[#EFBCB0]-200 text-[#003087] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#fdf5f3] border border-[#EFBCB0]-200 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
               Our Journey
             </span>
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
               A Decade of{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087, #002470)",
+                  background: "linear-gradient(135deg, #E07A9A, #E07A9A)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -342,10 +342,10 @@ export default function AboutPage() {
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
                   <div className="flex-shrink-0 w-16 text-right pt-3">
-                    <span className="text-sm font-bold text-[#003087]">{item.year}</span>
+                    <span className="text-sm font-bold text-[#E07A9A]">{item.year}</span>
                   </div>
                   <div className="relative flex-shrink-0 mt-3.5">
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-[#003087] to-[#002470] shadow-md ring-4 ring-[#fdf8f9]" />
+                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-[#E07A9A] to-[#E07A9A] shadow-md ring-4 ring-[#fdf8f9]" />
                   </div>
                   <div className="bg-white rounded-2xl p-5 border border-[#EFBCB0]-100 shadow-sm flex-1 hover:shadow-md transition-shadow">
                     <h3 className="font-semibold text-gray-900 mb-1 text-sm">{item.title}</h3>
@@ -373,7 +373,7 @@ export default function AboutPage() {
               The Experts Behind{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #003087, #002470)",
+                  background: "linear-gradient(135deg, #E07A9A, #E07A9A)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -409,7 +409,7 @@ export default function AboutPage() {
                   </div>
                   <div className="p-5">
                     <h3 className="font-semibold text-gray-900 text-sm mb-0.5">{member.name}</h3>
-                    <p className={`text-xs font-medium mb-3 ${isPink ? "text-[#003087]" : "text-[#7ECDC2]"}`}>
+                    <p className={`text-xs font-medium mb-3 ${isPink ? "text-[#E07A9A]" : "text-[#7ECDC2]"}`}>
                       {member.role}
                     </p>
                     <p className="text-xs text-gray-500 leading-relaxed font-light">{member.bio}</p>
@@ -424,7 +424,7 @@ export default function AboutPage() {
       {/* ── CTA ── */}
       <section
         className="py-24 relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #003087 0%, #002470 100%)" }}
+        style={{ background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)" }}
       >
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div
@@ -446,12 +446,12 @@ export default function AboutPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="bg-white text-[#003087] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm"
+              className="bg-white text-[#E07A9A] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm"
             >
               Book Now
             </Link>
             <Link
-              href="/#services"
+              href="/services"
               className="border-2 border-white/60 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 hover:border-white hover:-translate-y-1 transition-all duration-300 text-sm"
             >
               View Services
