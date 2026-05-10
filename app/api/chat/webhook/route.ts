@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { processMessage } from "@/lib/chatbot/flow-engine";
 import { getConversationState, saveConversationState } from "@/lib/chatbot/conversation-store";
 
+export const dynamic = "force-dynamic";
+
 const VERIFY_TOKEN = process.env.WHATSAPP_VERIFY_TOKEN!;
 const WA_TOKEN = process.env.WHATSAPP_TOKEN!;
 const PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID!;
@@ -29,16 +31,9 @@ export async function POST(req: NextRequest) {
     const waNumber: string = message.from;
     const userText: string = message.text.body;
 
-    // Load state
     const state = await getConversationState(waNumber);
-
-    // Process
     const { reply, nextState } = await processMessage(state, userText);
-
-    // Save state
     await saveConversationState(waNumber, nextState);
-
-    // Send reply
     await sendWhatsAppMessage(waNumber, reply);
 
     return NextResponse.json({ status: "ok" });

@@ -2,6 +2,7 @@ import { supabase } from "@/lib/supabase";
 import { ConversationState } from "./types";
 
 const DEFAULT_STATE: ConversationState = {
+  mode: null,
   flow: null,
   step: "idle",
   data: {},

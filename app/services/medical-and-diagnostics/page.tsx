@@ -1,5 +1,8 @@
-/* ─── METADATA ───────────────────────────────────────────────────────────────── */
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
+/* ─── METADATA ─── */
 export const metadata: Metadata = {
   title: "Medical & Diagnostic Services in Sharjah | The Pet Dr",
   description:

@@ -32,7 +32,7 @@ export async function processMessage(
     });
     return {
       reply: REPLIES.urgentReply(msg),
-      nextState: { flow: null, step: "idle", data: {} },
+      nextState: { mode: null, flow: null, step: "idle", data: {} },
     };
   }
 
@@ -41,7 +41,7 @@ export async function processMessage(
   if (intent === "cancel" && flow) {
     return {
       reply: REPLIES.cancelFlow(msg),
-      nextState: { flow: null, step: "idle", data: {} },
+      nextState: { mode: null, flow: null, step: "idle", data: {} },
     };
   }
 
@@ -49,7 +49,7 @@ export async function processMessage(
   if (!flow && !isClinicOpen() && intent !== "location" && intent !== "hours") {
     return {
       reply: REPLIES.outsideHours(msg),
-      nextState: { flow: null, step: "idle", data: {} },
+      nextState: { mode: null, flow: null, step: "idle", data: {} },
     };
   }
 
@@ -70,13 +70,19 @@ function handleNoFlow(
 ): { reply: string; nextState: ConversationState } {
   switch (intent) {
     case "greeting":
-      return { reply: REPLIES.greeting(msg), nextState: { flow: null, step: "menu", data: {} } };
+      return {
+        reply: REPLIES.mainMenu(msg),
+        nextState: { mode: "menu", flow: null, step: "menu", data: {} },
+      };
 
     case "location":
-      return { reply: REPLIES.location(msg), nextState: state };
+  return { reply: REPLIES.clinicInfo(msg), nextState: state };
+
+case "hours":
+  return { reply: REPLIES.clinicInfo(msg), nextState: state };
 
     case "hours":
-      return { reply: REPLIES.hours(msg), nextState: state };
+      return { reply: REPLIES.clinicInfo(msg), nextState: state };
 
     case "thanks":
       return { reply: REPLIES.thankYou(msg), nextState: state };
@@ -90,25 +96,41 @@ function handleNoFlow(
     case "callback":
     case "booking":
     case "consultation":
-      return { reply: REPLIES.askName(msg), nextState: { flow: "booking", step: "ask_name", data: { service: intent === "consultation" ? "Consultation" : "" } } };
+      return {
+        reply: REPLIES.askName(msg),
+        nextState: {
+          mode: "booking",
+          flow: "booking",
+          step: "ask_name",
+          data: { service: intent === "consultation" ? "Consultation" : "" },
+        },
+      };
 
     case "grooming":
-      return { reply: REPLIES.askName(msg), nextState: { flow: "grooming", step: "ask_name", data: { service: "Grooming" } } };
+      return {
+        reply: REPLIES.askName(msg),
+        nextState: { mode: "grooming", flow: "grooming", step: "ask_name", data: { service: "Grooming" } },
+      };
 
     case "boarding":
-      return { reply: REPLIES.askName(msg), nextState: { flow: "boarding", step: "ask_name", data: { service: "Boarding" } } };
+      return {
+        reply: REPLIES.askName(msg),
+        nextState: { mode: "boarding", flow: "boarding", step: "ask_name", data: { service: "Boarding" } },
+      };
 
     case "vaccines":
-      return { reply: REPLIES.askName(msg), nextState: { flow: "vaccines", step: "ask_name", data: { service: "Vaccination" } } };
+      return {
+        reply: REPLIES.askName(msg),
+        nextState: { mode: "vaccines", flow: "vaccines", step: "ask_name", data: { service: "Vaccination" } },
+      };
 
-    // Handle menu number picks
     default: {
       const num = msg.trim();
-      if (num === "1") return { reply: REPLIES.askName(msg), nextState: { flow: "booking", step: "ask_name", data: {} } };
-      if (num === "2") return { reply: REPLIES.askName(msg), nextState: { flow: "grooming", step: "ask_name", data: { service: "Grooming" } } };
-      if (num === "3") return { reply: REPLIES.askName(msg), nextState: { flow: "boarding", step: "ask_name", data: { service: "Boarding" } } };
-      if (num === "4") return { reply: REPLIES.askName(msg), nextState: { flow: "vaccines", step: "ask_name", data: { service: "Vaccination" } } };
-      if (num === "5") return { reply: REPLIES.handover(msg), nextState: { flow: null, step: "idle", data: {} } };
+      if (num === "1") return { reply: REPLIES.askName(msg), nextState: { mode: "booking", flow: "booking", step: "ask_name", data: {} } };
+      if (num === "2") return { reply: REPLIES.askName(msg), nextState: { mode: "grooming", flow: "grooming", step: "ask_name", data: { service: "Grooming" } } };
+      if (num === "3") return { reply: REPLIES.askName(msg), nextState: { mode: "boarding", flow: "boarding", step: "ask_name", data: { service: "Boarding" } } };
+      if (num === "4") return { reply: REPLIES.askName(msg), nextState: { mode: "vaccines", flow: "vaccines", step: "ask_name", data: { service: "Vaccination" } } };
+      if (num === "5") return { reply: REPLIES.handover(msg), nextState: { mode: null, flow: null, step: "idle", data: {} } };
 
       return { reply: REPLIES.unknown(msg), nextState: state };
     }
@@ -124,9 +146,13 @@ async function continueFlow(
   rawMsg: string
 ): Promise<{ reply: string; nextState: ConversationState }> {
 
-  const next = (nextStep: string, newData: Partial<ConversationState["data"]>, reply: string) => ({
+  const next = (
+    nextStep: string,
+    newData: Partial<ConversationState["data"]>,
+    reply: string
+  ): { reply: string; nextState: ConversationState } => ({
     reply,
-    nextState: { flow, step: nextStep, data: { ...data, ...newData } },
+    nextState: { mode: flow as ConversationState["mode"], flow, step: nextStep, data: { ...data, ...newData } },
   });
 
   // ── Shared steps ──
@@ -152,7 +178,6 @@ async function continueFlow(
       : lower.includes("rabbit") || lower.includes("أرنب") ? "rabbit"
       : "other";
 
-    // Route species into flow-specific next step
     if (flow === "grooming") {
       if (species === "dog") return next("ask_grooming_size", { species }, REPLIES.askGroomingSize(rawMsg));
       return next("ask_grooming_type", { species }, REPLIES.askGroomingType(rawMsg));
@@ -216,7 +241,6 @@ async function continueFlow(
   if (step === "finalize" || msg === "finalizing") {
     const finalData = { ...data };
 
-    // Save to Supabase
     await supabase.from("internal_alerts").insert({
       alert_type: "booking_request",
       client_name: finalData.client_name ?? "",
@@ -248,12 +272,12 @@ async function continueFlow(
 
     return {
       reply: summary + reminder,
-      nextState: { flow: null, step: "done", data: {} },
+      nextState: { mode: null, flow: null, step: "done", data: {} },
     };
   }
 
   return {
     reply: REPLIES.unknown(rawMsg),
-    nextState: { flow, step, data },
+    nextState: { mode: flow as ConversationState["mode"], flow, step, data },
   };
 }

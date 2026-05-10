@@ -3,8 +3,12 @@ export type Species = "dog" | "cat" | "bird" | "rabbit" | "other" | "";
 export type ChatMode = "menu" | "booking" | "grooming" | "boarding" | "vaccines"
   | "consultation" | "direct_chat" | "enquiry" | null;
 
+export type FlowType = "booking" | "grooming" | "boarding" | "vaccines"
+  | "consultation" | "enquiry" | null;
+
 export type ConversationState = {
   mode: ChatMode;
+  flow: FlowType;
   step: string;
   data: {
     client_name?: string;
