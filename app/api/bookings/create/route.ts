@@ -1,20 +1,20 @@
 import { createClient } from "@supabase/supabase-js";
 import { NextRequest, NextResponse } from "next/server";
 
-// Direct admin client — bypasses RLS
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+export const dynamic = "force-dynamic";
+
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    // Log to verify data is arriving
-    console.log("Booking payload:", body);
-
-    const { data, error } = await supabase
+    const { data, error } = await getSupabase()
       .from("bookings")
       .insert([
         {
@@ -40,9 +40,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    console.log("Booking created:", data);
     return NextResponse.json({ booking: data }, { status: 201 });
-
   } catch (err) {
     console.error("Route error:", err);
     return NextResponse.json({ error: "Server error" }, { status: 500 });
