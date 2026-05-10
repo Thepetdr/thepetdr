@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -11,8 +12,15 @@ const navLinks = [
 ];
 
 const serviceLinks = [
-  { label: "Preventive Pet Care", href: "/services/preventive-pet-care" },
-  { label: "Grooming Salon", href: "/services/grooming-salon" },
+  { label: "Medical & Diagnostics", href: "/services/medical-and-diagnostics" },
+  { label: "Surgery", href: "/services/pet-surgery-sharjah" },
+  { label: "Dental Care", href: "/services/pet-dental-cleaning-sharjah" },
+  { label: "Emergency Vet", href: "/services/emergency-vet-sharjah" },
+  { label: "Vaccinations", href: "/services/pet-vaccinations-sharjah" },
+  { label: "Preventive Care", href: "/services/preventive-pet-care-sharjah" },
+  { label: "Veterinary Care", href: "/services/veterinary-care" },
+  { label: "Grooming Salon", href: "/services/pet-grooming-sharjah" },
+  { label: "Boarding & Daycare", href: "/services/pet-boarding-daycare-sharjah" },
   { label: "Pet Shop", href: "/services/pet-shop" },
   { label: "Dog Park & Pools", href: "/services/dog-park" },
   { label: "Holistic Regimens", href: "/services/holistic-regimens" },
@@ -53,24 +61,14 @@ export default function Navbar() {
 
           {/* ── LOGO ── */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#E07A9A] to-[#E07A9A] flex items-center justify-center shadow-md group-hover:shadow-[#E07A9A]/10-200 transition-shadow duration-300">
-              <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
-                <path d="M4.5 11.5A2 2 0 106.5 9.5 2 2 0 004.5 11.5zM9 7a2 2 0 102 2A2 2 0 009 7zm6 0a2 2 0 102 2 2 2 0 00-2-2zm4.5 4.5a2 2 0 102 2 2 2 0 00-2-2zm-7.63 4.63C10.31 15.08 8 14 8 14a6 6 0 000 4s1.5 2 4 2 4-2 4-2a6 6 0 000-4s-2.31 1.08-3.87 1.63a1 1 0 01-.76 0z" />
-              </svg>
-            </div>
-            <div>
-              <span className="text-lg font-bold text-gray-900 leading-none">ThePetDr</span>
-              <span
-                className="block text-[10px] font-medium leading-none mt-0.5"
-                style={{
-                  background: "linear-gradient(135deg, #E07A9A, #7ECDC2)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Premium Pet Clinic
-              </span>
+            <div className="relative w-36 h-20 flex-shrink-0">
+              <Image
+                src="/logo.png"
+                alt="ThePetDr logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           </Link>
 
@@ -105,29 +103,31 @@ export default function Navbar() {
                     </svg>
                   </button>
 
-                  {/* Dropdown */}
+                  {/* Dropdown — two columns for 12 items */}
                   <div
-                    className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 w-52 transition-all duration-200 ${
+                    className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[26rem] transition-all duration-200 ${
                       servicesOpen
                         ? "opacity-100 translate-y-0 pointer-events-auto"
                         : "opacity-0 -translate-y-2 pointer-events-none"
                     }`}
                   >
                     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-2 overflow-hidden">
-                      {serviceLinks.map((s) => (
-                        <Link
-                          key={s.href}
-                          href={s.href}
-                          className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm transition-all duration-200 ${
-                            pathname === s.href
-                              ? "bg-[#fdf5f3] text-[#E07A9A] font-medium"
-                              : "text-gray-600 hover:bg-[#fdf5f3]/70 hover:text-[#E07A9A]"
-                          }`}
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#E07A9A] flex-shrink-0 opacity-60" />
-                          {s.label}
-                        </Link>
-                      ))}
+                      <div className="grid grid-cols-2 gap-0.5">
+                        {serviceLinks.map((s) => (
+                          <Link
+                            key={s.href}
+                            href={s.href}
+                            className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm transition-all duration-200 ${
+                              pathname === s.href
+                                ? "bg-[#fdf5f3] text-[#E07A9A] font-medium"
+                                : "text-gray-600 hover:bg-[#fdf5f3]/70 hover:text-[#E07A9A]"
+                            }`}
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#E07A9A] flex-shrink-0 opacity-60" />
+                            {s.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden md:flex bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#E07A9A]/10-200 hover:-translate-y-0.5 transition-all duration-300"
+              className="hidden md:flex bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#E07A9A]/20 hover:-translate-y-0.5 transition-all duration-300"
             >
               Book Now
             </Link>
@@ -162,21 +162,9 @@ export default function Navbar() {
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
-              <span
-                className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${
-                  mobileOpen ? "rotate-45 translate-y-2" : ""
-                }`}
-              />
-              <span
-                className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${
-                  mobileOpen ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${
-                  mobileOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
-              />
+              <span className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
             </button>
           </div>
         </div>
@@ -184,7 +172,7 @@ export default function Navbar() {
         {/* ── MOBILE MENU ── */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ${
-            mobileOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+            mobileOpen ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
           } bg-white border-t border-gray-100`}
         >
           <div className="px-6 py-5 space-y-1">
@@ -201,19 +189,17 @@ export default function Navbar() {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth={2}
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        servicesOpen ? "rotate-180" : ""
-                      }`}
+                      className={`w-4 h-4 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
                   <div
                     className={`overflow-hidden transition-all duration-300 ${
-                      servicesOpen ? "max-h-80" : "max-h-0"
+                      servicesOpen ? "max-h-[500px]" : "max-h-0"
                     }`}
                   >
-                    <div className="pl-4 mt-1 space-y-1">
+                    <div className="pl-4 mt-1 space-y-0.5">
                       {serviceLinks.map((s) => (
                         <Link
                           key={s.href}
@@ -249,7 +235,7 @@ export default function Navbar() {
             <div className="pt-3">
               <Link
                 href="/contact"
-                className="block w-full text-center bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-6 py-3 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#E07A9A]/10-200 transition-all duration-300"
+                className="block w-full text-center bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-6 py-3 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#E07A9A]/20 transition-all duration-300"
               >
                 Book an Appointment
               </Link>
