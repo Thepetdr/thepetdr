@@ -38,13 +38,13 @@ const EMPTY_FORM: FormData = {
 
 const SERVICES = [
   { label: "Veterinary Consultation", value: "Veterinary Consultation" },
-  { label: "Vaccination",              value: "Vaccination" },
-  { label: "Grooming",                value: "Grooming" },
-  { label: "Dental Cleaning",         value: "Dental Cleaning" },
-  { label: "Surgery",                 value: "Surgery" },
-  { label: "Holistic / Wellness",     value: "Holistic / Wellness" },
-  { label: "Emergency",               value: "Emergency" },
-  { label: "Other",                   value: "Other" },
+  { label: "Vaccination",             value: "Vaccination" },
+  { label: "Grooming",               value: "Grooming" },
+  { label: "Dental Cleaning",        value: "Dental Cleaning" },
+  { label: "Surgery",                value: "Surgery" },
+  { label: "Holistic / Wellness",    value: "Holistic / Wellness" },
+  { label: "Emergency",              value: "Emergency" },
+  { label: "Other",                  value: "Other" },
 ];
 
 const SPECIES = ["Dog", "Cat", "Rabbit", "Bird", "Reptile", "Other"];
@@ -58,20 +58,26 @@ const FAQS: Record<string, string> = {
   "Emergency care": "Yes, we handle emergencies! Call or WhatsApp us immediately and we'll guide you.",
 };
 
+// ── AI chat history type ────────────────────────────────────────────────────
+type AIMessage = { role: "user" | "assistant"; content: string };
+
 export default function Chatbot() {
-  const [open, setOpen] = useState(false);
-  const [step, setStep] = useState<Step>("chat");
-  const [messages, setMessages] = useState<Message[]>([
-    { from: "bot", text: "Hi there! 👋 Welcome to *The Pet Dr*.\n\nHow can I help you today?" },
+  const [open, setOpen]           = useState(false);
+  const [step, setStep]           = useState<Step>("chat");
+  const [messages, setMessages]   = useState<Message[]>([
+    { from: "bot", text: "Hi there! Welcome to The Pet Dr.\n\nHow can I help you today? Ask me anything or use the quick options below." },
   ]);
-  const [form, setForm] = useState<FormData>(EMPTY_FORM);
-  const [errors, setErrors] = useState<Partial<FormData>>({});
-  const [apiError, setApiError] = useState<string | null>(null);
+  const [form, setForm]           = useState<FormData>(EMPTY_FORM);
+  const [errors, setErrors]       = useState<Partial<FormData>>({});
+  const [apiError, setApiError]   = useState<string | null>(null);
+  const [inputVal, setInputVal]   = useState("");
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiHistory, setAiHistory] = useState<AIMessage[]>([]);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, step]);
+  }, [messages, step, aiLoading]);
 
   function addBot(text: string) {
     setMessages((prev) => [...prev, { from: "bot", text }]);
@@ -80,101 +86,119 @@ export default function Chatbot() {
     setMessages((prev) => [...prev, { from: "user", text }]);
   }
 
-  // ── Main menu handlers ─────────────────────────────────────────────────────
+  // ── AI free-text handler ────────────────────────────────────────────────────
+
+  async function handleAIMessage(userText: string) {
+    if (!userText.trim() || aiLoading) return;
+
+    const trimmed = userText.trim();
+    addUser(trimmed);
+    setInputVal("");
+    setAiLoading(true);
+
+    const updatedHistory: AIMessage[] = [
+      ...aiHistory,
+      { role: "user", content: trimmed },
+    ];
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: updatedHistory }),
+      });
+
+      const data = await res.json();
+      const reply: string = data.message ?? "I'm having trouble connecting right now. Please reach out via WhatsApp for immediate help.";
+
+      addBot(reply);
+      setAiHistory([...updatedHistory, { role: "assistant", content: reply }]);
+    } catch {
+      addBot("I'm having trouble connecting right now. Please reach out via WhatsApp for immediate help.");
+    } finally {
+      setAiLoading(false);
+    }
+  }
+
+  // ── Main menu handlers ──────────────────────────────────────────────────────
 
   function handleMainReply(reply: string) {
     addUser(reply);
     setTimeout(() => {
       if (reply === "Book an appointment") {
-        addBot("Sure! Which service do you need? 👇");
+        addBot("Sure! Which service do you need?");
         setStep("ask_service");
       } else if (reply === "Our services") {
+        addBot("Here are our available services. Which one are you interested in?");
         setStep("ask_service");
       } else if (reply === "FAQs") {
-        addBot("What would you like to know? 👇");
-        setStep("chat"); // stays on chat, FAQ buttons shown
+        addBot("What would you like to know?");
       } else if (reply === "Talk to us") {
-        addBot("We'd love to chat! Reach us directly on WhatsApp. 💬");
+        addBot("We'd love to chat! Reach us directly on WhatsApp.");
       }
     }, 350);
   }
 
-  // ── Service selected ───────────────────────────────────────────────────────
+  // ── Booking flow ────────────────────────────────────────────────────────────
 
   function handleServiceSelect(service: string) {
     addUser(service);
     setForm((f) => ({ ...f, service }));
 
-    // Emergency fast-track
     if (service === "Emergency") {
       setTimeout(() => {
-        addBot(
-          "For emergencies, please contact us immediately!\n\nClick the WhatsApp button below to reach us right now — do not wait for a booking confirmation."
-        );
+        addBot("For emergencies, please contact us immediately!\n\nClick the WhatsApp button below — do not wait for a booking confirmation.");
         setStep("chat");
       }, 350);
       return;
     }
 
     setTimeout(() => {
-      addBot(`Great choice! \n\nWhat's your pet's name?`);
+      addBot(`Great choice!\n\nWhat's your pet's name?`);
       setStep("ask_pet_name");
     }, 350);
   }
-
-  // ── Pet name typed ─────────────────────────────────────────────────────────
 
   function handlePetNameSubmit(name: string) {
     if (!name.trim()) return;
     addUser(name.trim());
     setForm((f) => ({ ...f, pet_name: name.trim() }));
     setTimeout(() => {
-      addBot(`Love that name! 😊\n\nWhat type of pet is ${name.trim()}?`);
+      addBot(`What type of pet is ${name.trim()}?`);
       setStep("ask_species");
     }, 350);
   }
 
-  // ── Species selected ───────────────────────────────────────────────────────
-
   function handleSpeciesSelect(raw: string) {
-    const species = raw.replace(/^[^\s]+\s/, ""); // strip emoji
+    const species = raw.replace(/^[^\s]+\s/, "");
     addUser(raw);
     setForm((f) => ({ ...f, species }));
     setTimeout(() => {
-      addBot(
-        `Got it! Any specific concern or reason for the visit?\n\n(You can skip this if you prefer.)`
-      );
+      addBot(`Got it! Any specific concern or reason for the visit?\n\n(You can skip this if you prefer.)`);
       setStep("ask_concern");
     }, 350);
   }
-
-  // ── Concern typed or skipped ───────────────────────────────────────────────
 
   function handleConcernSubmit(concern: string, skipped = false) {
     if (!skipped) addUser(concern.trim());
     setForm((f) => ({ ...f, main_concern: skipped ? "" : concern.trim() }));
     setTimeout(() => {
-      addBot(
-        `Perfect! Just a couple more details to confirm your booking. \n\nI've already filled in what I know — just add your name, number, and preferred time!`
-      );
+      addBot(`Perfect! Just a couple more details to confirm your booking.\n\nI've already filled in what I know — just add your name, number, and preferred time!`);
       setStep("form");
     }, 350);
   }
-
-  // ── FAQ ────────────────────────────────────────────────────────────────────
 
   function handleFAQ(question: string) {
     addUser(question);
     setTimeout(() => {
       addBot(FAQS[question] ?? "Good question! Please reach us on WhatsApp for more details.");
-      // After FAQ, offer to book
       setTimeout(() => {
         addBot("Is there anything else I can help with?");
       }, 800);
     }, 350);
   }
 
-  // ── Form validation ────────────────────────────────────────────────────────
+  // ── Form validation & submit ────────────────────────────────────────────────
 
   function validate() {
     const e: Partial<FormData> = {};
@@ -186,8 +210,6 @@ export default function Chatbot() {
     setErrors(e);
     return Object.keys(e).length === 0;
   }
-
-  // ── Submit ─────────────────────────────────────────────────────────────────
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -203,8 +225,6 @@ export default function Chatbot() {
       priority: "normal",
     };
 
-    console.log("📤 Booking payload:", payload);
-
     try {
       const res = await fetch("/api/bookings/create", {
         method: "POST",
@@ -215,8 +235,6 @@ export default function Chatbot() {
       let json: { booking?: unknown; error?: string } = {};
       try { json = await res.json(); } catch { /* empty */ }
 
-      console.log("📥 API response:", res.status, json);
-
       if (!res.ok) {
         setApiError(json.error ?? `HTTP ${res.status}`);
         setStep("form");
@@ -225,23 +243,20 @@ export default function Chatbot() {
 
       setStep("success");
       addBot(
-        `All confirmed, ${form.client_name}! 🎉\n\n*${form.pet_name}* is booked for *${form.service}* on *${form.preferred_date}* at *${form.preferred_time}*.\n\nWe'll send you a WhatsApp confirmation shortly. See you soon! 🐾`
+        `All confirmed, ${form.client_name}!\n\n*${form.pet_name}* is booked for *${form.service}* on *${form.preferred_date}* at *${form.preferred_time}*.\n\nWe'll send you a WhatsApp confirmation shortly. See you soon!`
       );
     } catch (err) {
-      console.error("❌ Fetch error:", err);
+      console.error("Fetch error:", err);
       setApiError("Network error. Please try again.");
       setStep("form");
     }
   }
 
-  // ── Input state for pet name & concern steps ───────────────────────────────
-  const [inputVal, setInputVal] = useState("");
-
   const today = new Date().toISOString().split("T")[0];
 
   return (
     <>
-      {/* Floating button */}
+      {/* ── Floating button ── */}
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? "Close chat" : "Open chat"}
@@ -258,7 +273,7 @@ export default function Chatbot() {
         )}
       </button>
 
-      {/* Chat window */}
+      {/* ── Chat window ── */}
       {open && (
         <div
           className="fixed bottom-24 right-6 z-50 w-[370px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden"
@@ -266,10 +281,14 @@ export default function Chatbot() {
         >
           {/* Header */}
           <div className="bg-gradient-to-r from-[#c9748f] to-[#a85570] px-5 py-4 flex items-center gap-3 flex-shrink-0">
-            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-lg">🐾</div>
+            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5" aria-hidden="true">
+                <path d="M4.5 11.5A2 2 0 106.5 9.5 2 2 0 004.5 11.5zM9 7a2 2 0 102 2A2 2 0 009 7zm6 0a2 2 0 102 2 2 2 0 00-2-2zm4.5 4.5a2 2 0 102 2 2 2 0 00-2-2zm-7.63 4.63C10.31 15.08 8 14 8 14a6 6 0 000 4s1.5 2 4 2 4-2 4-2a6 6 0 000-4s-2.31 1.08-3.87 1.63a1 1 0 01-.76 0z" />
+              </svg>
+            </div>
             <div>
               <p className="text-white font-semibold text-sm leading-none">The Pet Dr</p>
-              <p className="text-white/70 text-xs mt-0.5">Usually replies instantly</p>
+              <p className="text-white/70 text-xs mt-0.5">AI-powered assistant</p>
             </div>
             <div className="ml-auto flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-green-400" />
@@ -292,8 +311,23 @@ export default function Chatbot() {
               </div>
             ))}
 
+            {/* AI typing indicator */}
+            {aiLoading && (
+              <div className="flex justify-start">
+                <div className="bg-white rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm border border-gray-100 flex items-center gap-1.5">
+                  {[0, 150, 300].map((d) => (
+                    <span
+                      key={d}
+                      className="w-2 h-2 rounded-full bg-[#c9748f] animate-bounce"
+                      style={{ animationDelay: `${d}ms` }}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* ── Step: Service picker ── */}
-            {(step === "ask_service") && (
+            {step === "ask_service" && (
               <div className="flex flex-col gap-2 pt-1">
                 {SERVICES.map((s) => (
                   <button
@@ -316,10 +350,7 @@ export default function Chatbot() {
                   value={inputVal}
                   onChange={(e) => setInputVal(e.target.value)}
                   onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      handlePetNameSubmit(inputVal);
-                      setInputVal("");
-                    }
+                    if (e.key === "Enter") { handlePetNameSubmit(inputVal); setInputVal(""); }
                   }}
                   placeholder="Type pet's name..."
                   className="flex-1 border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#c9748f]/30 focus:border-[#c9748f]"
@@ -358,10 +389,7 @@ export default function Chatbot() {
                     value={inputVal}
                     onChange={(e) => setInputVal(e.target.value)}
                     onKeyDown={(e) => {
-                      if (e.key === "Enter") {
-                        handleConcernSubmit(inputVal);
-                        setInputVal("");
-                      }
+                      if (e.key === "Enter") { handleConcernSubmit(inputVal); setInputVal(""); }
                     }}
                     placeholder="Describe the concern..."
                     className="flex-1 border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#c9748f]/30 focus:border-[#c9748f]"
@@ -382,12 +410,11 @@ export default function Chatbot() {
               </div>
             )}
 
-            {/* ── Step: Booking form (pre-filled) ── */}
+            {/* ── Step: Booking form ── */}
             {step === "form" && (
               <div className="bg-white rounded-2xl rounded-bl-sm shadow-sm border border-gray-100 p-4">
-                <p className="text-sm font-semibold text-gray-800 mb-1">📋 Confirm Your Booking</p>
+                <p className="text-sm font-semibold text-gray-800 mb-1">Confirm Your Booking</p>
 
-                {/* Pre-filled summary */}
                 {(form.service || form.pet_name || form.species) && (
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {form.service && (
@@ -397,7 +424,7 @@ export default function Chatbot() {
                     )}
                     {form.pet_name && (
                       <span className="px-2.5 py-1 bg-gray-50 border border-gray-200 text-gray-600 text-xs font-medium rounded-full">
-                        🐾 {form.pet_name}
+                        {form.pet_name}
                       </span>
                     )}
                     {form.species && (
@@ -410,13 +437,11 @@ export default function Chatbot() {
 
                 {apiError && (
                   <div className="mb-3 px-3 py-2 bg-red-50 border border-red-200 rounded-lg text-xs text-red-600">
-                    ⚠️ {apiError}
+                    {apiError}
                   </div>
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-3" noValidate>
-
-                  {/* Client Name */}
                   <div>
                     <label className="text-xs font-medium text-gray-600 block mb-1">Your Name *</label>
                     <input
@@ -429,7 +454,6 @@ export default function Chatbot() {
                     {errors.client_name && <p className="text-xs text-red-500 mt-1">{errors.client_name}</p>}
                   </div>
 
-                  {/* Phone */}
                   <div>
                     <label className="text-xs font-medium text-gray-600 block mb-1">WhatsApp Number *</label>
                     <div className="flex items-stretch border border-gray-200 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-[#c9748f]/30 focus-within:border-[#c9748f]">
@@ -445,7 +469,6 @@ export default function Chatbot() {
                     {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
                   </div>
 
-                  {/* Pet name — editable if empty */}
                   {!form.pet_name && (
                     <div>
                       <label className="text-xs font-medium text-gray-600 block mb-1">Pet&apos;s Name</label>
@@ -459,7 +482,6 @@ export default function Chatbot() {
                     </div>
                   )}
 
-                  {/* Service — editable if empty */}
                   {!form.service && (
                     <div>
                       <label className="text-xs font-medium text-gray-600 block mb-1">Service *</label>
@@ -477,7 +499,6 @@ export default function Chatbot() {
                     </div>
                   )}
 
-                  {/* Date & Time */}
                   <div className="grid grid-cols-2 gap-2">
                     <div>
                       <label className="text-xs font-medium text-gray-600 block mb-1">Date *</label>
@@ -506,10 +527,11 @@ export default function Chatbot() {
                     </div>
                   </div>
 
-                  {/* Main concern — editable if empty */}
                   {!form.main_concern && (
                     <div>
-                      <label className="text-xs font-medium text-gray-600 block mb-1">Main Concern <span className="text-gray-400 font-normal">(optional)</span></label>
+                      <label className="text-xs font-medium text-gray-600 block mb-1">
+                        Main Concern <span className="text-gray-400 font-normal">(optional)</span>
+                      </label>
                       <textarea
                         value={form.main_concern}
                         onChange={(e) => setForm({ ...form, main_concern: e.target.value })}
@@ -524,7 +546,7 @@ export default function Chatbot() {
                     type="submit"
                     className="w-full bg-gradient-to-r from-[#c9748f] to-[#a85570] text-white py-2.5 rounded-xl text-sm font-semibold hover:opacity-90 active:scale-95 transition-all duration-200"
                   >
-                    Confirm Booking 🐾
+                    Confirm Booking
                   </button>
 
                   <a
@@ -556,7 +578,7 @@ export default function Chatbot() {
               </div>
             )}
 
-            {/* Success — book again */}
+            {/* Success */}
             {step === "success" && (
               <div className="flex flex-wrap gap-2 pt-1">
                 <button
@@ -565,7 +587,7 @@ export default function Chatbot() {
                     setErrors({});
                     setApiError(null);
                     setStep("ask_service");
-                    addBot("Sure! Which service do you need this time? 👇");
+                    addBot("Sure! Which service do you need this time?");
                   }}
                   className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium rounded-full transition-colors"
                 >
@@ -577,7 +599,7 @@ export default function Chatbot() {
                   rel="noreferrer"
                   className="px-4 py-2 bg-[#25D366] text-white text-xs font-semibold rounded-full hover:bg-[#20bc5a] transition-colors"
                 >
-                  💬 WhatsApp us
+                  WhatsApp us
                 </a>
               </div>
             )}
@@ -585,30 +607,58 @@ export default function Chatbot() {
             <div ref={bottomRef} />
           </div>
 
-          {/* Bottom quick replies — shown on chat & FAQ steps */}
+          {/* ── Bottom: AI input (chat step) OR quick replies ── */}
           {step === "chat" && (
-            <div className="px-4 py-3 border-t border-gray-100 bg-white flex flex-wrap gap-2 flex-shrink-0">
-              {["Book an appointment", "Our services", "FAQs", "Talk to us"].map((r) => (
+            <div className="border-t border-gray-100 bg-white flex-shrink-0">
+              {/* AI text input */}
+              <div className="flex items-center gap-2 px-3 py-2.5 border-b border-gray-100">
+                <input
+                  type="text"
+                  value={inputVal}
+                  onChange={(e) => setInputVal(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.shiftKey) {
+                      handleAIMessage(inputVal);
+                    }
+                  }}
+                  placeholder="Ask me anything..."
+                  disabled={aiLoading}
+                  className="flex-1 text-sm px-3 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#c9748f]/30 focus:border-[#c9748f] disabled:opacity-50"
+                />
                 <button
-                  key={r}
-                  onClick={() => handleMainReply(r)}
-                  className="px-3 py-1.5 bg-gray-50 hover:bg-pink-50 border border-gray-200 hover:border-pink-200 hover:text-[#c9748f] text-gray-700 text-xs font-medium rounded-full transition-all duration-200"
+                  onClick={() => handleAIMessage(inputVal)}
+                  disabled={aiLoading || !inputVal.trim()}
+                  aria-label="Send message"
+                  className="w-9 h-9 flex items-center justify-center bg-[#c9748f] hover:bg-[#a85570] disabled:opacity-40 text-white rounded-xl transition-colors flex-shrink-0"
                 >
-                  {r}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                  </svg>
                 </button>
-              ))}
+              </div>
 
-              {/* FAQ sub-buttons */}
-              <div className="w-full border-t border-gray-100 pt-2 mt-1 flex flex-wrap gap-1.5">
-                {Object.keys(FAQS).map((q) => (
+              {/* Quick replies */}
+              <div className="px-3 py-2.5 flex flex-wrap gap-1.5">
+                {["Book an appointment", "Our services", "FAQs", "Talk to us"].map((r) => (
                   <button
-                    key={q}
-                    onClick={() => handleFAQ(q)}
-                    className="px-3 py-1 bg-gray-50 hover:bg-pink-50 border border-gray-100 hover:border-pink-200 hover:text-[#c9748f] text-gray-500 text-xs rounded-full transition-all duration-200"
+                    key={r}
+                    onClick={() => handleMainReply(r)}
+                    className="px-3 py-1.5 bg-gray-50 hover:bg-pink-50 border border-gray-200 hover:border-pink-200 hover:text-[#c9748f] text-gray-700 text-xs font-medium rounded-full transition-all duration-200"
                   >
-                    {q}
+                    {r}
                   </button>
                 ))}
+                <div className="w-full border-t border-gray-100 pt-1.5 mt-0.5 flex flex-wrap gap-1.5">
+                  {Object.keys(FAQS).map((q) => (
+                    <button
+                      key={q}
+                      onClick={() => handleFAQ(q)}
+                      className="px-3 py-1 bg-gray-50 hover:bg-pink-50 border border-gray-100 hover:border-pink-200 hover:text-[#c9748f] text-gray-500 text-xs rounded-full transition-all duration-200"
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           )}
@@ -616,7 +666,7 @@ export default function Chatbot() {
           {/* Emergency sticky CTA */}
           {step !== "submitting" && step !== "success" && (
             <div className="px-4 py-2 bg-red-50 border-t border-red-100 flex items-center justify-between flex-shrink-0">
-              <span className="text-xs text-red-500 font-medium">🚨 Emergency?</span>
+              <span className="text-xs text-red-500 font-medium">Emergency?</span>
               <a
                 href="https://wa.me/971500000000"
                 target="_blank"
