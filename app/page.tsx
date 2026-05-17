@@ -7,21 +7,99 @@ import { useEffect, useRef, useState } from "react";
 
 const services = [
   {
-    title: "Preventive Pet Care",
-    href: "/services/preventive-pet-care",
-    description: "Protect your pet’s long-term health with routine veterinary care.",
-    features: ["Wellness Exams & Full Health Checks", "Core & Annual Vaccinations", "Early Disease Detection", "Diagnostics & Treatments"],
+    title: "Veterinary Care",
+    href: "/services/veterinary-care",
+    description: "Expert medical attention tailored to your pet's unique needs, from preventative care to complex surgeries.",
+    features: ["Routine Check-ups", "Vaccinations", "Surgical Procedures", "Diagnostics & Treatments"],
     accent: "pink",
     image: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-3-3v6m-7.5 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0016.5 4.5h-15A2.25 2.25 0 001.5 6.75v9A2.25 2.25 0 003.75 18z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Medical & Diagnostics",
+    href: "/services/medical-and-diagnostics",
+    description: "State-of-the-art in-house diagnostics — imaging, blood panels, ECG — with results same day.",
+    features: ["Digital X-ray & Ultrasound", "Blood Panels", "ECG Monitoring", "Endoscopy"],
+    accent: "teal",
+    image: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=600&auto=format&fit=crop&q=80",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+      </svg>
+    ),
+  },
+  {
+    title: "Pet Surgery",
+    href: "/services/pet-surgery-sharjah",
+    description: "Board-certified surgeons performing soft tissue, orthopaedic, and emergency procedures with full post-op care.",
+    features: ["Spay & Neuter", "Soft Tissue Surgery", "Orthopaedic Surgery", "Emergency Procedures"],
+    accent: "pink",
+    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&auto=format&fit=crop&q=80",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Dental Care",
+    href: "/services/pet-dental-cleaning-sharjah",
+    description: "Professional scaling, polishing, full-mouth X-rays, and extractions to prevent pain and gum disease.",
+    features: ["Ultrasonic Scaling", "Dental X-rays", "Tooth Extractions", "Gum Disease Treatment"],
+    accent: "teal",
+    image: "https://images.unsplash.com/photo-1606214174585-fe31582dc6ee?w=600&auto=format&fit=crop&q=80",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Vaccinations",
+    href: "/services/pet-vaccinations-sharjah",
+    description: "Core and non-core vaccines following international protocols, with digital records and reminder scheduling.",
+    features: ["Core Vaccines", "Puppy & Kitten Programmes", "Digital Vaccine Passport", "Travel Certificates"],
+    accent: "pink",
+    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&auto=format&fit=crop&q=80",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Preventive Care",
+    href: "/services/preventive-pet-care-sharjah",
+    description: "Proactive wellness programmes covering health screens, parasite prevention, microchipping, and life-stage planning.",
+    features: ["Annual Wellness Exams", "Parasite Prevention", "Microchipping", "Senior Health Screens"],
+    accent: "teal",
+    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&auto=format&fit=crop&q=80",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Emergency Vet",
+    href: "/services/emergency-vet-sharjah",
+    description: "Rapid triage and life-saving treatment for trauma, poisoning, breathing emergencies, and critical conditions.",
+    features: ["Rapid Triage", "Trauma & Poisoning", "Breathing Emergencies", "Open 7 Days"],
+    accent: "pink",
+    image: "https://images.unsplash.com/photo-1632833239869-a37e3a5806d2?w=600&auto=format&fit=crop&q=80",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
       </svg>
     ),
   },
   {
     title: "Grooming Salon",
-    href: "/services/grooming-salon",
+    href: "/services/pet-grooming-sharjah",
     description: "A luxurious grooming experience to keep your pet looking and feeling their absolute best.",
     features: ["Professional Grooming", "Bathing & Haircuts", "Nail Trims", "Coat Conditioning"],
     accent: "teal",
@@ -33,11 +111,24 @@ const services = [
     ),
   },
   {
+    title: "Boarding & Daycare",
+    href: "/services/pet-boarding-daycare-sharjah",
+    description: "Safe, comfortable, vet-supervised boarding and daycare with private suites and 24-hour care.",
+    features: ["Private Suites", "24h Vet Supervision", "Daily Enrichment", "Webcam Check-ins"],
+    accent: "pink",
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&auto=format&fit=crop&q=80",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+      </svg>
+    ),
+  },
+  {
     title: "Pet Shop",
     href: "/services/pet-shop",
     description: "Carefully curated premium supplies, nutrition, and accessories sourced from the world's best brands.",
     features: ["Premium Pet Supplies", "Quality Nutrition", "Toys & Enrichment", "Accessories"],
-    accent: "pink",
+    accent: "teal",
     image: "https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
@@ -46,11 +137,11 @@ const services = [
     ),
   },
   {
-    title: "Dog Park with Pools",
+    title: "Dog Park & Pools",
     href: "/services/dog-park",
-    description: "A beautifully maintained outdoor space where pets can play, socialize, and cool off safely.",
-    features: ["Supervised Play Area", "Socialization Programs", "Swimming Pools", "Safe Enclosures"],
-    accent: "teal",
+    description: "A beautifully maintained outdoor space where pets can play, socialise, and cool off safely.",
+    features: ["Supervised Play Area", "Socialisation Programmes", "Swimming Pools", "Safe Enclosures"],
+    accent: "pink",
     image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
@@ -59,11 +150,11 @@ const services = [
     ),
   },
   {
-    title: "Holistic Pet Regimens",
+    title: "Holistic Regimens",
     href: "/services/holistic-regimens",
-    description: "Integrative wellness programs blending modern medicine with time-tested natural therapies.",
-    features: ["Acupuncture", "Herbal Medicine", "Nutritional Counseling", "Wellness Planning"],
-    accent: "pink",
+    description: "Integrative wellness programmes blending modern medicine with time-tested natural therapies.",
+    features: ["Acupuncture", "Herbal Medicine", "Nutritional Counselling", "Wellness Planning"],
+    accent: "teal",
     image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
@@ -488,86 +579,102 @@ We go beyond treatment - supporting animal rescue and pet rehabilitation through
       </section>
 
       {/* ── SERVICES ─────────────────────────────────────────────────────── */}
-      <section id="services" className="py-28 bg-[#fdf8f9]">
-        <div ref={servicesSection.ref} className="max-w-7xl mx-auto px-6">
-          <div
-            className={`text-center mb-16 transition-all duration-700 ${
-              servicesSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      {/* ── SERVICES ─────────────────────────────────────────────────────── */}
+<section id="services" className="py-28 bg-[#fdf8f9]">
+  <div ref={servicesSection.ref} className="max-w-7xl mx-auto px-6">
+    <div
+      className={`text-center mb-16 transition-all duration-700 ${
+        servicesSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      }`}
+    >
+      <span className="inline-block bg-white border border-[#EFBCB0]-200 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+        What We Offer
+      </span>
+      <h2 className="text-4xl md:text-5xl font-bold text-[#E07A9A] mb-4 tracking-tight">
+        Comprehensive Care{" "}
+        <span
+          style={{
+            background: "linear-gradient(135deg, #7BB5AD)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          Under One Roof
+        </span>
+      </h2>
+      <p className="text-gray-500 max-w-xl mx-auto font-light leading-relaxed">
+        Leading Veterinary Clinic in Sharjah Offering Preventive Care, Advanced Diagnostics,
+        Surgery, Dental Care &amp; 24/7 Emergency Services
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {services.map((service, i) => {
+        const a = accentStyles[service.accent as keyof typeof accentStyles];
+        return (
+          <Link
+            href={service.href}
+            key={service.title}
+            className={`group glass-card rounded-2xl overflow-hidden border hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${a.cardBorder} ${
+              servicesSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
+            style={{ transitionDelay: `${i * 60}ms` }}
           >
-            <span className="inline-block bg-white border border-[#EFBCB0]-200 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
-              What We Offer
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#E07A9A] mb-4 tracking-tight">
-              Comprehensive Care{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #7BB5AD)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
+            {/* Card image */}
+            <div className="relative h-44 overflow-hidden">
+              <Image
+                src={service.image}
+                alt={service.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              <div
+                className={`absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/90 flex items-center justify-center ${a.iconColor} shadow-md`}
               >
-                Under One Roof
-              </span>
-            </h2>
-            <p className="text-gray-500 max-w-xl mx-auto font-light leading-relaxed">
-              Leading Veterinary Clinic in Sharjah Offering Preventive Care, Advanced Diagnostics, Surgery, Dental Care & 24/7 Emergency Services
+                {service.icon}
+              </div>
+            </div>
 
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, i) => {
-              const a = accentStyles[service.accent as keyof typeof accentStyles];
-              return (
-                <Link
-                  href={service.href}
-                  key={service.title}
-                  className={`group glass-card rounded-2xl overflow-hidden border hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${a.cardBorder} ${
-                    servicesSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                  }`}
-                  style={{ transitionDelay: `${i * 100}ms` }}
+            <div className="p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{service.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed mb-4 font-light">
+                {service.description}
+              </p>
+              <ul className="space-y-1.5 mb-5">
+                {service.features.map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-sm text-gray-600">
+                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${a.dot}`} />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <div
+                className={`flex items-center gap-1 text-xs font-semibold ${a.learnMore} group-hover:gap-2 transition-all duration-300`}
+              >
+                Learn More
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  className="w-3 h-3"
                 >
-                  {/* Card image */}
-                  <div className="relative h-44 overflow-hidden">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                    <div className={`absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/90 flex items-center justify-center ${a.iconColor} shadow-md`}>
-                      {service.icon}
-                    </div>
-                  </div>
-
-                  <div className="p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{service.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-4 font-light">{service.description}</p>
-                    <ul className="space-y-1.5 mb-5">
-                      {service.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2 text-sm text-gray-600">
-                          <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${a.dot}`} />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    {/* Learn More */}
-                    <div className={`flex items-center gap-1 text-xs font-semibold ${a.learnMore} group-hover:gap-2 transition-all duration-300`}>
-                      Learn More
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3 h-3">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                      </svg>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </div>
+            </div>
+          </Link>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
       {/* ── GALLERY STRIP ────────────────────────────────────────────────── */}
       <section className="py-20 bg-white overflow-hidden">

@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Our Services | ThePetDr",
+  title: "Our Services | ThePetDr - Premium Pet Care in Sharjah",
   description:
-    "Explore ThePetDr's complete range of premium pet care services in Dubai - expert veterinary care, luxury grooming, holistic wellness, pet shop, and dog park & pools.",
+    "Explore ThePetDr's complete range of premium pet care services in Sharjah — veterinary care, surgery, diagnostics, dental, grooming, boarding, vaccinations, holistic wellness, pet shop, and dog park.",
 };
 
-// ─── DATA ────────────────────────────────────────────────────────────────────
+// ─── DATA ─────────────────────────────────────────────────────────────────────
 
 const services = [
   {
     id: "veterinary-care",
+    href: "/services/veterinary-care",
     title: "Veterinary Care",
     tagline: "Expert medical care, every visit.",
     description:
@@ -35,11 +36,162 @@ const services = [
     tagColor: "bg-rose-50 text-rose-700 border-rose-200",
   },
   {
-    id: "grooming-salon",
+    id: "medical-and-diagnostics",
+    href: "/services/medical-and-diagnostics",
+    title: "Medical & Diagnostics",
+    tagline: "Advanced diagnostics. Accurate answers.",
+    description:
+      "State-of-the-art in-house diagnostics — digital X-ray, ultrasound, blood panels, ECG, and endoscopy — so you get answers fast and treatment starts without delay. All testing performed on-site by trained professionals.",
+    features: [
+      "Digital X-ray & ultrasound imaging",
+      "Complete blood panel & urinalysis",
+      "ECG & cardiac monitoring",
+      "Endoscopy & soft-tissue imaging",
+      "In-house results within 1–2 hours",
+      "All species accepted",
+    ],
+    highlight: "In-house lab · Results same day",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+      </svg>
+    ),
+    accentColor: "from-blue-50 to-cyan-50",
+    borderColor: "border-blue-100",
+    tagColor: "bg-blue-50 text-blue-700 border-blue-200",
+  },
+  {
+    id: "pet-surgery-sharjah",
+    href: "/services/pet-surgery-sharjah",
+    title: "Pet Surgery",
+    tagline: "Surgical care you can trust completely.",
+    description:
+      "Board-certified veterinary surgeons. Sterile surgical suites. Full anaesthesia monitoring and compassionate post-op care — for routine elective procedures to complex emergency surgeries.",
+    features: [
+      "Spay & neuter procedures",
+      "Soft tissue & orthopaedic surgery",
+      "Dental extractions & oral surgery",
+      "Emergency & trauma surgery",
+      "Laparoscopic (minimally invasive) procedures",
+      "Full post-op care & rehabilitation",
+    ],
+    highlight: "Certified surgeons · Pre-surgical blood work included",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    accentColor: "from-violet-50 to-purple-50",
+    borderColor: "border-violet-100",
+    tagColor: "bg-violet-50 text-violet-700 border-violet-200",
+  },
+  {
+    id: "pet-dental-cleaning-sharjah",
+    href: "/services/pet-dental-cleaning-sharjah",
+    title: "Dental Care",
+    tagline: "Healthy teeth. Happier pet.",
+    description:
+      "80% of pets show signs of dental disease by age 3. Professional scaling, polishing, full-mouth X-rays, and extractions — all under anaesthesia to ensure thorough, stress-free treatment.",
+    features: [
+      "Professional ultrasonic scaling & polishing",
+      "Full-mouth digital dental X-rays",
+      "Tooth extractions & oral surgery",
+      "Gum disease (periodontal) treatment",
+      "Oral health assessments",
+      "Home dental care guidance",
+    ],
+    highlight: "All breeds & ages · Anaesthesia-based for thoroughness",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+      </svg>
+    ),
+    accentColor: "from-teal-50 to-emerald-50",
+    borderColor: "border-teal-100",
+    tagColor: "bg-teal-50 text-teal-700 border-teal-200",
+  },
+  {
+    id: "pet-vaccinations-sharjah",
+    href: "/services/pet-vaccinations-sharjah",
+    title: "Vaccinations",
+    tagline: "Protection from day one.",
+    description:
+      "Core and non-core vaccinations for dogs, cats, rabbits, and exotic pets. We follow internationally recognised protocols and provide digital vaccination records and personalised reminder schedules.",
+    features: [
+      "Core vaccines: Distemper, Parvovirus, Rabies",
+      "Cat vaccines: FVRCP, FeLV, Rabies",
+      "Puppy & kitten vaccination programmes",
+      "Booster scheduling & digital records",
+      "Travel & export health certificates",
+      "Titre testing for immunity verification",
+    ],
+    highlight: "Digital vaccine passport · Reminder alerts included",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+      </svg>
+    ),
+    accentColor: "from-green-50 to-lime-50",
+    borderColor: "border-green-100",
+    tagColor: "bg-green-50 text-green-700 border-green-200",
+  },
+  {
+    id: "preventive-pet-care-sharjah",
+    href: "/services/preventive-pet-care-sharjah",
+    title: "Preventive Care",
+    tagline: "Healthy today. Protected tomorrow.",
+    description:
+      "Proactive wellness programmes that catch problems before they become serious. Annual health screens, parasite prevention, weight management, and personalised care plans for every life stage.",
+    features: [
+      "Annual & bi-annual wellness exams",
+      "Parasite prevention (fleas, ticks, worms)",
+      "Microchipping & ID registration",
+      "Weight management programmes",
+      "Senior pet health screenings",
+      "Nutritional & lifestyle counselling",
+    ],
+    highlight: "Life-stage plans · Ongoing wellness tracking",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+      </svg>
+    ),
+    accentColor: "from-orange-50 to-amber-50",
+    borderColor: "border-orange-100",
+    tagColor: "bg-orange-50 text-orange-700 border-orange-200",
+  },
+  {
+    id: "emergency-vet-sharjah",
+    href: "/services/emergency-vet-sharjah",
+    title: "Emergency Vet",
+    tagline: "When every minute matters most.",
+    description:
+      "Rapid triage, critical care, and life-saving treatment for pets in Sharjah — 7 days a week. Call ahead so our team is ready the moment you arrive. We handle trauma, poisoning, breathing emergencies, and more.",
+    features: [
+      "Rapid triage on arrival",
+      "Trauma & accident care",
+      "Suspected poisoning treatment",
+      "Breathing & cardiac emergencies",
+      "Urinary blockage & GDV (bloat)",
+      "Seizure management",
+    ],
+    highlight: "Open 7 days · Call ahead for fastest response",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+      </svg>
+    ),
+    accentColor: "from-red-50 to-rose-50",
+    borderColor: "border-red-100",
+    tagColor: "bg-red-50 text-red-700 border-red-200",
+  },
+  {
+    id: "pet-grooming-sharjah",
+    href: "/services/pet-grooming-sharjah",
     title: "Grooming Salon",
     tagline: "Luxury grooming for every breed.",
     description:
-      "Our certified groomers treat your pet to a spa-quality experience using premium, pet-safe products. Whether it's a simple bath and trim or a full breed-standard groom, your pet leaves looking - and feeling - their absolute best.",
+      "Our certified groomers treat your pet to a spa-quality experience using premium, pet-safe products. Whether it's a simple bath and trim or a full breed-standard groom, your pet leaves looking — and feeling — their absolute best.",
     features: [
       "Full groom: bath, blow-dry, cut & style",
       "Breed-specific haircuts",
@@ -59,11 +211,37 @@ const services = [
     tagColor: "bg-purple-50 text-purple-700 border-purple-200",
   },
   {
+    id: "pet-boarding-daycare-sharjah",
+    href: "/services/pet-boarding-daycare-sharjah",
+    title: "Boarding & Daycare",
+    tagline: "A home away from home.",
+    description:
+      "Safe, comfortable, vet-supervised boarding and daycare for dogs and cats in Sharjah. Private suites, enrichment activities, and 24-hour care so your pet is happy and healthy while you're away.",
+    features: [
+      "Private suites for dogs & cats",
+      "24-hour vet-supervised care",
+      "Daily enrichment & playtime",
+      "Webcam check-ins for owners",
+      "Medication administration",
+      "Full daycare packages available",
+    ],
+    highlight: "Vet-supervised · Daily photo updates",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+      </svg>
+    ),
+    accentColor: "from-sky-50 to-indigo-50",
+    borderColor: "border-sky-100",
+    tagColor: "bg-sky-50 text-sky-700 border-sky-200",
+  },
+  {
     id: "pet-shop",
+    href: "/services/pet-shop",
     title: "Pet Shop",
     tagline: "Premium supplies, nutrition & accessories.",
     description:
-      "Browse our curated selection of vet-recommended food, treats, toys, beds, and accessories. Our in-store team helps you find the perfect products for your pet's breed, age, and health needs - no generic shelf-filling here.",
+      "Browse our curated selection of vet-recommended food, treats, toys, beds, and accessories. Our in-store team helps you find the perfect products for your pet's breed, age, and health needs — no generic shelf-filling here.",
     features: [
       "Vet-approved premium food & raw diets",
       "Breed & life-stage specific nutrition",
@@ -72,7 +250,7 @@ const services = [
       "Supplements & health products",
       "Custom gift hampers for pets",
     ],
-    highlight: "In-store & online · Same-day Dubai delivery",
+    highlight: "In-store & online · Same-day Sharjah delivery",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
@@ -84,10 +262,11 @@ const services = [
   },
   {
     id: "dog-park",
+    href: "/services/dog-park",
     title: "Dog Park & Pools",
     tagline: "Safe, social outdoor play for every dog.",
     description:
-      "Our climate-controlled outdoor park and hydrotherapy pools give dogs the space, safety, and stimulation they need. Supervised play sessions, separate zones for small and large breeds, and certified trainers on hand make this Dubai's finest dog socialisation venue.",
+      "Our climate-controlled outdoor park and hydrotherapy pools give dogs the space, safety, and stimulation they need. Supervised play sessions, separate zones for small and large breeds, and certified trainers on hand.",
     features: [
       "Separate small & large breed zones",
       "Heated & cooled hydrotherapy pools",
@@ -102,16 +281,17 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
       </svg>
     ),
-    accentColor: "from-sky-50 to-blue-50",
-    borderColor: "border-sky-100",
-    tagColor: "bg-sky-50 text-sky-700 border-sky-200",
+    accentColor: "from-cyan-50 to-sky-50",
+    borderColor: "border-cyan-100",
+    tagColor: "bg-cyan-50 text-cyan-700 border-cyan-200",
   },
   {
     id: "holistic-regimens",
+    href: "/services/holistic-regimens",
     title: "Holistic Regimens",
     tagline: "Whole-body wellness, naturally.",
     description:
-      "True health goes beyond treating symptoms. Our integrative wellness programmes combine conventional veterinary medicine with evidence-based holistic therapies - helping your pet thrive in body, mind, and spirit.",
+      "True health goes beyond treating symptoms. Our integrative wellness programmes combine conventional veterinary medicine with evidence-based holistic therapies — helping your pet thrive in body, mind, and spirit.",
     features: [
       "Acupuncture & physiotherapy",
       "Hydrotherapy & aquatic rehabilitation",
@@ -135,7 +315,7 @@ const services = [
 const faqs = [
   {
     q: "Do I need an appointment or can I walk in?",
-    a: "Veterinary and grooming services are appointment-based, though we accommodate walk-ins when slots are available. The Pet Shop and Dog Park are open access during operating hours.",
+    a: "Veterinary, surgery, and grooming services are appointment-based, though we accommodate walk-ins when slots are available. The Pet Shop and Dog Park are open access during operating hours.",
   },
   {
     q: "What pets do you treat at the clinic?",
@@ -143,15 +323,23 @@ const faqs = [
   },
   {
     q: "How long does a grooming session take?",
-    a: "A standard full groom takes 2-4 hours depending on breed and coat condition. Express sessions are available for dogs requiring a quick bath and blow-dry only.",
+    a: "A standard full groom takes 2–4 hours depending on breed and coat condition. Express sessions are available for a quick bath and blow-dry only.",
   },
   {
     q: "Are the Dog Park pools heated?",
-    a: "Yes - our hydrotherapy pools are temperature-controlled year-round, making them comfortable and safe in both Dubai's summers and cooler winter months.",
+    a: "Yes — our hydrotherapy pools are temperature-controlled year-round, making them comfortable and safe in both Sharjah's summers and cooler winter months.",
+  },
+  {
+    q: "What happens in an emergency outside normal hours?",
+    a: "Call our emergency line immediately. We operate 7 days a week with extended urgent care hours. Calling ahead ensures our team is ready the moment you arrive.",
   },
   {
     q: "How do I book a holistic wellness consultation?",
-    a: "Holistic regimens begin with a 60-minute assessment with our integrative vet. You can book this via WhatsApp, our booking form, or by calling the clinic directly.",
+    a: "Holistic regimens begin with a 60-minute assessment with our integrative vet. You can book via WhatsApp, our booking form, or by calling the clinic directly.",
+  },
+  {
+    q: "Do you offer boarding for cats as well as dogs?",
+    a: "Yes — we have separate, quiet private suites for cats with enrichment and 24-hour supervision. Cats are always kept in a separate area from dogs.",
   },
 ];
 
@@ -225,10 +413,10 @@ function ServiceCard({
             {/* CTAs */}
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#E07A9A] to-[#E07A9A] text-white px-6 py-3 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#E07A9A]/20 hover:-translate-y-0.5 transition-all duration-300"
+                href={service.href}
+                className="inline-flex items-center gap-2 bg-[#E07A9A] text-white px-6 py-3 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-[#E07A9A]/20 hover:-translate-y-0.5 transition-all duration-300"
               >
-                Book {service.title}
+                Learn More
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -239,17 +427,12 @@ function ServiceCard({
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </Link>
-              <a
-                href="https://wa.me/971500000000"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 border border-gray-200 text-gray-700 px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
               >
-                <svg viewBox="0 0 24 24" fill="#25D366" className="w-4 h-4">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-                Ask on WhatsApp
-              </a>
+                Book {service.title}
+              </Link>
             </div>
           </div>
 
@@ -265,9 +448,9 @@ function ServiceCard({
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4 mb-8">
               {[
-                { label: "Happy Clients", value: "1,000+" },
+                { label: "Happy Clients", value: "5,000+" },
                 { label: "Avg. Rating", value: "4.9 ★" },
-                { label: "Years in Dubai", value: "10+" },
+                { label: "Years of Care", value: "10+" },
                 { label: "Certified Staff", value: "15+" },
               ].map((stat) => (
                 <div
@@ -293,9 +476,9 @@ function ServiceCard({
               </div>
               <p className="text-sm text-gray-700 leading-relaxed font-light italic">
                 &ldquo;The team at ThePetDr treated my golden retriever with such care and
-                professionalism. We wouldn&apos;t go anywhere else in Dubai.&rdquo;
+                professionalism. We wouldn&apos;t go anywhere else in Sharjah.&rdquo;
               </p>
-              <p className="text-xs text-gray-400 font-medium mt-2">- ThePetDr client, Dubai</p>
+              <p className="text-xs text-gray-400 font-medium mt-2">— ThePetDr client, Sharjah</p>
             </div>
           </div>
         </div>
@@ -335,7 +518,7 @@ export default function ServicesPage() {
 
           <div className="max-w-3xl">
             <span className="inline-block bg-[#fdf5f3] border border-pink-200 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest shadow-sm">
-              Everything Under One Roof
+              Everything Under One Roof · Sharjah
             </span>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
@@ -353,8 +536,8 @@ export default function ServicesPage() {
             </h1>
 
             <p className="text-xl text-gray-500 font-light leading-relaxed max-w-2xl mb-10">
-              From first vaccinations to senior wellness plans, luxury grooming to hydrotherapy
-              pools - ThePetDr is Dubai&apos;s most complete pet care destination.
+              From first vaccinations to senior wellness plans, emergency surgery to luxury grooming
+              — ThePetDr is Sharjah&apos;s most complete pet care destination.
             </p>
 
             {/* Quick jump links */}
@@ -365,7 +548,7 @@ export default function ServicesPage() {
                   href={`#${s.id}`}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-200 text-sm font-medium text-gray-700 hover:bg-[#fdf5f3] hover:border-pink-200 hover:text-[#E07A9A] transition-all duration-200"
                 >
-                  <span className="text-[#E07A9A]">{s.icon}</span>
+                  <span className="text-[#E07A9A] [&>svg]:w-4 [&>svg]:h-4">{s.icon}</span>
                   {s.title}
                 </a>
               ))}
@@ -433,7 +616,6 @@ export default function ServicesPage() {
         className="py-20 relative overflow-hidden"
         style={{ background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)" }}
       >
-        {/* Subtle radial highlights */}
         <div
           className="absolute -top-20 -right-20 w-96 h-96 rounded-full opacity-10 pointer-events-none"
           style={{ background: "radial-gradient(circle, white, transparent 70%)" }}
