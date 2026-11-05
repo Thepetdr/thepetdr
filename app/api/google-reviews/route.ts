@@ -51,6 +51,8 @@ export async function GET() {
     const place = (await response.json()) as GooglePlace;
     const reviews = (place.reviews ?? [])
       .filter((review) => typeof (review.text?.text ?? review.originalText?.text) === "string")
+      // Owner request: only feature 4 and 5 star reviews. The UI discloses this filter.
+      .filter((review) => typeof review.rating === "number" && review.rating >= 4)
       .slice(0, 5)
       .map((review) => ({
         name: review.authorAttribution?.displayName || "Google reviewer",
