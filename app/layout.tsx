@@ -21,12 +21,12 @@ export const metadata: Metadata = {
 
   title: {
     default:
-      "The Pet Doctor | Vet Clinic, Catery, Grooming & Pet Shop in Sharjah",
+      "Veterinary Clinic in Sharjah | The Pet Doctor Center",
     template: "%s | The Pet Doctor",
   },
 
   description:
-    "The Pet Doctor is a veterinary clinic and pet care destination in Sharjah, offering feline-focused veterinary care, cat boarding, grooming, and a curated pet retail shop.",
+    "Premium veterinary care for cats, dogs, birds and exotic pets in Al Zahia, Sharjah. Consultations, vaccinations, surgery, grooming and cat boarding.",
 
   keywords: [
     "veterinary clinic Sharjah",
@@ -35,22 +35,22 @@ export const metadata: Metadata = {
     "cat vet Sharjah",
     "feline veterinary care Sharjah",
     "cat boarding Sharjah",
-    "catery Sharjah",
+    "cat hotel Sharjah",
     "cat grooming Sharjah",
     "dog grooming Sharjah",
     "pet grooming Sharjah",
     "pet shop Sharjah",
     "pet retail shop Sharjah",
-    "holistic pet care Sharjah",
+    "emergency vet Sharjah",
     "The Pet Doctor",
     "ThePetDr",
   ],
 
   openGraph: {
     title:
-      "The Pet Doctor | Vet Clinic, Catery, Grooming & Pet Shop in Sharjah",
+      "Veterinary Clinic in Sharjah | The Pet Doctor Center",
     description:
-      "Feline-focused veterinary care, cat boarding, grooming and pet retail services in Sharjah.",
+      "Veterinary care for cats, dogs, birds and exotic pets in Sharjah. Consultations, vaccinations, surgery, grooming and cat boarding.",
     url: "https://thepetdr.ae",
     siteName: "The Pet Doctor",
     locale: "en_AE",
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "The Pet Doctor | Vet Clinic, Catery, Grooming & Pet Shop in Sharjah",
+      "Veterinary Clinic in Sharjah | The Pet Doctor Center",
     description:
-      "Feline-focused veterinary care, cat boarding, grooming and pet retail services in Sharjah.",
+      "Veterinary care for cats, dogs, birds and exotic pets in Sharjah. Consultations, vaccinations, surgery, grooming and cat boarding.",
   },
 
   robots: {
