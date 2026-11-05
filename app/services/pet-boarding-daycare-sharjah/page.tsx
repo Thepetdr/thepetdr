@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     "Overnight pet care UAE",
   ],
   alternates: {
-    canonical: "https://thepetdr.com/pet-boarding-sharjah",
+    canonical: "https://thepetdr.ae/services/pet-boarding-daycare-sharjah",
   },
   openGraph: {
     title: "Pet Boarding & Daycare in Sharjah | The Pet Dr",
     description:
       "Safe and comfortable pet boarding and daycare in Sharjah with supervised care, medication support, and clean accommodations for dogs and cats.",
-    url: "https://thepetdr.com/pet-boarding-sharjah",
+    url: "https://thepetdr.ae/services/pet-boarding-daycare-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -37,7 +37,7 @@ const jsonLd = {
   name: "The Pet Dr",
   description:
     "Pet boarding and daycare facility in Sharjah offering supervised stays, medication administration, cat suites, and daily care for dogs and cats.",
-  url: "https://thepetdr.com/pet-boarding-sharjah",
+  url: "https://thepetdr.ae/services/pet-boarding-daycare-sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   mainEntityOfPage: {
     "@type": "FAQPage",
