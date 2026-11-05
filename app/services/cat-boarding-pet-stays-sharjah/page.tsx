@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Cat Boarding & Pet Stays in Sharjah | The Pet Doctor",
+  title: "Cat Boarding in Sharjah",
   description:
-    "Cat boarding in Sharjah with calm cat-focused spaces, comfortable stays, daily care, and veterinary support nearby. Book your cat's stay at The Pet Doctor.",
+    "Comfortable cat boarding in Al Zahia, Sharjah. Short and long stays, attentive daily care and veterinary support. Contact us to arrange your cat's stay.",
   alternates: {
     canonical: "https://thepetdr.ae/services/cat-boarding-pet-stays-sharjah",
   },
