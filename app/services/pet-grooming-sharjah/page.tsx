@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     "Dog grooming salon Sharjah",
   ],
   alternates: {
-    canonical: "https://thepetdr.com/pet-grooming-sharjah",
+    canonical: "https://thepetdr.ae/services/pet-grooming-sharjah",
   },
   openGraph: {
     title: "Professional Pet Grooming in Sharjah | The Pet Dr",
     description:
       "Premium pet grooming in Sharjah — breed-specific styling, creative grooming, cat grooming, medicated baths, and low-stress handling.",
-    url: "https://thepetdr.com/pet-grooming-sharjah",
+    url: "https://thepetdr.ae/services/pet-grooming-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -40,7 +40,7 @@ const jsonLd = {
   name: "The Pet Dr Grooming",
   description:
     "Professional pet grooming salon in Sharjah offering full grooming, breed-specific styling, creative grooming, cat grooming, and medicated baths.",
-  url: "https://thepetdr.com/pet-grooming-sharjah",
+  url: "https://thepetdr.ae/services/pet-grooming-sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   mainEntityOfPage: {
     "@type": "FAQPage",
