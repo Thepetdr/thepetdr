@@ -334,7 +334,7 @@ const services = [
   },
 ];
 const stats = [
-  { number: "Sharjah’s First", label: "All-in-one pet hub", accent: "pink" },
+  { number: "Al Zahia", label: "Sharjah veterinary care", accent: "pink" },
   { number: "Dedicated Cattery", label: "Designed for cats", accent: "teal" },
   { number: "7 Days", label: "Of compassionate care", accent: "pink" },
   { number: "Modern Medicine", label: "Advanced care", accent: "teal" },
@@ -640,7 +640,7 @@ export default function Home() {
 
               {/* Floating badge top left */}
               <div className="absolute -top-4 -left-4 glass rounded-2xl px-4 py-3 shadow-lg border border-white/60">
-                <p className="text-xs text-gray-500 font-medium">Happy Pets</p>
+                <p className="text-xs text-gray-500 font-medium">Our approach</p>
                 <p
                   className="text-xl font-bold"
                   style={{
@@ -651,7 +651,7 @@ export default function Home() {
                     backgroundClip: "text",
                   }}
                 >
-                  1,000+
+                  Cat-first care
                 </p>
               </div>
 
