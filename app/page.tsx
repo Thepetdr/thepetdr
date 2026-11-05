@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import GoogleReviews from "@/components/GoogleReviews";
 import { useEffect, useRef, useState } from "react";
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
@@ -481,36 +482,6 @@ const gallery = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Sara",
-    role: "Dog Owner",
-    review:
-      "ThePetDr has been absolutely incredible for our golden retriever Max. The veterinary team is so gentle and thorough - we have never felt more confident about his health.",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80",
-    rating: 5,
-  },
-  {
-    name: "James Thornton",
-    role: "Cat Owner",
-    review:
-      "The grooming salon is world-class. My Persian cat Luna comes back looking like she is fresh off a runway every single time. The staff genuinely care about every animal.",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80",
-    rating: 5,
-  },
-  {
-    name: "Priya Sharma",
-    role: "Multi-pet Owner",
-    review:
-      "We bring all three of our pets here - two dogs and a rabbit. Every single one is treated with the same kindness and expertise. The holistic regimens have been a game changer.",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&auto=format&fit=crop&q=80",
-    rating: 5,
-  },
-];
-
 const faqs = [
   {
     question: "Do you treat cats and dogs at The Pet Doctor?",
@@ -589,7 +560,6 @@ export default function Home() {
   const statsSection = useInView();
   const aboutSection = useInView();
   const gallerySection = useInView();
-  const testimonialsSection = useInView();
   const faqSection = useInView();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -685,32 +655,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Floating review badge bottom right */}
-              <div className="absolute -bottom-4 -right-4 glass rounded-2xl px-5 py-3 shadow-lg border border-white/60 flex items-center gap-3">
-                <div className="relative w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
-                  <Image
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80"
-                    alt="Client"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold text-gray-800">Sara</p>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        viewBox="0 0 20 20"
-                        fill="#E07A9A"
-                        className="w-3 h-3"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -1112,86 +1056,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ─────────────────────────────────────────────────── */}
-      <section className="py-28 bg-white">
-        <div ref={testimonialsSection.ref} className="max-w-7xl mx-auto px-6">
-          <div
-            className={`text-center mb-16 transition-all duration-700 ${
-              testimonialsSection.inView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <span className="inline-block bg-white border border-[#EFBCB0]/70 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
-              Testimonials
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#78B5AD]">
-              What Pet Owners{" "}
-              <span
-                style={{
-                  background:
-                    "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Are Saying
-              </span>
-            </h2>
-            <p className="text-gray-500 max-w-xl mx-auto font-light leading-relaxed">
-              Thousands of pet owners trust ThePetDr with their most beloved
-              family members.
-            </p>
-          </div>
+      <GoogleReviews />
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <div
-                key={t.name}
-                className={`glass-card rounded-2xl p-8 border border-[#EFBCB0]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${
-                  testimonialsSection.inView
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: `${i * 120}ms` }}
-              >
-                <div className="flex gap-1 mb-5">
-                  {[...Array(t.rating)].map((_, j) => (
-                    <svg
-                      key={j}
-                      viewBox="0 0 20 20"
-                      fill="#E07A9A"
-                      className="w-4 h-4"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 font-light italic">
-                  &ldquo;{t.review}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-pink-100">
-                    <Image
-                      src={t.avatar}
-                      alt={t.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900">
-                      {t.name}
-                    </p>
-                    <p className="text-xs text-gray-400">{t.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────────────── */}
       <section className="py-28 bg-[#fdf8f9]">
