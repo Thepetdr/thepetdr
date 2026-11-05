@@ -22,7 +22,8 @@ type GooglePlace = {
 
 export async function GET() {
   const key = process.env.GOOGLE_PLACES_API_KEY;
-  if (!key) {
+  // Enable billable API calls only after owner approval, billing controls, and legal disclosures.
+  if (!key || process.env.ENABLE_GOOGLE_PLACES_REVIEWS !== "true") {
     return NextResponse.json(
       { available: false, reviews: [], googleMapsUrl: GOOGLE_MAPS_URL },
       { status: 200, headers: { "Cache-Control": "no-store" } },
