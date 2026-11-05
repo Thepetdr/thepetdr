@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const serviceLinks = [
   { label: "Veterinary Care", href: "/services/veterinary-care" },
-  { label: "Grooming Salon", href: "/services/grooming-salon" },
+  { label: "Grooming Salon", href: "/services/pet-grooming-sharjah" },
   { label: "Pet Shop", href: "/services/pet-shop" },
   { label: "Dog Park & Pools", href: "/services/dog-park" },
   { label: "Holistic Regimens", href: "/services/holistic-regimens" },
@@ -15,9 +15,9 @@ const quickLinks = [
 ];
 
 const hours = [
-  { day: "Monday - Friday", time: "8:00 AM - 8:00 PM" },
-  { day: "Saturday", time: "9:00 AM - 6:00 PM" },
-  { day: "Sunday", time: "10:00 AM - 5:00 PM" },
+  { day: "Monday - Thursday", time: "10:00 AM - 9:00 PM" },
+  { day: "Friday", time: "1:00 PM - 10:00 PM" },
+  { day: "Saturday - Sunday", time: "10:00 AM - 9:00 PM" },
 ];
 
 export default function Footer() {
@@ -130,7 +130,7 @@ export default function Footer() {
 
             <div className="space-y-3">
               <a
-                href="tel:+971665573080"
+                href="tel:+97165573080"
                 className="flex items-center gap-3 text-sm text-gray-500 hover:text-[#E07A9A] transition-colors duration-200 group"
               >
                 <div className="w-7 h-7 rounded-lg bg-gray-800 group-hover:bg-pink-950 flex items-center justify-center flex-shrink-0 transition-colors duration-200">
@@ -138,7 +138,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                   </svg>
                 </div>
-                +971 665573080
+                +971 6 557 3080
               </a>
 
               <a
@@ -160,7 +160,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                   </svg>
                 </div>
-                Alzahia Boutique villas Villa 60 - Sharjah
+                Al Zahia Boutique Villas, Villa 60, Sharjah
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@ export default function Footer() {
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
               <div>
                 <p className="text-xs font-semibold text-white">Emergency Line</p>
-                <p className="text-xs text-gray-500">Available 24 / 7</p>
+                <a href="tel:+971542797875" className="text-xs text-white hover:underline">+971 54 279 7875 · Available 24/7</a>
               </div>
             </div>
           </div>
