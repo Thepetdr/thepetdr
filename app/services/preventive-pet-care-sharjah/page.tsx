@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     "Parasite Prevention Sharjah",
     "The Pet Dr Sharjah",
   ],
-  alternates: { canonical: "https://thepetdr.com/preventive-pet-care-sharjah" },
+  alternates: { canonical: "https://thepetdr.ae/services/preventive-pet-care-sharjah" },
   openGraph: {
     title: "Preventive Pet Care in Sharjah | The Pet Dr",
     description:
       "Annual wellness exams, vaccinations, dental care & parasite prevention for dogs and cats in Sharjah. Expert vet care at The Pet Dr.",
-    url: "https://thepetdr.com/preventive-pet-care-sharjah",
+    url: "https://thepetdr.ae/services/preventive-pet-care-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -33,7 +33,7 @@ const jsonLd = {
   "@type": "MedicalBusiness",
   name: "The Pet Dr",
   description: "Preventive pet care clinic in Sharjah offering wellness exams, vaccinations, dental care, and parasite prevention for dogs and cats.",
-  url: "https://thepetdr.com/preventive-pet-care-sharjah",
+  url: "https://thepetdr.ae/services/preventive-pet-care-sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   medicalSpecialty: "Veterinary",
   mainEntityOfPage: {
