@@ -3,20 +3,24 @@ import { useState } from "react";
 import Link from "next/link";
 
 // ── CONFIG ── Replace with your actual WhatsApp number (no + or spaces)
-const WHATSAPP_NUMBER = "971665573080";
+const WHATSAPP_NUMBER = "97165573080";
 
 const hours = [
-  { day: "Monday - Friday", time: "8:00 AM - 8:00 PM" },
-  { day: "Saturday", time: "9:00 AM - 6:00 PM" },
-  { day: "Sunday", time: "10:00 AM - 5:00 PM" },
+  { day: "Monday - Thursday", time: "10:00 AM - 9:00 PM" },
+  { day: "Friday", time: "1:00 PM - 10:00 PM" },
+  { day: "Saturday - Sunday", time: "10:00 AM - 9:00 PM" },
 ];
 
 const services = [
   "Veterinary Care",
+  "Cat Boarding",
+  "Dog Boarding",
   "Grooming Salon",
+  "Vaccinations",
+  "Surgery",
+  "Dental Care",
+  "Emergency Vet",
   "Pet Shop",
-  "Dog Park & Pools",
-  "Holistic Regimens",
   "General Inquiry",
 ];
 
@@ -98,7 +102,7 @@ _Sent via ThePetDr Website_
             </h1>
             <p className="text-lg text-gray-500 font-light leading-relaxed">
               Fill in the form below and your booking request will be sent directly
-              to us on WhatsApp. We&apos;ll confirm your appointment within minutes.
+              to us on WhatsApp. Our team will contact you to confirm availability.
             </p>
           </div>
         </div>
@@ -274,7 +278,7 @@ _Sent via ThePetDr Website_
 
                 <p className="text-center text-xs text-gray-400 font-light">
                   Clicking the button will open WhatsApp with your booking details pre-filled.
-                  We typically respond within 15 minutes.
+                  Our team will respond during operating hours.
                 </p>
               </form>
             </div>
@@ -304,6 +308,8 @@ _Sent via ThePetDr Website_
               </svg>
             </a>
 
+            <a href="tel:+971542797875" className="flex items-center justify-between gap-4 p-5 rounded-2xl border border-red-200 bg-red-50 text-red-900 hover:shadow-md transition-shadow" aria-label="Call the 24/7 emergency veterinary support number"><span><strong className="block text-sm">24/7 Emergency Support</strong><span className="block text-lg font-semibold">+971 54 279 7875</span></span><span className="text-xs font-semibold">Call now</span></a>
+
             {/* Contact cards */}
             {[
               {
@@ -313,8 +319,8 @@ _Sent via ThePetDr Website_
                   </svg>
                 ),
                 label: "Call Us",
-                value: "+971 665573080",
-                href: "tel:+971665573080",
+                value: "+971 6 557 3080",
+                href: "tel:+97165573080",
                 accent: "pink",
               },
               {
@@ -336,8 +342,8 @@ _Sent via ThePetDr Website_
                   </svg>
                 ),
                 label: "Visit Us",
-                value: "Alzahia Boutique villas Villa 60 - Sharjah",
-                href: "https://maps.google.com",
+                value: "Al Zahia Boutique Villas, Villa 60, Sharjah",
+                href: "https://www.google.com/maps/search/?api=1&query=The%20Pet%20Doctor%20Center%20Al%20Zahia%20Sharjah",
                 accent: "pink",
               },
             ].map((c) => (
