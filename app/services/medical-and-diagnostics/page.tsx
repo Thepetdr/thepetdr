@@ -26,12 +26,12 @@ export const metadata: Metadata = {
     "Exotic Pet Vet UAE",
     "Pet Ultrasound Sharjah",
   ],
-  alternates: { canonical: "https://thepetdr.com/medical-diagnostic-services-sharjah" },
+  alternates: { canonical: "https://thepetdr.ae/services/medical-and-diagnostics" },
   openGraph: {
     title: "Medical & Diagnostic Services in Sharjah | The Pet Dr",
     description:
       "Comprehensive in-house and specialised veterinary diagnostics for dogs, cats, birds, and exotic pets in Sharjah, UAE.",
-    url: "https://thepetdr.com/medical-diagnostic-services-sharjah",
+    url: "https://thepetdr.ae/services/medical-and-diagnostics",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -46,7 +46,7 @@ const jsonLd = {
   name: "The Pet Dr",
   description:
     "Veterinary diagnostic clinic in Sharjah offering in-house lab testing, rapid diagnostics, ultrasound, avian & exotic pet testing, and pet travel health certificates.",
-  url: "https://thepetdr.com/medical-diagnostic-services-sharjah",
+  url: "https://thepetdr.ae/services/medical-and-diagnostics",
   areaServed: { "@type": "City", name: "Sharjah" },
   medicalSpecialty: "Veterinary",
   hasOfferCatalog: {
