@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     "Cat emergency UAE",
   ],
   alternates: {
-    canonical: "https://thepetdr.com/emergency-vet-sharjah",
+    canonical: "https://thepetdr.ae/services/emergency-vet-sharjah",
   },
   openGraph: {
     title: "Emergency Vet in Sharjah | The Pet Dr",
     description:
       "Urgent veterinary care for pets in Sharjah. Immediate attention for breathing difficulty, seizures, trauma, poisoning, collapse, and critical conditions.",
-    url: "https://thepetdr.com/emergency-vet-sharjah",
+    url: "https://thepetdr.ae/services/emergency-vet-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -33,11 +33,12 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
-  name: "The Pet Dr",
+  "@type": "VeterinaryCare",
+  name: "The Pet Doctor Center",
   description:
     "Emergency veterinary clinic in Sharjah providing urgent care for pets with critical conditions including trauma, poisoning, seizures, and breathing difficulties.",
-  url: "https://thepetdr.com/emergency-vet-sharjah",
+  url: "https://thepetdr.ae/services/emergency-vet-sharjah",
+  telephone: "+971542797875",
   areaServed: { "@type": "City", name: "Sharjah" },
   medicalSpecialty: "Veterinary",
   availableService: { "@type": "MedicalProcedure", name: "Emergency Veterinary Care" },
@@ -57,7 +58,7 @@ const jsonLd = {
         name: "Should I come to the clinic immediately?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. If your pet shows any signs of a medical emergency, come to the clinic immediately or call ahead so the team can prepare. Do not wait to see if symptoms improve on their own when a serious condition is suspected.",
+          text: "Yes. If your pet shows any signs of a medical emergency, call the emergency number immediately for guidance before travelling. Do not wait to see if symptoms improve on their own when a serious condition is suspected.",
         },
       },
       {
@@ -143,11 +144,11 @@ const careProcess = [
 const faqs = [
   {
     q: "What counts as a pet emergency?",
-    a: "A pet emergency is any situation where your pet's life, vision, a limb, or the ability to breathe may be at immediate risk. This includes difficulty breathing, collapse, uncontrolled bleeding, suspected poisoning, seizures, severe trauma, inability to urinate, abdominal pain, or extreme distress. When in doubt, come in — it is always better to have your pet assessed than to wait.",
+    a: "A pet emergency is any situation where your pet's life, vision, a limb, or the ability to breathe may be at immediate risk. This includes difficulty breathing, collapse, uncontrolled bleeding, suspected poisoning, seizures, severe trauma, inability to urinate, abdominal pain, or extreme distress. When in doubt, call the emergency line promptly.",
   },
   {
     q: "Should I come to the clinic immediately?",
-    a: "Yes. If your pet shows any signs of a medical emergency, come to the clinic immediately or call ahead so the team can be ready on your arrival. Do not wait to see if symptoms improve on their own when a serious condition is suspected. Early intervention significantly improves outcomes.",
+    a: "Yes. If your pet shows any signs of a medical emergency, call the 24/7 emergency line immediately for guidance on the next step. Do not wait to see if symptoms improve on their own when a serious condition is suspected. Early intervention significantly improves outcomes.",
   },
   {
     q: "Do you accept walk-ins for emergencies?",
@@ -257,7 +258,7 @@ export default function EmergencyVetPage() {
 
                 <div className="flex flex-wrap gap-3 mb-10">
                   <a
-                    href="tel:+971500000000"
+                    href="tel:+971542797875"
                     className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-700 text-white px-6 py-3.5 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-red-200 hover:-translate-y-0.5 transition-all duration-300"
                   >
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4" aria-hidden="true">
@@ -266,12 +267,12 @@ export default function EmergencyVetPage() {
                     Emergency Call Now
                   </a>
                   <a
-                    href="https://wa.me/971500000000"
+                    href="https://wa.me/97165573080"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 border border-red-200 bg-red-50 text-red-600 px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-white hover:border-red-400 transition-all duration-200"
                   >
-                    WhatsApp Emergency
+                    WhatsApp Reception
                   </a>
                 </div>
 
@@ -360,22 +361,22 @@ export default function EmergencyVetPage() {
 
             <div className="bg-red-50 border border-red-200 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-6">
               <div className="flex-1">
-                <p className="text-base font-bold text-red-800 mb-1">When in doubt, come in.</p>
+                <p className="text-base font-bold text-red-800 mb-1">When in doubt, call us.</p>
                 <p className="text-sm text-red-700 font-light leading-relaxed max-w-prose">
-                  It is always better to have your pet seen and reassured than to wait while a serious condition worsens.
+                  Call our emergency line first so we can advise you on the appropriate next step.
                   Emergency cases are triaged on arrival and treated by urgency.
                 </p>
               </div>
               <div className="flex gap-3 flex-shrink-0">
                 <a
-                  href="tel:+971500000000"
+                  href="tel:+971542797875"
                   className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-full text-sm font-semibold transition-all duration-200 hover:shadow-lg"
                 >
                   Call Now
                   <ChevronRight />
                 </a>
                 <a
-                  href="https://wa.me/971500000000"
+                  href="https://wa.me/97165573080"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 bg-white border border-red-200 text-red-600 px-5 py-3 rounded-full text-sm font-semibold hover:bg-red-50 transition-all duration-200"
@@ -518,12 +519,12 @@ export default function EmergencyVetPage() {
               <span className="text-red-500">an emergency right now?</span>
             </h2>
             <p className="text-gray-400 text-lg font-light mb-10 max-w-2xl mx-auto leading-relaxed">
-              Do not wait. Call the clinic or send a WhatsApp message immediately. The Pet Dr team
+              For emergencies, call our dedicated 24/7 emergency number. The Pet Doctor team
               in Sharjah is ready to receive and triage emergency cases.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="tel:+971500000000"
+                href="tel:+971542797875"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-700 text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:shadow-xl hover:shadow-red-900/30 hover:-translate-y-0.5 transition-all duration-300"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4" aria-hidden="true">
@@ -532,12 +533,12 @@ export default function EmergencyVetPage() {
                 Emergency Call Now
               </a>
               <a
-                href="https://wa.me/971500000000"
+                href="https://wa.me/97165573080"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bc5a] text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:shadow-xl hover:shadow-green-900/30 hover:-translate-y-0.5 transition-all duration-300"
               >
-                WhatsApp Emergency
+                WhatsApp Reception
               </a>
               <Link
                 href="/contact"
