@@ -214,7 +214,7 @@ export default function PetShopPage() {
             Our team is ready to help you find exactly what your pet needs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="tel:+971665573080" className="bg-white text-[#E07A9A] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm">
+            <Link href="tel:+97165573080" className="bg-white text-[#E07A9A] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm">
               Call Us Now
             </Link>
             <Link href="mailto:info@ThePetDr.ae" className="border-2 border-white/60 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 hover:border-white hover:-translate-y-1 transition-all duration-300 text-sm">
