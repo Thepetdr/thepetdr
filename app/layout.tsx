@@ -16,6 +16,30 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const clinicStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "VeterinaryCare",
+  "@id": "https://thepetdr.ae/#clinic",
+  name: "The Pet Doctor Center",
+  url: "https://thepetdr.ae",
+  telephone: "+97165573080",
+  email: "info@thepetdr.ae",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Al Zahia Boutique Villas, Villa 60",
+    addressLocality: "Sharjah",
+    addressCountry: "AE",
+  },
+  openingHoursSpecification: [
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Saturday", "Sunday"], opens: "10:00", closes: "21:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "13:00", closes: "22:00" },
+  ],
+  contactPoint: [
+    { "@type": "ContactPoint", contactType: "customer service", telephone: "+97165573080" },
+    { "@type": "ContactPoint", contactType: "emergency", telephone: "+971542797875", availableLanguage: ["en", "ar"] },
+  ],
+} as const;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://thepetdr.ae"),
 
@@ -112,6 +136,7 @@ export default function RootLayout({
           />
         </noscript>
 
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicStructuredData).replace(/</g, "\\u003c") }} />
         <Navbar />
 
         <main>{children}</main>
