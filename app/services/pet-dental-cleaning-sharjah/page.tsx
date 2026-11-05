@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     "Bad breath dog Sharjah",
   ],
   alternates: {
-    canonical: "https://thepetdr.com/pet-dental-cleaning-sharjah",
+    canonical: "https://thepetdr.ae/services/pet-dental-cleaning-sharjah",
   },
   openGraph: {
     title: "Veterinary Dental Care in Sharjah | The Pet Dr",
     description:
       "Professional pet dental cleaning, extractions, X-rays, and gum disease treatment for dogs and cats in Sharjah.",
-    url: "https://thepetdr.com/pet-dental-cleaning-sharjah",
+    url: "https://thepetdr.ae/services/pet-dental-cleaning-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -38,7 +38,7 @@ const jsonLd = {
   name: "The Pet Dr",
   description:
     "Veterinary dental care in Sharjah including professional dental cleaning, oral exams, extractions, dental X-rays, and gum disease treatment.",
-  url: "https://thepetdr.com/pet-dental-cleaning-sharjah",
+  url: "https://thepetdr.ae/services/pet-dental-cleaning-sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   medicalSpecialty: "Veterinary",
   mainEntityOfPage: {
