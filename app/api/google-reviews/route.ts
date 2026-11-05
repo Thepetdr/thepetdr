@@ -8,8 +8,10 @@ type GoogleReview = {
   text?: { text?: string };
   originalText?: { text?: string };
   publishTime?: string;
+  relativePublishTimeDescription?: string;
+  flagContentUri?: string;
   googleMapsUri?: string;
-  authorAttribution?: { displayName?: string; uri?: string };
+  authorAttribution?: { displayName?: string; uri?: string; photoUri?: string };
 };
 type GooglePlace = {
   rating?: number;
@@ -23,7 +25,7 @@ export async function GET() {
   if (!key) {
     return NextResponse.json(
       { available: false, reviews: [], googleMapsUrl: GOOGLE_MAPS_URL },
-      { status: 200, headers: { "Cache-Control": "public, s-maxage=3600" } },
+      { status: 200, headers: { "Cache-Control": "no-store" } },
     );
   }
 
@@ -34,7 +36,7 @@ export async function GET() {
         "X-Goog-FieldMask": "rating,userRatingCount,googleMapsUri,reviews",
         "Accept-Language": "en",
       },
-      next: { revalidate: 86400 },
+      cache: "no-store",
       signal: AbortSignal.timeout(8000),
     });
     if (!response.ok) {
@@ -52,9 +54,12 @@ export async function GET() {
       .map((review) => ({
         name: review.authorAttribution?.displayName || "Google reviewer",
         authorUrl: review.authorAttribution?.uri || null,
+        authorPhotoUrl: review.authorAttribution?.photoUri || null,
         text: review.text?.text || review.originalText?.text || "",
         rating: typeof review.rating === "number" ? review.rating : null,
         publishTime: review.publishTime || null,
+        relativePublishTime: review.relativePublishTimeDescription || null,
+        reportUrl: review.flagContentUri || null,
         reviewUrl: review.googleMapsUri || place.googleMapsUri || GOOGLE_MAPS_URL,
       }));
     return NextResponse.json(
@@ -65,7 +70,7 @@ export async function GET() {
         reviews,
         googleMapsUrl: place.googleMapsUri || GOOGLE_MAPS_URL,
       },
-      { headers: { "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=3600" } },
+      { headers: { "Cache-Control": "no-store" } },
     );
   } catch {
     return NextResponse.json(
