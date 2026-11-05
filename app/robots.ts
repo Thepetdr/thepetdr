@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://ThePetDr.ae/sitemap.xml",
+    sitemap: "https://thepetdr.ae/sitemap.xml",
   };
 }

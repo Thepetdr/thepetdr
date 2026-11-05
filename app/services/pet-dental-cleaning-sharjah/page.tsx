@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     "Bad breath dog Sharjah",
   ],
   alternates: {
-    canonical: "https://thepetdr.com/pet-dental-cleaning-sharjah",
+    canonical: "https://thepetdr.ae/services/pet-dental-cleaning-sharjah",
   },
   openGraph: {
     title: "Veterinary Dental Care in Sharjah | The Pet Dr",
     description:
       "Professional pet dental cleaning, extractions, X-rays, and gum disease treatment for dogs and cats in Sharjah.",
-    url: "https://thepetdr.com/pet-dental-cleaning-sharjah",
+    url: "https://thepetdr.ae/services/pet-dental-cleaning-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -38,7 +38,7 @@ const jsonLd = {
   name: "The Pet Dr",
   description:
     "Veterinary dental care in Sharjah including professional dental cleaning, oral exams, extractions, dental X-rays, and gum disease treatment.",
-  url: "https://thepetdr.com/pet-dental-cleaning-sharjah",
+  url: "https://thepetdr.ae/services/pet-dental-cleaning-sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   medicalSpecialty: "Veterinary",
   mainEntityOfPage: {
@@ -284,7 +284,7 @@ export default function PetDentalPage() {
                     <ChevronRight />
                   </Link>
                   <a
-                    href="https://wa.me/971500000000"
+                    href="https://wa.me/97165573080"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 shadow-sm"
@@ -572,7 +572,7 @@ export default function PetDentalPage() {
                 <ChevronRight />
               </Link>
               <a
-                href="https://wa.me/971500000000"
+                href="https://wa.me/97165573080"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bc5a] text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:shadow-xl hover:shadow-green-900/30 hover:-translate-y-0.5 transition-all duration-300"

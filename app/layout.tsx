@@ -16,17 +16,41 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const clinicStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "VeterinaryCare",
+  "@id": "https://thepetdr.ae/#clinic",
+  name: "The Pet Doctor Center",
+  url: "https://thepetdr.ae",
+  telephone: "+97165573080",
+  email: "info@thepetdr.ae",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Al Zahia Boutique Villas, Villa 60",
+    addressLocality: "Sharjah",
+    addressCountry: "AE",
+  },
+  openingHoursSpecification: [
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Saturday", "Sunday"], opens: "10:00", closes: "21:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "13:00", closes: "22:00" },
+  ],
+  contactPoint: [
+    { "@type": "ContactPoint", contactType: "customer service", telephone: "+97165573080" },
+    { "@type": "ContactPoint", contactType: "emergency", telephone: "+971542797875", availableLanguage: ["en", "ar"] },
+  ],
+} as const;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://thepetdr.ae"),
 
   title: {
     default:
-      "The Pet Doctor | Vet Clinic, Catery, Grooming & Pet Shop in Sharjah",
+      "Veterinary Clinic in Sharjah | The Pet Doctor Center",
     template: "%s | The Pet Doctor",
   },
 
   description:
-    "The Pet Doctor is a veterinary clinic and pet care destination in Sharjah, offering feline-focused veterinary care, cat boarding, grooming, and a curated pet retail shop.",
+    "Premium veterinary care for cats, dogs, birds and exotic pets in Al Zahia, Sharjah. Consultations, vaccinations, surgery, grooming and cat boarding.",
 
   keywords: [
     "veterinary clinic Sharjah",
@@ -35,22 +59,22 @@ export const metadata: Metadata = {
     "cat vet Sharjah",
     "feline veterinary care Sharjah",
     "cat boarding Sharjah",
-    "catery Sharjah",
+    "cat hotel Sharjah",
     "cat grooming Sharjah",
     "dog grooming Sharjah",
     "pet grooming Sharjah",
     "pet shop Sharjah",
     "pet retail shop Sharjah",
-    "holistic pet care Sharjah",
+    "emergency vet Sharjah",
     "The Pet Doctor",
     "ThePetDr",
   ],
 
   openGraph: {
     title:
-      "The Pet Doctor | Vet Clinic, Catery, Grooming & Pet Shop in Sharjah",
+      "Veterinary Clinic in Sharjah | The Pet Doctor Center",
     description:
-      "Feline-focused veterinary care, cat boarding, grooming and pet retail services in Sharjah.",
+      "Veterinary care for cats, dogs, birds and exotic pets in Sharjah. Consultations, vaccinations, surgery, grooming and cat boarding.",
     url: "https://thepetdr.ae",
     siteName: "The Pet Doctor",
     locale: "en_AE",
@@ -60,9 +84,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "The Pet Doctor | Vet Clinic, Catery, Grooming & Pet Shop in Sharjah",
+      "Veterinary Clinic in Sharjah | The Pet Doctor Center",
     description:
-      "Feline-focused veterinary care, cat boarding, grooming and pet retail services in Sharjah.",
+      "Veterinary care for cats, dogs, birds and exotic pets in Sharjah. Consultations, vaccinations, surgery, grooming and cat boarding.",
   },
 
   robots: {
@@ -112,6 +136,7 @@ export default function RootLayout({
           />
         </noscript>
 
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicStructuredData).replace(/</g, "\\u003c") }} />
         <Navbar />
 
         <main>{children}</main>

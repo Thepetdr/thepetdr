@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     "Emergency vet surgery UAE",
   ],
   alternates: {
-    canonical: "https://thepetdr.com/pet-surgery-sharjah",
+    canonical: "https://thepetdr.ae/services/pet-surgery-sharjah",
   },
   openGraph: {
     title: "Advanced Veterinary Surgery in Sharjah | The Pet Dr",
     description:
       "Routine, emergency, soft tissue, BOAS airway, and ophthalmic veterinary surgery in Sharjah for dogs, cats, birds, and exotic pets.",
-    url: "https://thepetdr.com/pet-surgery-sharjah",
+    url: "https://thepetdr.ae/services/pet-surgery-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -43,7 +43,7 @@ const jsonLd = {
   name: "The Pet Dr",
   description:
     "Veterinary surgery clinic in Sharjah offering routine, emergency, soft tissue, BOAS airway, and ophthalmic surgery for pets.",
-  url: "https://thepetdr.com/pet-surgery-sharjah",
+  url: "https://thepetdr.ae/services/pet-surgery-sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   medicalSpecialty: "Veterinary",
   mainEntityOfPage: {
@@ -356,7 +356,7 @@ export default function PetSurgeryPage() {
                     Emergency Surgery Support
                   </Link>
                   <a
-                    href="https://wa.me/971500000000"
+                    href="https://wa.me/97165573080"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 shadow-sm"
@@ -825,7 +825,7 @@ export default function PetSurgeryPage() {
                 Emergency Surgery Support
               </Link>
               <a
-                href="https://wa.me/971500000000"
+                href="https://wa.me/97165573080"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bc5a] text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:shadow-xl hover:shadow-green-900/30 hover:-translate-y-0.5 transition-all duration-300"

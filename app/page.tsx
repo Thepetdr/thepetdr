@@ -1320,7 +1320,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href="tel:+971665573080"
+              href="tel:+97165573080"
               className="bg-white text-[#E07A9A] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm"
             >
               Call Us Now
@@ -1331,6 +1331,9 @@ export default function Home() {
             >
               Send an Email
             </Link>
+            <a href="tel:+971542797875" className="bg-red-700 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-red-800 hover:shadow-2xl transition-all duration-300 text-sm" aria-label="Call 24/7 emergency support at +971 54 279 7875">
+              24/7 Emergency: +971 54 279 7875
+            </a>
           </div>
         </div>
       </section>

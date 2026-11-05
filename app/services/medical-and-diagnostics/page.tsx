@@ -26,12 +26,12 @@ export const metadata: Metadata = {
     "Exotic Pet Vet UAE",
     "Pet Ultrasound Sharjah",
   ],
-  alternates: { canonical: "https://thepetdr.com/medical-diagnostic-services-sharjah" },
+  alternates: { canonical: "https://thepetdr.ae/services/medical-and-diagnostics" },
   openGraph: {
     title: "Medical & Diagnostic Services in Sharjah | The Pet Dr",
     description:
       "Comprehensive in-house and specialised veterinary diagnostics for dogs, cats, birds, and exotic pets in Sharjah, UAE.",
-    url: "https://thepetdr.com/medical-diagnostic-services-sharjah",
+    url: "https://thepetdr.ae/services/medical-and-diagnostics",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -46,7 +46,7 @@ const jsonLd = {
   name: "The Pet Dr",
   description:
     "Veterinary diagnostic clinic in Sharjah offering in-house lab testing, rapid diagnostics, ultrasound, avian & exotic pet testing, and pet travel health certificates.",
-  url: "https://thepetdr.com/medical-diagnostic-services-sharjah",
+  url: "https://thepetdr.ae/services/medical-and-diagnostics",
   areaServed: { "@type": "City", name: "Sharjah" },
   medicalSpecialty: "Veterinary",
   hasOfferCatalog: {
@@ -303,7 +303,7 @@ export default function DiagnosticsPage() {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                   </Link>
                   <a
-                    href="https://wa.me/971500000000"
+                    href="https://wa.me/97165573080"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 shadow-sm"
@@ -770,7 +770,7 @@ export default function DiagnosticsPage() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </Link>
               <a
-                href="https://wa.me/971500000000"
+                href="https://wa.me/97165573080"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bc5a] text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:shadow-xl hover:shadow-green-900/30 hover:-translate-y-0.5 transition-all duration-300"

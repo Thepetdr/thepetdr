@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     "Parasite Prevention Sharjah",
     "The Pet Dr Sharjah",
   ],
-  alternates: { canonical: "https://thepetdr.com/preventive-pet-care-sharjah" },
+  alternates: { canonical: "https://thepetdr.ae/services/preventive-pet-care-sharjah" },
   openGraph: {
     title: "Preventive Pet Care in Sharjah | The Pet Dr",
     description:
       "Annual wellness exams, vaccinations, dental care & parasite prevention for dogs and cats in Sharjah. Expert vet care at The Pet Dr.",
-    url: "https://thepetdr.com/preventive-pet-care-sharjah",
+    url: "https://thepetdr.ae/services/preventive-pet-care-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -33,7 +33,7 @@ const jsonLd = {
   "@type": "MedicalBusiness",
   name: "The Pet Dr",
   description: "Preventive pet care clinic in Sharjah offering wellness exams, vaccinations, dental care, and parasite prevention for dogs and cats.",
-  url: "https://thepetdr.com/preventive-pet-care-sharjah",
+  url: "https://thepetdr.ae/services/preventive-pet-care-sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   medicalSpecialty: "Veterinary",
   mainEntityOfPage: {
@@ -283,7 +283,7 @@ export default function PreventivePetCarePage() {
                     </svg>
                   </Link>
                   <a
-                    href="https://wa.me/971500000000"
+                    href="https://wa.me/97165573080"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 border border-gray-200 text-gray-700 px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
@@ -662,7 +662,7 @@ export default function PreventivePetCarePage() {
                 </svg>
               </Link>
               <a
-                href="https://wa.me/971500000000"
+                href="https://wa.me/97165573080"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bc5a] text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:shadow-xl hover:shadow-green-900/30 hover:-translate-y-0.5 transition-all duration-300"

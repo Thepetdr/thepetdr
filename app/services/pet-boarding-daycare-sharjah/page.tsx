@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     "Overnight pet care UAE",
   ],
   alternates: {
-    canonical: "https://thepetdr.com/pet-boarding-sharjah",
+    canonical: "https://thepetdr.ae/services/pet-boarding-daycare-sharjah",
   },
   openGraph: {
     title: "Pet Boarding & Daycare in Sharjah | The Pet Dr",
     description:
       "Safe and comfortable pet boarding and daycare in Sharjah with supervised care, medication support, and clean accommodations for dogs and cats.",
-    url: "https://thepetdr.com/pet-boarding-sharjah",
+    url: "https://thepetdr.ae/services/pet-boarding-daycare-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -37,7 +37,7 @@ const jsonLd = {
   name: "The Pet Dr",
   description:
     "Pet boarding and daycare facility in Sharjah offering supervised stays, medication administration, cat suites, and daily care for dogs and cats.",
-  url: "https://thepetdr.com/pet-boarding-sharjah",
+  url: "https://thepetdr.ae/services/pet-boarding-daycare-sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   mainEntityOfPage: {
     "@type": "FAQPage",
@@ -248,7 +248,7 @@ export default function PetBoardingPage() {
                     <ChevronRight />
                   </Link>
                   <a
-                    href="https://wa.me/971500000000"
+                    href="https://wa.me/97165573080"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 shadow-sm"
@@ -546,7 +546,7 @@ export default function PetBoardingPage() {
                 <ChevronRight />
               </Link>
               <a
-                href="https://wa.me/971500000000"
+                href="https://wa.me/97165573080"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bc5a] text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:shadow-xl hover:shadow-green-900/30 hover:-translate-y-0.5 transition-all duration-300"

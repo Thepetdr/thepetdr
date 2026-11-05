@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     "Anti Tick Vaccination Sharjah",
     "Pet Immunisation Sharjah",
   ],
-  alternates: { canonical: "https://thepetdr.com/pet-vaccinations-sharjah" },
+  alternates: { canonical: "https://thepetdr.ae/services/pet-vaccinations-sharjah" },
   openGraph: {
     title: "Pet Vaccinations in Sharjah | The Pet Dr",
     description:
       "Protect your pets from preventable diseases with safe, up-to-date vaccination protocols for dogs, cats, puppies, and kittens at The Pet Dr, Sharjah.",
-    url: "https://thepetdr.com/pet-vaccinations-sharjah",
+    url: "https://thepetdr.ae/services/pet-vaccinations-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -33,7 +33,7 @@ const jsonLd = {
   "@type": "MedicalBusiness",
   name: "The Pet Dr",
   description: "Pet vaccination clinic in Sharjah offering core and lifestyle vaccines for dogs, cats, puppies, and kittens.",
-  url: "https://thepetdr.com/pet-vaccinations-sharjah",
+  url: "https://thepetdr.ae/services/pet-vaccinations-sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   medicalSpecialty: "Veterinary",
   hasOfferCatalog: {
@@ -304,7 +304,7 @@ export default function PetVaccinationsPage() {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                   </Link>
                   <a
-                    href="https://wa.me/971500000000"
+                    href="https://wa.me/97165573080"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 shadow-sm"
@@ -657,7 +657,7 @@ export default function PetVaccinationsPage() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </Link>
               <a
-                href="https://wa.me/971500000000"
+                href="https://wa.me/97165573080"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bc5a] text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:shadow-xl hover:shadow-green-900/30 hover:-translate-y-0.5 transition-all duration-300"
