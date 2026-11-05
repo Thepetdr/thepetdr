@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { GOOGLE_MAPS_EMBED_URL, GOOGLE_MAPS_URL } from "@/lib/clinic-links";
 
 // ── CONFIG ── Replace with your actual WhatsApp number (no + or spaces)
 const WHATSAPP_NUMBER = "97165573080";
@@ -343,7 +344,7 @@ _Sent via ThePetDr Website_
                 ),
                 label: "Visit Us",
                 value: "Al Zahia Boutique Villas, Villa 60, Sharjah",
-                href: "https://www.google.com/maps/search/?api=1&query=The%20Pet%20Doctor%20Center%20Al%20Zahia%20Sharjah",
+                href: GOOGLE_MAPS_URL,
                 accent: "pink",
               },
             ].map((c) => (
@@ -399,9 +400,9 @@ _Sent via ThePetDr Website_
             </div>
 
             {/* Map */}
-            <div className="relative h-48 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.4154977717453!2d55.46007787554207!3d25.32383492655946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f714b0e549f%3A0xe239207a46bbe522!2sThe%20Pet%20Doctor%20Center!5e0!3m2!1sen!2sae!4v1774796608003!5m2!1sen!2sae"
+                src={GOOGLE_MAPS_EMBED_URL}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -409,7 +410,7 @@ _Sent via ThePetDr Website_
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="ThePetDr Location"
-                className="grayscale hover:grayscale-0 transition-all duration-500"
+                className="border-0"
               />
             </div>
           </div>
