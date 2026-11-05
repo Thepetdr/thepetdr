@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     "Anti Tick Vaccination Sharjah",
     "Pet Immunisation Sharjah",
   ],
-  alternates: { canonical: "https://thepetdr.com/pet-vaccinations-sharjah" },
+  alternates: { canonical: "https://thepetdr.ae/services/pet-vaccinations-sharjah" },
   openGraph: {
     title: "Pet Vaccinations in Sharjah | The Pet Dr",
     description:
       "Protect your pets from preventable diseases with safe, up-to-date vaccination protocols for dogs, cats, puppies, and kittens at The Pet Dr, Sharjah.",
-    url: "https://thepetdr.com/pet-vaccinations-sharjah",
+    url: "https://thepetdr.ae/services/pet-vaccinations-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -33,7 +33,7 @@ const jsonLd = {
   "@type": "MedicalBusiness",
   name: "The Pet Dr",
   description: "Pet vaccination clinic in Sharjah offering core and lifestyle vaccines for dogs, cats, puppies, and kittens.",
-  url: "https://thepetdr.com/pet-vaccinations-sharjah",
+  url: "https://thepetdr.ae/services/pet-vaccinations-sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   medicalSpecialty: "Veterinary",
   hasOfferCatalog: {
