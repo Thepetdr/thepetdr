@@ -1320,7 +1320,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href="tel:+971665573080"
+              href="tel:+97165573080"
               className="bg-white text-[#E07A9A] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm"
             >
               Call Us Now
