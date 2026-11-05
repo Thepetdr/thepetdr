@@ -568,7 +568,7 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center overflow-hidden bg-white"
+        className="relative min-h-[640px] md:min-h-screen flex items-center overflow-hidden bg-white"
       >
         <div
           className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full opacity-30 pointer-events-none"
@@ -583,7 +583,7 @@ export default function Home() {
           }}
         />
 
-        <div className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 grid md:grid-cols-2 gap-10 items-center">
+        <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 pt-28 pb-16 md:pb-20 grid md:grid-cols-2 gap-12 items-center">
           {/* Text */}
           <div className="animate-fade-up">
             <span className="inline-flex items-center gap-2 bg-white border border-[#EFBCB0]/70 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 shadow-sm tracking-wide uppercase">
@@ -625,9 +625,9 @@ export default function Home() {
           </div>
 
           {/* Hero image */}
-          <div className="hidden md:block animate-fade-in">
+          <div className="block animate-fade-in">
             <div className="relative">
-              <div className="relative w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl shadow-[#E07A9A]/10">
+              <div className="relative w-full h-[280px] sm:h-[360px] md:h-[400px] rounded-3xl overflow-hidden shadow-2xl shadow-[#E07A9A]/10">
                 <Image
                   src="/images/cat-hero-sharjah.png"
                   alt="Cat receiving calm veterinary care in Sharjah"
@@ -660,7 +660,7 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 animate-bounce">
           <span className="text-xs text-gray-400 tracking-widest uppercase">
             Scroll
           </span>
