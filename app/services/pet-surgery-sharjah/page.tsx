@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     "Emergency vet surgery UAE",
   ],
   alternates: {
-    canonical: "https://thepetdr.com/pet-surgery-sharjah",
+    canonical: "https://thepetdr.ae/services/pet-surgery-sharjah",
   },
   openGraph: {
     title: "Advanced Veterinary Surgery in Sharjah | The Pet Dr",
     description:
       "Routine, emergency, soft tissue, BOAS airway, and ophthalmic veterinary surgery in Sharjah for dogs, cats, birds, and exotic pets.",
-    url: "https://thepetdr.com/pet-surgery-sharjah",
+    url: "https://thepetdr.ae/services/pet-surgery-sharjah",
     siteName: "The Pet Dr",
     locale: "en_AE",
     type: "website",
@@ -43,7 +43,7 @@ const jsonLd = {
   name: "The Pet Dr",
   description:
     "Veterinary surgery clinic in Sharjah offering routine, emergency, soft tissue, BOAS airway, and ophthalmic surgery for pets.",
-  url: "https://thepetdr.com/pet-surgery-sharjah",
+  url: "https://thepetdr.ae/services/pet-surgery-sharjah",
   areaServed: { "@type": "City", name: "Sharjah" },
   medicalSpecialty: "Veterinary",
   mainEntityOfPage: {
