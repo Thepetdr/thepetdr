@@ -24,7 +24,21 @@ const link = "w-fit text-gray-600 transition hover:text-[#B8466F]";
 
 export default function Footer() {
   return (
-    <footer className="border-t-4 border-[#F38BB0] bg-white text-sm text-gray-600">
+    <footer id="contact" className="bg-white text-sm text-gray-600">
+      {/* Booking strip: replaces the separate full-height pink CTA block on the homepage */}
+      <div className="bg-[#FDEFF4]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-6 sm:px-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 className="text-lg font-semibold tracking-tight text-gray-900 sm:text-xl">Ready to book your pet&apos;s visit?</h2>
+            <p className="mt-0.5 text-sm text-gray-600">Our reception team will find the right time for you.</p>
+          </div>
+          <div className="flex flex-wrap gap-2.5">
+            <a href={`tel:${CLINIC_PHONE}`} className="inline-flex min-h-10 items-center rounded-full bg-[#F38BB0] px-5 text-sm font-semibold text-gray-900 transition hover:bg-[#EE76A1]">Call reception</a>
+            <a href={`mailto:${CLINIC_EMAIL}`} className="inline-flex min-h-10 items-center rounded-full border-2 border-[#92CAC2] bg-white px-5 text-sm font-semibold text-gray-900 transition hover:bg-[#EEF8F6]">Email us</a>
+            <a href={`tel:${EMERGENCY_PHONE}`} className="inline-flex min-h-10 items-center rounded-full bg-[#B8466F] px-5 text-sm font-semibold text-white transition hover:bg-[#A03A60]" aria-label="Call 24/7 emergency support at +971 54 279 7875">24/7 Emergency</a>
+          </div>
+        </div>
+      </div>
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-8 px-5 py-10 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.9fr_1.1fr] lg:gap-10">
         <div className="col-span-2 min-w-0 lg:col-span-1">
           <Link href="/" className="inline-block" aria-label="The Pet Doctor Center home">
@@ -58,7 +72,6 @@ export default function Footer() {
               </div>
             ))}
           </dl>
-          <a href={`tel:${CLINIC_PHONE}`} className="mt-4 inline-flex min-h-10 items-center rounded-full bg-[#F38BB0] px-5 text-sm font-semibold text-gray-900 transition hover:bg-[#EE76A1]">Call reception</a>
         </div>
 
         <div className="col-span-2 min-w-0 lg:col-span-1">
@@ -73,7 +86,7 @@ export default function Footer() {
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              className="h-40 w-full border-0"
+              className="h-44 w-full border-0"
             />
           </div>
         </div>

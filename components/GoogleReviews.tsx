@@ -70,81 +70,106 @@ export default function GoogleReviews() {
     return () => window.clearInterval(id);
   }, [reviews.length, paused, slide]);
 
+  const initials = (name: string) =>
+    name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]?.toUpperCase()).join("");
+
   return (
-    <section aria-labelledby="google-reviews-heading" className="bg-[#FDF7F9] py-10 sm:py-14">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#B8466F]">Google reviews</p>
-            <h2 id="google-reviews-heading" className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">What our clients say</h2>
-            {data?.available && typeof data.rating === "number" && (
-              <p className="mt-2 flex flex-wrap items-center gap-2 text-sm text-gray-600">
-                <span className="font-semibold text-gray-900">{data.rating.toFixed(1)}</span>
-                <Stars value={data.rating} />
-                {typeof data.count === "number" && <span>from {data.count.toLocaleString()} Google ratings</span>}
-              </p>
+    <section aria-labelledby="google-reviews-heading" className="border-y border-[#F7DCE6] bg-[#FDF7F9] py-12 sm:py-14">
+      <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-6 lg:grid-cols-[300px_1fr] lg:items-center lg:gap-12">
+        {/* Summary panel */}
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#B8466F]">Google reviews</p>
+          <h2 id="google-reviews-heading" className="mt-2 text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">What pet parents say</h2>
+          <div className="mt-5 rounded-2xl border border-[#F7DCE6] bg-white p-5 shadow-sm">
+            <p className="flex items-center gap-2 text-sm font-medium text-gray-500">
+              <span aria-hidden="true" className="grid h-7 w-7 place-items-center rounded-full bg-gray-50 text-sm font-bold text-gray-700 ring-1 ring-gray-200">G</span>
+              <span translate="no">Google</span> rating
+            </p>
+            {data?.available && typeof data.rating === "number" ? (
+              <div className="mt-3 flex items-end gap-3">
+                <span className="text-4xl font-semibold leading-none text-gray-900">{data.rating.toFixed(1)}</span>
+                <div className="pb-0.5">
+                  <Stars value={data.rating} className="text-lg" />
+                  {typeof data.count === "number" && <p className="text-xs text-gray-500">{data.count.toLocaleString()} reviews</p>}
+                </div>
+              </div>
+            ) : (
+              <p className="mt-3 text-sm leading-6 text-gray-600">See what our clients say on our official Google listing.</p>
             )}
-          </div>
-          <div className="flex items-center gap-2">
-            {reviews.length > 1 && (
-              <>
-                <button type="button" onClick={() => slide(-1)} aria-label="Previous review" className="grid h-10 w-10 place-items-center rounded-full border-2 border-[#92CAC2] bg-white text-gray-900 transition hover:bg-[#EEF8F6]">‹</button>
-                <button type="button" onClick={() => slide(1)} aria-label="Next review" className="grid h-10 w-10 place-items-center rounded-full border-2 border-[#92CAC2] bg-white text-gray-900 transition hover:bg-[#EEF8F6]">›</button>
-              </>
-            )}
-            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center justify-center rounded-full bg-[#F38BB0] px-5 text-sm font-semibold text-gray-900 transition hover:bg-[#EE76A1]">
-              All reviews on Google <span aria-hidden="true" className="ml-1.5">↗</span>
+            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-10 w-full items-center justify-center rounded-full bg-[#F38BB0] px-5 text-sm font-semibold text-gray-900 transition hover:bg-[#EE76A1]">
+              Read reviews on Google <span aria-hidden="true" className="ml-1.5">↗</span>
             </a>
           </div>
         </div>
 
+        {/* Carousel */}
         {reviews.length > 0 ? (
-          <div
-            ref={track}
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-            onFocus={() => setPaused(true)}
-            onBlur={() => setPaused(false)}
-            aria-roledescription="carousel"
-            aria-label="Google reviews"
-            className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          >
-            {reviews.map((review, index) => (
-              <article
-                key={review.reviewUrl + index}
-                aria-roledescription="slide"
-                aria-label={`${index + 1} of ${reviews.length}`}
-                className="flex w-[85%] shrink-0 snap-start flex-col rounded-2xl border border-[#F7DCE6] bg-white p-5 shadow-sm sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)]"
-              >
-                <div className="flex items-center gap-3">
-                  {review.authorPhotoUrl && (
-                    // Reviewer photo supplied by Google's author attribution, not a stock avatar.
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={review.authorPhotoUrl} alt="" className="h-9 w-9 rounded-full object-cover" loading="lazy" referrerPolicy="no-referrer" />
-                  )}
-                  <div className="min-w-0">
-                    {review.authorUrl ? (
-                      <a href={review.authorUrl} target="_blank" rel="noopener noreferrer" className="block truncate font-semibold text-gray-900 hover:underline">{review.name}</a>
+          <div className="min-w-0">
+            <div
+              ref={track}
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
+              onFocus={() => setPaused(true)}
+              onBlur={() => setPaused(false)}
+              aria-roledescription="carousel"
+              aria-label="Google reviews"
+              className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {reviews.map((review, index) => (
+                <article
+                  key={review.reviewUrl + index}
+                  aria-roledescription="slide"
+                  aria-label={`${index + 1} of ${reviews.length}`}
+                  className="relative flex w-[85%] shrink-0 snap-start flex-col rounded-2xl border border-[#F7DCE6] bg-white p-6 shadow-sm sm:w-[calc(50%-8px)]"
+                >
+                  <span aria-hidden="true" className="absolute right-5 top-3 font-serif text-5xl leading-none text-[#F7DCE6]">&ldquo;</span>
+                  {review.rating && <Stars value={review.rating} />}
+                  <p className="mt-3 line-clamp-4 flex-1 text-[15px] leading-7 text-gray-700">{review.text}</p>
+                  <div className="mt-5 flex items-center gap-3 border-t border-gray-100 pt-4">
+                    {review.authorPhotoUrl ? (
+                      // Reviewer photo supplied by Google's author attribution, not a stock avatar.
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={review.authorPhotoUrl} alt="" className="h-9 w-9 rounded-full object-cover" loading="lazy" referrerPolicy="no-referrer" />
                     ) : (
-                      <p className="truncate font-semibold text-gray-900">{review.name}</p>
+                      <span aria-hidden="true" className="grid h-9 w-9 place-items-center rounded-full bg-[#EEF8F6] text-xs font-semibold text-[#2F7F76]">{initials(review.name)}</span>
                     )}
-                    {review.rating && <Stars value={review.rating} className="text-sm" />}
+                    <div className="min-w-0 flex-1">
+                      {review.authorUrl ? (
+                        <a href={review.authorUrl} target="_blank" rel="noopener noreferrer" className="block truncate text-sm font-semibold text-gray-900 hover:underline">{review.name}</a>
+                      ) : (
+                        <p className="truncate text-sm font-semibold text-gray-900">{review.name}</p>
+                      )}
+                      <a href={review.reviewUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-gray-500 hover:text-[#B8466F]">
+                        via <span translate="no">Google</span>{review.relativePublishTime ? ` · ${review.relativePublishTime}` : ""}
+                      </a>
+                    </div>
                   </div>
+                </article>
+              ))}
+            </div>
+            <div className="mt-4 flex items-center justify-between gap-4">
+              <p className="text-xs text-gray-500">Showing 4 and 5 star reviews from our Google listing.</p>
+              {reviews.length > 1 && (
+                <div className="flex gap-2">
+                  <button type="button" onClick={() => slide(-1)} aria-label="Previous review" className="grid h-9 w-9 place-items-center rounded-full border border-gray-200 bg-white text-gray-700 transition hover:border-[#92CAC2] hover:text-gray-900">‹</button>
+                  <button type="button" onClick={() => slide(1)} aria-label="Next review" className="grid h-9 w-9 place-items-center rounded-full border border-gray-200 bg-white text-gray-700 transition hover:border-[#92CAC2] hover:text-gray-900">›</button>
                 </div>
-                <p className="mt-3 line-clamp-4 flex-1 text-sm leading-6 text-gray-700">{review.text}</p>
-                <a className="mt-3 text-xs font-semibold text-[#B8466F] hover:underline" href={review.reviewUrl} target="_blank" rel="noopener noreferrer">
-                  <span translate="no">Google</span> review ↗
-                </a>
-              </article>
-            ))}
+              )}
+            </div>
           </div>
         ) : (
-          <p className="mt-4 text-sm text-gray-600">
-            We only show reviews from our official Google Maps listing. Browse them on Google using the button above.
-          </p>
-        )}
-        {reviews.length > 0 && (
-          <p className="mt-3 text-xs text-gray-500">Showing 4 and 5 star reviews from our Google listing, as provided by Google. See all reviews on Google.</p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[
+              { title: "Independent", text: "Every review is written by a client on Google, never by us." },
+              { title: "Verified source", text: "Reviews come straight from our official Google Maps listing." },
+              { title: "Read them all", text: "Open our listing to read every review in full." },
+            ].map((item) => (
+              <div key={item.title} className="rounded-2xl border border-[#F7DCE6] bg-white p-5">
+                <p className="text-sm font-semibold text-gray-900">{item.title}</p>
+                <p className="mt-1 text-sm leading-6 text-gray-600">{item.text}</p>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </section>
