@@ -6,9 +6,12 @@ import { GOOGLE_MAPS_URL } from "@/lib/clinic-links";
 type Review = {
   name: string;
   authorUrl: string | null;
+  authorPhotoUrl: string | null;
   text: string;
   rating: number | null;
   publishTime: string | null;
+  relativePublishTime: string | null;
+  reportUrl: string | null;
   reviewUrl: string;
 };
 type ReviewsResponse = {
@@ -69,9 +72,23 @@ export default function GoogleReviews() {
                   {review.rating ? "★".repeat(Math.max(0, Math.min(5, Math.round(review.rating)))) : "Google review"}
                 </div>
                 <p className="line-clamp-6 flex-1 text-sm leading-7 text-[#40524B]">{review.text}</p>
-                <div className="mt-6 border-t border-[#E9EEEB] pt-5">
-                  <p className="font-semibold text-[#203631]">{review.name}</p>
-                  <p className="mt-1 text-xs text-[#7A8981]">Google Maps review</p>
+<div className="mt-6 border-t border-[#E9EEEB] pt-5">
+                  <div className="flex items-center gap-3">
+                    {review.authorPhotoUrl && (
+                      // Reviewer photo supplied by Google's author attribution, not a stock avatar.
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={review.authorPhotoUrl} alt="" className="h-10 w-10 rounded-full object-cover" loading="lazy" referrerPolicy="no-referrer" />
+                    )}
+                    <div>
+                      {review.authorUrl ? (
+                        <a href={review.authorUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#203631] hover:underline">{review.name}</a>
+                      ) : (
+                        <p className="font-semibold text-[#203631]">{review.name}</p>
+                      )}
+                      <p translate="no" className="mt-1 text-xs text-[#5E5E5E]">Google Maps</p>
+                      {review.relativePublishTime && <p className="mt-1 text-xs text-[#7A8981]">{review.relativePublishTime}</p>}
+                    </div>
+                  </div>
                   <a className="mt-3 inline-block text-xs font-semibold text-[#9B5570] underline-offset-4 hover:underline" href={review.reviewUrl} target="_blank" rel="noopener noreferrer">View on Google ↗</a>
                 </div>
               </article>
@@ -86,7 +103,7 @@ export default function GoogleReviews() {
             <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#203631] px-6 text-sm font-semibold text-[#203631] hover:bg-[#F2F7F4]">Open Google Reviews ↗</a>
           </div>
         )}
-        <p className="mt-5 text-xs text-[#718078]">Google reviews are attributed to their original authors. Availability and selection are controlled by Google.</p>
+        <p className="mt-5 text-xs text-[#718078]">Reviews are selected and ordered by Google Maps relevance, not filtered by rating. Google may return up to five reviews. View the source listing for more.</p>
       </div>
     </section>
   );
