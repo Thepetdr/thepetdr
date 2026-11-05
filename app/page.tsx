@@ -311,6 +311,30 @@ const services = [
     ),
   },
 ];
+// Bento layout for the homepage services section. Only real clinic photography is used.
+const serviceLayout: {
+  title: string;
+  tag: string;
+  span: string;
+  image?: string;
+  alt?: string;
+  position?: string;
+  big?: boolean;
+  tone?: "pink" | "teal" | "deep";
+}[] = [
+  { title: "Veterinary Care", tag: "Consultations", span: "col-span-2 h-64 sm:h-72 lg:h-auto lg:row-span-2", image: "/images/petdr-treatment-room-story.webp", alt: "Treatment room at The Pet Doctor Center", position: "object-[center_65%]", big: true },
+  { title: "Cat Boarding & Pet Stays", tag: "Cat-first", span: "col-span-1 h-64 sm:h-72 lg:h-auto lg:row-span-2", image: "/images/Cat_Boarding.png", alt: "Cat relaxing in the boarding area at The Pet Doctor Center", big: true },
+  { title: "Medical & Diagnostics", tag: "In-house", span: "col-span-1 h-64 sm:h-72 lg:h-auto", image: "/images/petdr-treatment-room-wide.webp", alt: "Examination room at The Pet Doctor Center" },
+  { title: "Emergency Vet", tag: "24/7 support", span: "col-span-2 lg:col-span-1", tone: "deep" },
+  { title: "Pet Surgery", tag: "Surgery", span: "", tone: "teal" },
+  { title: "Dental Care", tag: "Dental", span: "", tone: "pink" },
+  { title: "Vaccinations", tag: "Protection", span: "", tone: "teal" },
+  { title: "Preventive Care", tag: "Wellness", span: "", tone: "pink" },
+  { title: "Cat & Dog Grooming", tag: "Grooming salon", span: "", tone: "teal" },
+  { title: "Pet Shop", tag: "Shop", span: "", tone: "pink" },
+  { title: "Holistic Regimens", tag: "Holistic", span: "", tone: "teal" },
+];
+
 const stats = [
   { number: "Al Zahia", label: "Sharjah veterinary care", accent: "pink" },
   { number: "Dedicated Cattery", label: "Designed for cats", accent: "teal" },
@@ -815,38 +839,103 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid overflow-hidden rounded-2xl border border-[#F7DCE6] bg-[#F7DCE6] gap-px grid-cols-2 lg:grid-cols-3">
-            {services.map((service, i) => {
-              const a =
-                accentStyles[service.accent as keyof typeof accentStyles];
+          {/* Bento layout: real clinic photography for the flagship services,
+              on-brand illustrated tiles for the rest (no stock photos). */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:auto-rows-[188px] lg:grid-cols-4">
+            {serviceLayout.map((slot, i) => {
+              const service = services.find((s) => s.title === slot.title);
+              if (!service) return null;
+              const reveal = servicesSection.inView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4";
+              if (slot.image) {
+                return (
+                  <Link
+                    href={service.href}
+                    key={service.title}
+                    className={`group relative isolate overflow-hidden rounded-3xl bg-[#FDEFF4] shadow-sm ring-1 ring-black/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#F38BB0]/20 ${slot.span} ${reveal}`}
+                    style={{ transitionDelay: `${i * 40}ms` }}
+                  >
+                    <Image
+                      src={slot.image}
+                      alt={slot.alt ?? service.title}
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className={`-z-10 object-cover transition-transform duration-700 group-hover:scale-105 ${slot.position ?? ""}`}
+                    />
+                    <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-950/75 via-gray-950/20 to-transparent" />
+                    <div className="flex h-full flex-col justify-end p-5 sm:p-6">
+                      <span className="mb-2 inline-flex w-fit items-center rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#B8466F]">
+                        {slot.tag}
+                      </span>
+                      <h3 className="text-lg font-semibold text-white sm:text-xl">{service.title}</h3>
+                      <p className={`mt-1 max-w-md text-sm leading-relaxed text-white/85 ${slot.big ? "hidden line-clamp-2 sm:block" : "hidden"}`}>
+                        {service.description}
+                      </p>
+                      <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-white">
+                        Explore <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                      </span>
+                    </div>
+                  </Link>
+                );
+              }
+              const pink = slot.tone === "pink";
+              const deep = slot.tone === "deep";
               return (
                 <Link
                   href={service.href}
                   key={service.title}
-                  className={`group flex items-center gap-3 bg-white p-4 transition-all duration-500 hover:bg-[#FFF8FA] last:col-span-2 sm:items-start sm:gap-4 sm:p-5 ${
-                    servicesSection.inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-4"
-                  }`}
+                  className={`group relative isolate flex min-h-[150px] flex-col justify-between overflow-hidden rounded-3xl p-5 ring-1 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
+                    deep
+                      ? "bg-gradient-to-br from-[#F38BB0] to-[#E46C98] text-white ring-[#F38BB0]"
+                      : pink
+                        ? "bg-gradient-to-br from-[#FFF4F8] to-[#FDE3EC] text-gray-900 ring-[#F7DCE6] hover:shadow-[#F38BB0]/15"
+                        : "bg-gradient-to-br from-[#F3FBF9] to-[#DDF1EE] text-gray-900 ring-[#CDE8E4] hover:shadow-[#92CAC2]/20"
+                  } ${slot.span} ${reveal}`}
                   style={{ transitionDelay: `${i * 40}ms` }}
                 >
+                  {/* Oversized icon as a soft illustration */}
                   <span
-                    className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${a.iconBg} ${a.iconColor}`}
+                    aria-hidden="true"
+                    className={`pointer-events-none absolute -bottom-6 -right-6 -z-10 transition-transform duration-700 group-hover:-rotate-12 group-hover:scale-110 [&>svg]:h-32 [&>svg]:w-32 ${
+                      deep ? "text-white/25" : pink ? "text-[#F38BB0]/25" : "text-[#92CAC2]/40"
+                    }`}
                   >
                     {service.icon}
                   </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="flex items-center justify-between gap-3">
-                      <span className="text-sm font-semibold text-gray-900 sm:text-base">{service.title}</span>
-                      <span aria-hidden="true" className="hidden text-gray-300 transition-all duration-300 sm:inline group-hover:translate-x-1 group-hover:text-[#B8466F]">→</span>
-                    </span>
-                    <span className="mt-1 line-clamp-2 hidden text-sm leading-relaxed text-gray-500 sm:block">
-                      {service.description}
+                  <span
+                    className={`flex h-10 w-10 items-center justify-center rounded-2xl shadow-sm ${
+                      deep ? "bg-white/20 text-white" : pink ? "bg-white text-[#E46C98]" : "bg-white text-[#2F7F76]"
+                    }`}
+                  >
+                    {service.icon}
+                  </span>
+                  <span>
+                    <span className="block text-base font-semibold leading-snug">{service.title}</span>
+                    <span className={`mt-1 inline-flex items-center gap-1 text-xs font-semibold ${deep ? "text-white/90" : "text-gray-500 group-hover:text-[#B8466F]"}`}>
+                      {slot.tag} <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </span>
                   </span>
                 </Link>
               );
             })}
+            <a
+              href="tel:+97165573080"
+              className={`group relative flex min-h-[150px] flex-col justify-between overflow-hidden rounded-3xl bg-gray-900 p-5 text-white transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
+                servicesSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              <span className="flex gap-1.5" aria-hidden="true">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#F38BB0]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#92CAC2]" />
+              </span>
+              <span>
+                <span className="block text-base font-semibold leading-snug">Not sure what your pet needs?</span>
+                <span className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#F7B6CD]">
+                  Call reception <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </span>
+              </span>
+            </a>
           </div>
         </div>
       </section>
