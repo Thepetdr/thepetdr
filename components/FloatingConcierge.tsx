@@ -3,7 +3,7 @@
 import Chatbot from "@/components/Chatbot";
 
 const WHATSAPP_URL =
-  "https://wa.me/971665573080?text=Hello%20The%20Pet%20Doctor%2C%20I%27d%20like%20some%20help.";
+  "https://wa.me/97165573080?text=Hello%20The%20Pet%20Doctor%2C%20I%27d%20like%20some%20help.";
 
 function WhatsAppIcon() {
   return (
