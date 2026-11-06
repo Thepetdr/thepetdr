@@ -323,7 +323,7 @@ const serviceLayout: {
   tone?: "pink" | "teal" | "deep";
 }[] = [
   { title: "Veterinary Care", tag: "Consultations", span: "col-span-2 h-64 sm:h-72 lg:h-auto lg:row-span-2", image: "/images/petdr-treatment-room-story.webp", alt: "Treatment room at The Pet Doctor Center", position: "object-[center_65%]", big: true },
-  { title: "Cat Boarding & Pet Stays", tag: "Cat-first", span: "col-span-1 h-64 sm:h-72 lg:h-auto lg:row-span-2", image: "/images/Cat_Boarding.png", alt: "Cat relaxing in the boarding area at The Pet Doctor Center", big: true },
+  { title: "Cat Boarding & Pet Stays", tag: "Cat-first", span: "col-span-1 h-64 sm:h-72 lg:h-auto lg:row-span-2", image: "/images/Cat_Boarding.png", alt: "Cat relaxing in the boarding area at The Pet Doctor Center" },
   { title: "Medical & Diagnostics", tag: "In-house", span: "col-span-1 h-64 sm:h-72 lg:h-auto", image: "/images/petdr-treatment-room-wide.webp", alt: "Examination room at The Pet Doctor Center" },
   { title: "Emergency Vet", tag: "24/7 support", span: "col-span-2 lg:col-span-1", tone: "deep" },
   { title: "Pet Surgery", tag: "Surgery", span: "", tone: "teal" },
@@ -863,18 +863,20 @@ export default function Home() {
                       sizes="(min-width: 1024px) 50vw, 100vw"
                       className={`-z-10 object-cover transition-transform duration-700 group-hover:scale-105 ${slot.position ?? ""}`}
                     />
-                    <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-950/75 via-gray-950/20 to-transparent" />
-                    <div className="flex h-full flex-col justify-end p-5 sm:p-6">
-                      <span className="mb-2 inline-flex w-fit items-center rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#B8466F]">
+                    <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-950/85 via-gray-950/35 to-gray-950/5" />
+                    <div className="flex h-full flex-col justify-end p-3 sm:p-4">
+                      <div className="rounded-2xl bg-gray-950/45 p-3.5 ring-1 ring-white/10 backdrop-blur-md sm:p-4 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+                      <span className="mb-2 inline-flex w-fit items-center rounded-full bg-white px-2.5 [text-shadow:none] py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#B8466F]">
                         {slot.tag}
                       </span>
                       <h3 className="text-lg font-semibold text-white sm:text-xl">{service.title}</h3>
-                      <p className={`mt-1 max-w-md text-sm leading-relaxed text-white/85 ${slot.big ? "hidden line-clamp-2 sm:block" : "hidden"}`}>
+                      <p className={`mt-1 max-w-md text-sm leading-relaxed text-white ${slot.big ? "hidden sm:[display:-webkit-box] line-clamp-2" : "hidden"}`}>
                         {service.description}
                       </p>
                       <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-white">
                         Explore <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                       </span>
+                      </div>
                     </div>
                   </Link>
                 );
@@ -887,7 +889,7 @@ export default function Home() {
                   key={service.title}
                   className={`group relative isolate flex min-h-[150px] flex-col justify-between overflow-hidden rounded-3xl p-5 ring-1 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
                     deep
-                      ? "bg-gradient-to-br from-[#F38BB0] to-[#E46C98] text-white ring-[#F38BB0]"
+                      ? "bg-gradient-to-br from-[#D9608C] to-[#B8466F] text-white ring-[#D9608C]"
                       : pink
                         ? "bg-gradient-to-br from-[#FFF4F8] to-[#FDE3EC] text-gray-900 ring-[#F7DCE6] hover:shadow-[#F38BB0]/15"
                         : "bg-gradient-to-br from-[#F3FBF9] to-[#DDF1EE] text-gray-900 ring-[#CDE8E4] hover:shadow-[#92CAC2]/20"
