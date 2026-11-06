@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { GOOGLE_MAPS_URL } from "@/lib/clinic-links";
 
 type Review = {
@@ -22,8 +22,20 @@ type ReviewsResponse = {
   reviews: Review[];
 };
 
+function Stars({ value, className = "" }: { value: number; className?: string }) {
+  const full = Math.max(0, Math.min(5, Math.round(value)));
+  return (
+    <span role="img" aria-label={`${full} out of 5 stars`} className={`tracking-wider ${className}`}>
+      <span className="text-[#F38BB0]">{"★".repeat(full)}</span>
+      <span className="text-gray-200">{"★".repeat(5 - full)}</span>
+    </span>
+  );
+}
+
 export default function GoogleReviews() {
   const [data, setData] = useState<ReviewsResponse | null>(null);
+  const [paused, setPaused] = useState(false);
+  const track = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -40,70 +52,125 @@ export default function GoogleReviews() {
   const reviews = data?.available ? data.reviews : [];
   const mapsUrl = data?.googleMapsUrl || GOOGLE_MAPS_URL;
 
+  const slide = useCallback((direction: 1 | -1) => {
+    const el = track.current;
+    if (!el) return;
+    const card = el.querySelector("article");
+    const step = card ? card.getBoundingClientRect().width + 16 : el.clientWidth;
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
+    if (direction === 1 && atEnd) el.scrollTo({ left: 0, behavior: "smooth" });
+    else el.scrollBy({ left: direction * step, behavior: "smooth" });
+  }, []);
+
+  // Auto-advance; pauses on hover/focus and when the visitor prefers reduced motion.
+  useEffect(() => {
+    if (reviews.length < 2 || paused) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => slide(1), 5000);
+    return () => window.clearInterval(id);
+  }, [reviews.length, paused, slide]);
+
+  const initials = (name: string) =>
+    name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]?.toUpperCase()).join("");
+
   return (
-    <section aria-labelledby="google-reviews-heading" className="bg-[#F8F7F5] py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6">
-        <div className="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-2xl">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#AB5574]">Independent client feedback</p>
-            <h2 id="google-reviews-heading" className="text-3xl font-semibold tracking-tight text-[#203631] sm:text-5xl">What our clients say on Google</h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#5A6763]">
-              Read feedback directly from the people who have visited The Pet Doctor Center. Reviews are sourced from Google, never written for this website.
+    <section aria-labelledby="google-reviews-heading" className="border-y border-[#F7DCE6] bg-[#FDF7F9] py-12 sm:py-14">
+      <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-6 lg:grid-cols-[300px_1fr] lg:items-center lg:gap-12">
+        {/* Summary panel */}
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#B8466F]">Google reviews</p>
+          <h2 id="google-reviews-heading" className="mt-2 text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">What pet parents say</h2>
+          <div className="mt-5 rounded-2xl border border-[#F7DCE6] bg-white p-5 shadow-sm">
+            <p className="flex items-center gap-2 text-sm font-medium text-gray-500">
+              <span aria-hidden="true" className="grid h-7 w-7 place-items-center rounded-full bg-gray-50 text-sm font-bold text-gray-700 ring-1 ring-gray-200">G</span>
+              <span translate="no">Google</span> rating
             </p>
+            {data?.available && typeof data.rating === "number" ? (
+              <div className="mt-3 flex items-end gap-3">
+                <span className="text-4xl font-semibold leading-none text-gray-900">{data.rating.toFixed(1)}</span>
+                <div className="pb-0.5">
+                  <Stars value={data.rating} className="text-lg" />
+                  {typeof data.count === "number" && <p className="text-xs text-gray-500">{data.count.toLocaleString()} reviews</p>}
+                </div>
+              </div>
+            ) : (
+              <p className="mt-3 text-sm leading-6 text-gray-600">See what our clients say on our official Google listing.</p>
+            )}
+            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-10 w-full items-center justify-center rounded-full bg-[#F38BB0] px-5 text-sm font-semibold text-gray-900 transition hover:bg-[#EE76A1]">
+              Read reviews on Google <span aria-hidden="true" className="ml-1.5">↗</span>
+            </a>
           </div>
-          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-full bg-[#203631] px-7 text-sm font-semibold text-white transition hover:bg-[#36584F]">
-            Read all Google reviews <span aria-hidden="true" className="ml-2">↗</span>
-          </a>
         </div>
 
-        {data?.available && typeof data.rating === "number" && (
-          <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-[#45564F]">
-            <span className="text-xl font-semibold text-[#203631]">{data.rating.toFixed(1)} / 5</span>
-            <span aria-label="Rating on Google" className="tracking-widest text-[#D0925B]">★★★★★</span>
-            {typeof data.count === "number" && <span>Based on {data.count.toLocaleString()} Google ratings</span>}
-          </div>
-        )}
-
+        {/* Carousel */}
         {reviews.length > 0 ? (
-          <div className="mt-9 grid gap-5 md:grid-cols-3">
-            {reviews.slice(0, 3).map((review, index) => (
-              <article key={review.reviewUrl + index} className="flex h-full flex-col rounded-2xl border border-[#E2E9E5] bg-white p-7 shadow-sm">
-                <div aria-label={review.rating ? `${review.rating} out of 5 stars` : undefined} className="mb-5 text-[#D0925B]">
-                  {review.rating ? "★".repeat(Math.max(0, Math.min(5, Math.round(review.rating)))) : "Google review"}
-                </div>
-                <p className="line-clamp-6 flex-1 text-sm leading-7 text-[#40524B]">{review.text}</p>
-<div className="mt-6 border-t border-[#E9EEEB] pt-5">
-                  <div className="flex items-center gap-3">
-                    {review.authorPhotoUrl && (
+          <div className="min-w-0">
+            <div
+              ref={track}
+              onMouseEnter={() => setPaused(true)}
+              onMouseLeave={() => setPaused(false)}
+              onFocus={() => setPaused(true)}
+              onBlur={() => setPaused(false)}
+              aria-roledescription="carousel"
+              aria-label="Google reviews"
+              className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {reviews.map((review, index) => (
+                <article
+                  key={review.reviewUrl + index}
+                  aria-roledescription="slide"
+                  aria-label={`${index + 1} of ${reviews.length}`}
+                  className="relative flex w-[85%] shrink-0 snap-start flex-col rounded-2xl border border-[#F7DCE6] bg-white p-6 shadow-sm sm:w-[calc(50%-8px)]"
+                >
+                  <span aria-hidden="true" className="absolute right-5 top-3 font-serif text-5xl leading-none text-[#F7DCE6]">&ldquo;</span>
+                  {review.rating && <Stars value={review.rating} />}
+                  <p className="mt-3 line-clamp-4 flex-1 text-[15px] leading-7 text-gray-700">{review.text}</p>
+                  <div className="mt-5 flex items-center gap-3 border-t border-gray-100 pt-4">
+                    {review.authorPhotoUrl ? (
                       // Reviewer photo supplied by Google's author attribution, not a stock avatar.
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={review.authorPhotoUrl} alt="" className="h-10 w-10 rounded-full object-cover" loading="lazy" referrerPolicy="no-referrer" />
+                      <img src={review.authorPhotoUrl} alt="" className="h-9 w-9 rounded-full object-cover" loading="lazy" referrerPolicy="no-referrer" />
+                    ) : (
+                      <span aria-hidden="true" className="grid h-9 w-9 place-items-center rounded-full bg-[#EEF8F6] text-xs font-semibold text-[#2F7F76]">{initials(review.name)}</span>
                     )}
-                    <div>
+                    <div className="min-w-0 flex-1">
                       {review.authorUrl ? (
-                        <a href={review.authorUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#203631] hover:underline">{review.name}</a>
+                        <a href={review.authorUrl} target="_blank" rel="noopener noreferrer" className="block truncate text-sm font-semibold text-gray-900 hover:underline">{review.name}</a>
                       ) : (
-                        <p className="font-semibold text-[#203631]">{review.name}</p>
+                        <p className="truncate text-sm font-semibold text-gray-900">{review.name}</p>
                       )}
-                      <p translate="no" className="mt-1 text-xs text-[#5E5E5E]">Google Maps</p>
-                      {review.relativePublishTime && <p className="mt-1 text-xs text-[#7A8981]">{review.relativePublishTime}</p>}
+                      <a href={review.reviewUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-gray-500 hover:text-[#B8466F]">
+                        via <span translate="no">Google</span>{review.relativePublishTime ? ` · ${review.relativePublishTime}` : ""}
+                      </a>
                     </div>
                   </div>
-                  <a className="mt-3 inline-block text-xs font-semibold text-[#9B5570] underline-offset-4 hover:underline" href={review.reviewUrl} target="_blank" rel="noopener noreferrer">View on Google ↗</a>
+                </article>
+              ))}
+            </div>
+            <div className="mt-4 flex items-center justify-between gap-4">
+              <p className="text-xs text-gray-500">Showing 4 and 5 star reviews from our Google listing.</p>
+              {reviews.length > 1 && (
+                <div className="flex gap-2">
+                  <button type="button" onClick={() => slide(-1)} aria-label="Previous review" className="grid h-9 w-9 place-items-center rounded-full border border-gray-200 bg-white text-gray-700 transition hover:border-[#92CAC2] hover:text-gray-900">‹</button>
+                  <button type="button" onClick={() => slide(1)} aria-label="Next review" className="grid h-9 w-9 place-items-center rounded-full border border-gray-200 bg-white text-gray-700 transition hover:border-[#92CAC2] hover:text-gray-900">›</button>
                 </div>
-              </article>
-            ))}
+              )}
+            </div>
           </div>
         ) : (
-          <div className="mt-9 flex flex-col gap-5 rounded-2xl border border-[#DCE7E3] bg-white p-7 sm:flex-row sm:items-center sm:justify-between sm:p-9">
-            <div>
-              <p className="text-lg font-semibold text-[#203631]">See verified client feedback</p>
-              <p className="mt-2 max-w-lg text-sm leading-6 text-[#596961]">Browse our reviews on our official Google Maps listing. We don't display testimonials without a verified source.</p>
-            </div>
-            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#203631] px-6 text-sm font-semibold text-[#203631] hover:bg-[#F2F7F4]">Open Google Reviews ↗</a>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[
+              { title: "Independent", text: "Every review is written by a client on Google, never by us." },
+              { title: "Verified source", text: "Reviews come straight from our official Google Maps listing." },
+              { title: "Read them all", text: "Open our listing to read every review in full." },
+            ].map((item) => (
+              <div key={item.title} className="rounded-2xl border border-[#F7DCE6] bg-white p-5">
+                <p className="text-sm font-semibold text-gray-900">{item.title}</p>
+                <p className="mt-1 text-sm leading-6 text-gray-600">{item.text}</p>
+              </div>
+            ))}
           </div>
         )}
-        <p className="mt-5 text-xs text-[#718078]">Reviews are selected and ordered by Google Maps relevance, not filtered by rating. Google may return up to five reviews. View the source listing for more.</p>
       </div>
     </section>
   );

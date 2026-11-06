@@ -19,8 +19,6 @@ const services = [
       "Treatment Plans",
     ],
     accent: "pink",
-    image:
-      "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -49,8 +47,6 @@ const services = [
       "Endoscopy",
     ],
     accent: "teal",
-    image:
-      "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -79,8 +75,6 @@ const services = [
       "Recovery Care",
     ],
     accent: "pink",
-    image:
-      "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -109,8 +103,6 @@ const services = [
       "Oral Health Plans",
     ],
     accent: "teal",
-    image:
-      "https://images.unsplash.com/photo-1606214174585-fe31582dc6ee?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -139,8 +131,6 @@ const services = [
       "Booster Reminders",
     ],
     accent: "pink",
-    image:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -169,8 +159,6 @@ const services = [
       "Senior Pet Checks",
     ],
     accent: "teal",
-    image:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -199,8 +187,6 @@ const services = [
       "Open 7 Days",
     ],
     accent: "pink",
-    image:
-      "https://images.unsplash.com/photo-1632833239869-a37e3a5806d2?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -229,8 +215,6 @@ const services = [
       "Medicated Baths",
     ],
     accent: "teal",
-    image:
-      "https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -259,8 +243,6 @@ const services = [
       "Vet-Supported Care",
     ],
     accent: "pink",
-    image:
-      "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -284,8 +266,6 @@ const services = [
       "A curated pet shop with food, treats, litter, toys, accessories, and care products we would use ourselves.",
     features: ["Cat Supplies", "Dog Supplies", "Nutrition", "Care Products"],
     accent: "teal",
-    image:
-      "https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -314,8 +294,6 @@ const services = [
       "Chronic Care",
     ],
     accent: "teal",
-    image:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&auto=format&fit=crop&q=80",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -333,6 +311,30 @@ const services = [
     ),
   },
 ];
+// Bento layout for the homepage services section. Only real clinic photography is used.
+const serviceLayout: {
+  title: string;
+  tag: string;
+  span: string;
+  image?: string;
+  alt?: string;
+  position?: string;
+  big?: boolean;
+  tone?: "pink" | "teal" | "deep";
+}[] = [
+  { title: "Veterinary Care", tag: "Consultations", span: "col-span-2 h-64 sm:h-72 lg:h-auto lg:row-span-2", image: "/images/petdr-treatment-room-story.webp", alt: "Treatment room at The Pet Doctor Center", position: "object-[center_65%]", big: true },
+  { title: "Cat Boarding & Pet Stays", tag: "Cat-first", span: "col-span-1 h-64 sm:h-72 lg:h-auto lg:row-span-2", image: "/images/Cat_Boarding.png", alt: "Cat relaxing in the boarding area at The Pet Doctor Center" },
+  { title: "Medical & Diagnostics", tag: "In-house", span: "col-span-1 h-64 sm:h-72 lg:h-auto", image: "/images/petdr-treatment-room-wide.webp", alt: "Examination room at The Pet Doctor Center" },
+  { title: "Emergency Vet", tag: "24/7 support", span: "col-span-2 lg:col-span-1", tone: "deep" },
+  { title: "Pet Surgery", tag: "Surgery", span: "", tone: "teal" },
+  { title: "Dental Care", tag: "Dental", span: "", tone: "pink" },
+  { title: "Vaccinations", tag: "Protection", span: "", tone: "teal" },
+  { title: "Preventive Care", tag: "Wellness", span: "", tone: "pink" },
+  { title: "Cat & Dog Grooming", tag: "Grooming salon", span: "", tone: "teal" },
+  { title: "Pet Shop", tag: "Shop", span: "", tone: "pink" },
+  { title: "Holistic Regimens", tag: "Holistic", span: "", tone: "teal" },
+];
+
 const stats = [
   { number: "Al Zahia", label: "Sharjah veterinary care", accent: "pink" },
   { number: "Dedicated Cattery", label: "Designed for cats", accent: "teal" },
@@ -463,25 +465,6 @@ const reasons = [
   },
 ];
 
-const gallery = [
-  {
-    src: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&auto=format&fit=crop&q=80",
-    alt: "Dog playing in park",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop&q=80",
-    alt: "Dogs running together",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=800&auto=format&fit=crop&q=80",
-    alt: "Vet examining cat",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=800&auto=format&fit=crop&q=80",
-    alt: "Dog being groomed",
-  },
-];
-
 const faqs = [
   {
     question: "Do you treat cats and dogs at The Pet Doctor?",
@@ -559,7 +542,6 @@ export default function Home() {
   const whySection = useInView();
   const statsSection = useInView();
   const aboutSection = useInView();
-  const gallerySection = useInView();
   const faqSection = useInView();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -568,7 +550,7 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section
         id="home"
-        className="relative min-h-[640px] md:min-h-screen flex items-center overflow-hidden bg-white"
+        className="relative md:min-h-[620px] flex items-center overflow-hidden bg-white"
       >
         <div
           className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full opacity-30 pointer-events-none"
@@ -583,7 +565,7 @@ export default function Home() {
           }}
         />
 
-        <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 pt-28 pb-16 md:pb-20 grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 pt-24 pb-12 md:pb-14 grid md:grid-cols-2 gap-10 items-center">
           {/* Text */}
           <div className="animate-fade-up">
             <span className="inline-flex items-center gap-2 bg-white border border-[#EFBCB0]/70 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 shadow-sm tracking-wide uppercase">
@@ -603,7 +585,7 @@ export default function Home() {
                 }}
               ></span>
             </h1>
-            <p className="text-lg text-gray-500 mb-10 leading-relaxed max-w-lg font-light">
+            <p className="text-lg text-gray-500 mb-8 leading-relaxed max-w-lg font-light">
               The Pet Doctor is a feline-focused veterinary clinic and pet care
               destination in Sharjah, offering calm medical care, cat boarding,
               grooming, and a curated pet shop for cats, dogs, and small pets.
@@ -660,7 +642,7 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 animate-bounce">
+        <div className="hidden">
           <span className="text-xs text-gray-400 tracking-widest uppercase">
             Scroll
           </span>
@@ -682,7 +664,7 @@ export default function Home() {
 
       {/* ── STATS BAR ────────────────────────────────────────────────────── */}
       <div ref={statsSection.ref} className="border-y border-gray-100 bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat, i) => {
             const a = accentStyles[stat.accent as keyof typeof accentStyles];
             return (
@@ -711,7 +693,7 @@ export default function Home() {
 
       {/* ── ABOUT ────────────────────────────────────────────────────────── */}
    {/* ── ABOUT ────────────────────────────────────────────────────────── */}
-<section id="about" className="bg-white py-20 md:py-24">
+<section id="about" className="overflow-x-clip bg-white py-14 md:py-16">
   <div
     ref={aboutSection.ref}
     className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-2 lg:gap-14"
@@ -724,7 +706,7 @@ export default function Home() {
           : "opacity-0 -translate-x-10"
       }`}
     >
-      <div className="relative h-[390px] md:h-[420px]">
+      <div className="relative h-[330px] md:h-[360px]">
         <div className="absolute left-0 top-8 h-[245px] w-[48%] overflow-hidden rounded-2xl shadow-lg md:h-[270px]">
           <Image
             src="/images/petdr-treatment-room-story.webp"
@@ -774,7 +756,7 @@ export default function Home() {
         Our Story
       </span>
 
-      <h2 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-[#7BB5AD] md:text-5xl">
+      <h2 className="mb-5 text-3xl font-bold leading-tight tracking-tight text-[#7BB5AD] md:text-4xl">
         Built from love.{" "}
         <span
           style={{
@@ -825,19 +807,19 @@ export default function Home() {
 </section>
 
       {/* ── SERVICES ─────────────────────────────────────────────────────── */}
-      <section id="services" className="py-28 bg-[#fdf8f9]">
+      <section id="services" className="py-14 md:py-16 bg-[#fdf8f9]">
         <div ref={servicesSection.ref} className="max-w-7xl mx-auto px-6">
           <div
-            className={`text-center mb-16 transition-all duration-700 ${
+            className={`text-center mb-8 transition-all duration-700 ${
               servicesSection.inView
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-white border border-[#EFBCB0]/70 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-white border border-[#EFBCB0]/70 text-[#E07A9A] text-xs font-semibold px-4 py-1.5 rounded-full mb-3 uppercase tracking-widest shadow-sm">
               What We Offer
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#E07A9A] mb-4 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#E07A9A] mb-3 tracking-tight">
               Comprehensive Care{" "}
               <span
                 style={{
@@ -857,153 +839,123 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {services.map((service, i) => {
-              const a =
-                accentStyles[service.accent as keyof typeof accentStyles];
+          {/* Bento layout: real clinic photography for the flagship services,
+              on-brand illustrated tiles for the rest (no stock photos). */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:auto-rows-[188px] lg:grid-cols-4">
+            {serviceLayout.map((slot, i) => {
+              const service = services.find((s) => s.title === slot.title);
+              if (!service) return null;
+              const reveal = servicesSection.inView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4";
+              if (slot.image) {
+                return (
+                  <Link
+                    href={service.href}
+                    key={service.title}
+                    className={`group relative isolate overflow-hidden rounded-3xl bg-[#FDEFF4] shadow-sm ring-1 ring-black/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#F38BB0]/20 ${slot.span} ${reveal}`}
+                    style={{ transitionDelay: `${i * 40}ms` }}
+                  >
+                    <Image
+                      src={slot.image}
+                      alt={slot.alt ?? service.title}
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className={`-z-10 object-cover transition-transform duration-700 group-hover:scale-105 ${slot.position ?? ""}`}
+                    />
+                    <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-950/85 via-gray-950/35 to-gray-950/5" />
+                    <div className="flex h-full flex-col justify-end p-3 sm:p-4">
+                      <div className="rounded-2xl bg-gray-950/45 p-3.5 ring-1 ring-white/10 backdrop-blur-md sm:p-4 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+                      <span className="mb-2 inline-flex w-fit items-center rounded-full bg-white px-2.5 [text-shadow:none] py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#B8466F]">
+                        {slot.tag}
+                      </span>
+                      <h3 className="text-lg font-semibold text-white sm:text-xl">{service.title}</h3>
+                      <p className={`mt-1 max-w-md text-sm leading-relaxed text-white ${slot.big ? "hidden sm:[display:-webkit-box] line-clamp-2" : "hidden"}`}>
+                        {service.description}
+                      </p>
+                      <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-white">
+                        Explore <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                      </span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              }
+              const pink = slot.tone === "pink";
+              const deep = slot.tone === "deep";
               return (
                 <Link
                   href={service.href}
                   key={service.title}
-                  className={`group glass-card rounded-2xl overflow-hidden border hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${a.cardBorder} ${
-                    servicesSection.inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
-                  }`}
-                  style={{ transitionDelay: `${i * 60}ms` }}
+                  className={`group relative isolate flex min-h-[150px] flex-col justify-between overflow-hidden rounded-3xl p-5 ring-1 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
+                    deep
+                      ? "bg-gradient-to-br from-[#D9608C] to-[#B8466F] text-white ring-[#D9608C]"
+                      : pink
+                        ? "bg-gradient-to-br from-[#FFF4F8] to-[#FDE3EC] text-gray-900 ring-[#F7DCE6] hover:shadow-[#F38BB0]/15"
+                        : "bg-gradient-to-br from-[#F3FBF9] to-[#DDF1EE] text-gray-900 ring-[#CDE8E4] hover:shadow-[#92CAC2]/20"
+                  } ${slot.span} ${reveal}`}
+                  style={{ transitionDelay: `${i * 40}ms` }}
                 >
-                  {/* Card image */}
-                  <div className="relative h-44 overflow-hidden">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                    <div
-                      className={`absolute bottom-3 left-3 w-9 h-9 rounded-xl bg-white/90 flex items-center justify-center ${a.iconColor} shadow-md`}
-                    >
-                      {service.icon}
-                    </div>
-                  </div>
-
-                  <div className="p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-4 font-light">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-1.5 mb-5">
-                      {service.features.map((f) => (
-                        <li
-                          key={f}
-                          className="flex items-center gap-2 text-sm text-gray-600"
-                        >
-                          <span
-                            className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${a.dot}`}
-                          />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    <div
-                      className={`flex items-center gap-1 text-xs font-semibold ${a.learnMore} group-hover:gap-2 transition-all duration-300`}
-                    >
-                      Learn More
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        className="w-3 h-3"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+                  {/* Oversized icon as a soft illustration */}
+                  <span
+                    aria-hidden="true"
+                    className={`pointer-events-none absolute -bottom-6 -right-6 -z-10 transition-transform duration-700 group-hover:-rotate-12 group-hover:scale-110 [&>svg]:h-32 [&>svg]:w-32 ${
+                      deep ? "text-white/25" : pink ? "text-[#F38BB0]/25" : "text-[#92CAC2]/40"
+                    }`}
+                  >
+                    {service.icon}
+                  </span>
+                  <span
+                    className={`flex h-10 w-10 items-center justify-center rounded-2xl shadow-sm ${
+                      deep ? "bg-white/20 text-white" : pink ? "bg-white text-[#E46C98]" : "bg-white text-[#2F7F76]"
+                    }`}
+                  >
+                    {service.icon}
+                  </span>
+                  <span>
+                    <span className="block text-base font-semibold leading-snug">{service.title}</span>
+                    <span className={`mt-1 inline-flex items-center gap-1 text-xs font-semibold ${deep ? "text-white/90" : "text-gray-500 group-hover:text-[#B8466F]"}`}>
+                      {slot.tag} <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </span>
+                  </span>
                 </Link>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── GALLERY STRIP ────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white overflow-hidden">
-        <div ref={gallerySection.ref} className="max-w-7xl mx-auto px-6">
-          <div
-            className={`text-center mb-12 transition-all duration-700 ${
-              gallerySection.inView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest shadow-sm">
-              Our Clinic
-            </span>
-            <h2 className="text-4xl font-bold text-[#78B5AD] tracking-tight">
-              A Place Pets{" "}
-              <span
-                style={{
-                  background:
-                    "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Love to Visit
+            <a
+              href="tel:+97165573080"
+              className={`group relative flex min-h-[150px] flex-col justify-between overflow-hidden rounded-3xl bg-gray-900 p-5 text-white transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
+                servicesSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              <span className="flex gap-1.5" aria-hidden="true">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#F38BB0]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#92CAC2]" />
               </span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-end">
-            {gallery.map((img, i) => (
-              <div
-                key={img.alt}
-                className={`relative rounded-2xl overflow-hidden shadow-md group transition-all duration-700 ${
-                  gallerySection.inView
-                    ? "opacity-100 scale-100"
-                    : "opacity-0 scale-95"
-                }`}
-                style={{
-                  transitionDelay: `${i * 100}ms`,
-                  height: i % 2 === 0 ? "280px" : "220px",
-                }}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            ))}
+              <span>
+                <span className="block text-base font-semibold leading-snug">Not sure what your pet needs?</span>
+                <span className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[#F7B6CD]">
+                  Call reception <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </span>
+              </span>
+            </a>
           </div>
         </div>
       </section>
 
       {/* ── WHY CHOOSE US ─────────────────────────────────────────────────── */}
-      <section id="why-us" className="py-28 bg-[#fdf8f9]">
+      <section id="why-us" className="py-14 md:py-16 bg-white">
         <div ref={whySection.ref} className="max-w-7xl mx-auto px-6">
           <div
-            className={`text-center mb-16 transition-all duration-700 ${
+            className={`text-center mb-8 transition-all duration-700 ${
               whySection.inView
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-3 uppercase tracking-widest shadow-sm">
               Why The Pet Doctor
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#E07A9A] mb-4 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#E07A9A] mb-3 tracking-tight">
               Why Choose{" "}
               <span
                 style={{
@@ -1023,13 +975,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {reasons.map((r, i) => {
               const a = accentStyles[r.accent as keyof typeof accentStyles];
               return (
                 <div
                   key={r.title}
-                  className={`group flex gap-4 p-6 rounded-2xl border border-transparent bg-white ${a.cardBorder} hover:shadow-lg transition-all duration-300 cursor-default ${
+                  className={`group flex gap-4 p-5 rounded-2xl border border-gray-100 bg-white ${a.cardBorder} hover:shadow-lg transition-all duration-300 cursor-default ${
                     whySection.inView
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
@@ -1060,19 +1012,19 @@ export default function Home() {
 
 
       {/* ── FAQ ──────────────────────────────────────────────────────────── */}
-      <section className="py-28 bg-[#fdf8f9]">
+      <section className="py-14 md:py-16 bg-white">
         <div ref={faqSection.ref} className="max-w-3xl mx-auto px-6">
           <div
-            className={`text-center mb-16 transition-all duration-700 ${
+            className={`text-center mb-8 transition-all duration-700 ${
               faqSection.inView
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest shadow-sm">
+            <span className="inline-block bg-[#e8f8f7] border border-[#c8ecea] text-[#7ECDC2] text-xs font-semibold px-4 py-1.5 rounded-full mb-3 uppercase tracking-widest shadow-sm">
               FAQ
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#E07A9A] mb-4 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#E07A9A] mb-3 tracking-tight">
               Common{" "}
               <span
                 style={{
@@ -1091,7 +1043,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {faqs.map((faq, i) => (
               <div
                 key={i}
@@ -1103,7 +1055,7 @@ export default function Home() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <button
-                  className="w-full flex items-center justify-between px-6 py-5 text-left group"
+                  className="w-full flex items-center justify-between px-5 py-4 text-left group"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
                   <span className="font-medium text-gray-900 text-sm pr-4 group-hover:text-[#E07A9A] transition-colors duration-300">
@@ -1150,59 +1102,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section
-        id="contact"
-        className="py-28 relative overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #E07A9A 0%, #E07A9A 100%)",
-        }}
-      >
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div
-            className="absolute -top-20 -right-20 w-96 h-96 rounded-full opacity-10"
-            style={{
-              background: "radial-gradient(circle, white, transparent 70%)",
-            }}
-          />
-          <div
-            className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full opacity-10"
-            style={{
-              background: "radial-gradient(circle, white, transparent 70%)",
-            }}
-          />
-        </div>
-
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <span className="inline-block bg-white/20 border border-white/30 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">
-            Get Started Today
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-            Ready to Give Your Pet <br /> the Best Care Possible?
-          </h2>
-          <p className="text-lg text-white/75 mb-12 max-w-xl mx-auto font-light leading-relaxed">
-            Book an appointment and let our dedicated team provide the
-            compassionate, professional care your pet truly deserves.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="tel:+97165573080"
-              className="bg-white text-[#E07A9A] px-8 py-3.5 rounded-full font-semibold hover:bg-gray-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-sm"
-            >
-              Call Us Now
-            </Link>
-            <Link
-              href="mailto:info@ThePetDr.ae"
-              className="bg-transparent border-2 border-white/60 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 hover:border-white hover:-translate-y-1 transition-all duration-300 text-sm"
-            >
-              Send an Email
-            </Link>
-            <a href="tel:+971542797875" className="bg-red-700 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-red-800 hover:shadow-2xl transition-all duration-300 text-sm" aria-label="Call 24/7 emergency support at +971 54 279 7875">
-              24/7 Emergency: +971 54 279 7875
-            </a>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
