@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { trackPilotWhatsApp } from "@/lib/pilotWhatsApp";
 
 // ── CONFIG ── Replace with your actual WhatsApp number (no + or spaces)
 const WHATSAPP_NUMBER = "97165573080";
@@ -61,7 +62,8 @@ _Sent via ThePetDr Website_
     `.trim();
 
     const encoded = encodeURIComponent(text);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");
+    const opened = window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");
+    if (opened) trackPilotWhatsApp("contact_form");
   };
 
   return (
@@ -290,6 +292,7 @@ _Sent via ThePetDr Website_
             {/* WhatsApp direct */}
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              onClick={() => trackPilotWhatsApp("contact_direct")}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-4 p-5 rounded-2xl border border-green-100 bg-green-50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
