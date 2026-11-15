@@ -1,6 +1,7 @@
 "use client";
 
 import Chatbot from "@/components/Chatbot";
+import { trackPilotWhatsApp } from "@/lib/pilotWhatsApp";
 
 const WHATSAPP_URL =
   "https://wa.me/97165573080?text=Hello%20The%20Pet%20Doctor%2C%20I%27d%20like%20some%20help.";
@@ -28,6 +29,9 @@ export default function FloatingConcierge() {
 
         <a
           href={WHATSAPP_URL}
+          onClick={() => {
+            trackPilotWhatsApp("floating_button");
+          }}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat with The Pet Doctor on WhatsApp"
